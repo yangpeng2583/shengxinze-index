@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>行业案例 - 山东盛鑫泽科技发展有限公司</title>
+  <meta name="description" content="山东盛鑫泽科技发展有限公司行业案例，涵盖石油化工、天然气、制药、环保等多个行业的在线分析解决方案实施案例。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:    #0a3d7c;
+      --primary-light: #1256b0;
+      --accent:     #0099d8;
+      --accent-dark:#0077a8;
+      --dark:       #0d1b2a;
+      --gray:       #4a5568;
+      --gray-light: #a0aec0;
+      --bg-light:   #f5f8fc;
+      --white:      #ffffff;
+      --border:     #dde3ec;
+      --text:       #2d3748;
+      --text-light: #718096;
+      --shadow:     0 4px 20px rgba(10,61,124,0.10);
+      --shadow-lg:  0 8px 40px rgba(10,61,124,0.16);
+      --radius:     8px;
+      --radius-lg:  16px;
+      --transition: all 0.3s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== TOP BAR ===== */
+    .topbar {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      padding: 7px 0;
+    }
+    .topbar .container { display: flex; justify-content: space-between; align-items: center; }
+    .topbar-left { display: flex; gap: 24px; align-items: center; }
+    .topbar-left span { display: flex; align-items: center; gap: 6px; }
+    .topbar-left span i { color: var(--accent); font-size: 0.78rem; }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(10,61,124,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 72px;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-text .cn { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+    .logo-text .en { font-size: 0.65rem; color: var(--gray-light); letter-spacing: 0.5px; }
+    .nav-menu { display: flex; align-items: center; gap: 4px; }
+    .nav-menu a {
+      padding: 8px 16px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--accent); background: rgba(0,153,216,0.06); }
+    .nav-hotline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 8px 18px;
+      border-radius: 24px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #0a3d7c 60%, #0099d8 100%);
+      padding: 60px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(0,153,216,0.1);
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb i { font-size: 0.7rem; }
+    .page-hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      position: sticky;
+      top: 72px;
+      z-index: 100;
+    }
+    .filter-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .filter-btn {
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      background: var(--bg-light);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ===== CASES SECTION ===== */
+    .cases-section { padding: 56px 0 80px; background: var(--bg-light); }
+    .cases-count {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+    .cases-count span { color: var(--primary); font-weight: 700; }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .case-card-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .case-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .case-card:hover .case-card-img { transform: scale(1.05); }
+    .case-card-img-fallback {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #0a3d7c, #0099d8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.5);
+      font-size: 2.5rem;
+      transition: transform 0.4s ease;
+    }
+    .case-card:hover .case-card-img-fallback { transform: scale(1.05); }
+    .case-card-img-fallback span { font-size: 0.85rem; }
+    .case-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,61,124,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    .case-card:hover .case-card-overlay { opacity: 1; }
+    .case-card-overlay span {
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .case-industry-tag {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: rgba(10,61,124,0.85);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+    .case-card-body { padding: 18px 20px 22px; }
+    .case-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .case-product-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0,153,216,0.1);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .case-card-body h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .case-card-body p {
+      font-size: 0.83rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .case-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .case-card-footer .location {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .case-card-footer .location i { color: var(--accent); }
+    .case-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+    .case-link:hover { gap: 8px; }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 28px;
+    }
+    .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+    .btn-white {
+      background: white;
+      color: var(--primary);
+    }
+    .btn-white:hover {
+      background: var(--bg-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.7);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      padding: 40px 0 0;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--accent); }
+    .footer-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      padding-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-contact-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+    .footer-contact-item i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 640px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .modal-header {
+      padding: 24px 28px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .modal-header h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary); line-height: 1.4; }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-light);
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .modal-body { padding: 24px 28px; }
+    .modal-img-fallback {
+      width: 100%; height: 240px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+    .modal-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .modal-tag {
+      padding: 4px 12px;
+      background: rgba(0,153,216,0.1);
+      color: var(--accent);
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .modal-body h4 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .modal-body p { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; margin-bottom: 16px; }
+    .modal-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .modal-info-item {
+      padding: 12px 14px;
+      background: var(--bg-light);
+      border-radius: var(--radius);
+    }
+    .modal-info-item .key { font-size: 0.75rem; color: var(--text-light); margin-bottom: 4px; }
+    .modal-info-item .val { font-size: 0.88rem; font-weight: 600; color: var(--primary); }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px; right: 24px;
+      width: 44px; height: 44px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 998;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { background: var(--accent); transform: translateY(-3px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .cases-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .topbar { display: none; }
+      .nav-menu, .nav-hotline { display: none; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 1.6rem; }
+      .modal-info-grid { grid-template-columns: 1fr; }
+      .footer-info { flex-direction: column; gap: 20px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span><i class="fas fa-phone-alt"></i> 服务热线：400-178-7667</span>
+        <span><i class="fas fa-map-marker-alt"></i> 山东省济南市市中区二环西路5201号</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">盛</div>
+        <div class="logo-text">
+          <span class="cn">山东盛鑫泽科技</span>
+          <span class="en">Shandong Shengxinze Technology</span>
+        </div>
+      </a>
+      <div class="nav-menu">
+        <a href="index.html">首页</a>
+        <a href="index.html#about">关于我们</a>
+        <a href="index.html#products">产品中心</a>
+        <a href="index.html#solutions">解决方案</a>
+        <a href="cases.html" class="active">行业案例</a>
+        <a href="index.html#whyus">企业优势</a>
+        <a href="index.html#news">新闻资讯</a>
+        <a href="index.html#contact">联系我们</a>
+      </div>
+      <div class="nav-hotline">
+        <i class="fas fa-headset"></i>
+        400-178-7667
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>行业案例</span>
+      </div>
+      <h1>行业案例</h1>
+      <p>以务实为基础，以创新为导向，以质量为生命，以市场谋发展。为众多行业客户提供专业的在线分析解决方案。</p>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-inner">
+        <span class="filter-label">行业筛选：</span>
+        <div class="filter-btn active" onclick="filterCases('all', this)">全部案例</div>
+        <div class="filter-btn" onclick="filterCases('chemical', this)">石油化工</div>
+        <div class="filter-btn" onclick="filterCases('environment', this)">环保监测</div>
+        <div class="filter-btn" onclick="filterCases('pharma', this)">制药行业</div>
+        <div class="filter-btn" onclick="filterCases('manufacturing', this)">制造业</div>
+        <div class="filter-btn" onclick="filterCases('energy', this)">能源电力</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASES SECTION -->
+  <section class="cases-section">
+    <div class="container">
+      <div class="cases-count">共找到 <span id="caseCount">12</span> 个案例</div>
+      <div class="cases-grid" id="casesGrid">
+
+        <!-- Case 1 -->
+        <div class="case-card" data-industry="chemical" onclick="openModal(0)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a1.e25ddae3.jpg" alt="济宁某化工厂烟气在线监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-industry"></i><span>化工烟气监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">石油化工</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-home"></i> 防爆分析小屋</span>
+            </div>
+            <h3>济宁某化工厂烟气在线监测项目</h3>
+            <p>为化工厂提供防爆型烟气在线监测系统，包含防爆分析小屋、样品预处理及CEMS数据采集系统。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东济宁</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case-card" data-industry="environment" onclick="openModal(1)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a2.3b52e15f.jpg" alt="济南某水厂水质在线监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-tint"></i><span>水质在线监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">环保监测</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-filter"></i> 预处理系统</span>
+            </div>
+            <h3>济南某水厂水质在线监测项目</h3>
+            <p>为自来水厂提供水质在线监测系统，实时监测COD、氨氮、总磷等关键水质指标，确保供水安全。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东济南</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case-card" data-industry="manufacturing" onclick="openModal(2)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a3.7bfbb855.jpg" alt="重庆某汽车制造VOCs在线监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-car"></i><span>VOCs在线监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">制造业</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-microscope"></i> 在线分析仪</span>
+            </div>
+            <h3>重庆某汽车制造VOCs在线监测项目</h3>
+            <p>为汽车制造涂装车间配套VOCs在线监测系统，满足环保合规要求，实现挥发性有机物的实时监控。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 重庆</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 4 -->
+        <div class="case-card" data-industry="manufacturing" onclick="openModal(3)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a4.6ece4551.jpg" alt="青岛某印刷厂VOCs在线监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-print"></i><span>印刷VOCs监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">制造业</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-microscope"></i> 在线分析仪</span>
+            </div>
+            <h3>青岛某印刷厂VOCs在线监测项目</h3>
+            <p>针对印刷行业溶剂挥发特点，提供专用VOCs在线监测系统，帮助企业实现达标排放管理。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东青岛</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 5 -->
+        <div class="case-card" data-industry="pharma" onclick="openModal(4)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a5.a4402f24.jpg" alt="济南某药厂VOCs在线监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-pills"></i><span>制药VOCs监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">制药行业</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-network-wired"></i> 系统集成</span>
+            </div>
+            <h3>济南某药厂VOCs在线监测项目</h3>
+            <p>为制药企业提供符合GMP规范的VOCs在线监测系统，满足环保排放要求，保障生产环境安全。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东济南</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 6 -->
+        <div class="case-card" data-industry="environment" onclick="openModal(5)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a6.a72fac2e.jpg" alt="聊城某工业园区空气质量监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-wind"></i><span>空气质量监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">环保监测</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-network-wired"></i> 系统集成</span>
+            </div>
+            <h3>聊城某工业园区空气质量监测项目</h3>
+            <p>为工业园区建设空气质量网格化监测系统，实现PM2.5、PM10、SO₂、NO₂等多参数实时监测。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东聊城</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 7 -->
+        <div class="case-card" data-industry="environment" onclick="openModal(6)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a7.2256d004.jpg" alt="泰安某石膏厂烟气在线监测站房配套项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-home"></i><span>监测站房</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">环保监测</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-home"></i> 分析小屋</span>
+            </div>
+            <h3>泰安某石膏厂烟气在线监测站房配套项目</h3>
+            <p>为石膏生产企业提供烟气在线监测站房配套建设，包含仪器机柜、空调、UPS及数据采集系统。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东泰安</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 8 -->
+        <div class="case-card" data-industry="chemical" onclick="openModal(7)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a8.9ec07998.jpg" alt="东营某化工厂防爆烟气在线监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-shield-alt"></i><span>防爆监测系统</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">石油化工</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-home"></i> 防爆分析小屋</span>
+            </div>
+            <h3>东营某化工厂防爆烟气在线监测项目配套防爆小屋</h3>
+            <p>在爆炸危险区域内部署防爆型烟气分析系统，防爆小屋达到Ex d IIC T4防爆等级，确保安全运行。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东东营</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 9 -->
+        <div class="case-card" data-industry="manufacturing" onclick="openModal(8)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a9.9d181ffe.jpg" alt="潍坊某日企站房及VOCs在线监测站房配套项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-building"></i><span>监测站房</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">制造业</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-home"></i> 分析小屋</span>
+            </div>
+            <h3>潍坊某日企站房及VOCs在线监测站房配套项目</h3>
+            <p>为日资企业提供符合国内环保标准的VOCs监测站房，系统设计满足企业内部质量管理要求。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东潍坊</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 10 -->
+        <div class="case-card" data-industry="chemical" onclick="openModal(9)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a10.22e629fc.jpg" alt="淄博某化工厂空气质量监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-wind"></i><span>空气质量监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">石油化工</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-network-wired"></i> 系统集成</span>
+            </div>
+            <h3>淄博某化工厂空气质量监测项目</h3>
+            <p>为化工厂厂界及周边区域建设空气质量监测网络，实现多点位、多参数的连续自动监测。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东淄博</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 11 -->
+        <div class="case-card" data-industry="environment" onclick="openModal(10)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a11.4afd95a3.jpg" alt="新泰某工业园区非甲烷总烃在线监测项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-chart-line"></i><span>NMHC监测</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">环保监测</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-microscope"></i> 在线分析仪</span>
+            </div>
+            <h3>新泰某工业园区非甲烷总烃在线监测项目</h3>
+            <p>采用FID检测原理，实现工业园区非甲烷总烃（NMHC）的连续在线监测，满足排放标准要求。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东新泰</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 12 -->
+        <div class="case-card" data-industry="chemical" onclick="openModal(11)">
+          <div class="case-card-img-wrap">
+            <img class="case-card-img" src="http://www.shengxinze.com/img/a12.e1c83cbf.jpg" alt="济宁某化工厂激光气体分析仪项目" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="case-card-img-fallback" style="display:none;"><i class="fas fa-laser-pointer" style="font-size:2rem;"></i><i class="fas fa-microscope"></i><span>激光气体分析</span></div>
+            <div class="case-card-overlay"><span><i class="fas fa-search-plus"></i> 查看详情</span></div>
+            <div class="case-industry-tag">石油化工</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-meta">
+              <span class="case-product-tag"><i class="fas fa-microscope"></i> 在线分析仪</span>
+            </div>
+            <h3>济宁某化工厂激光气体分析仪项目</h3>
+            <p>应用TDLAS激光吸收光谱技术，对化工过程中的特定气体组分进行高精度、免维护的在线连续分析。</p>
+            <div class="case-card-footer">
+              <span class="location"><i class="fas fa-map-marker-alt"></i> 山东济宁</span>
+              <span class="case-link">查看详情 <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <div class="cta-section">
+    <div class="container">
+      <h2>有类似项目需求？</h2>
+      <p>我们的专业团队将为您提供量身定制的在线分析解决方案</p>
+      <div class="cta-btns">
+        <a href="index.html#contact" class="btn btn-white"><i class="fas fa-paper-plane"></i> 在线咨询</a>
+        <a href="tel:4001787667" class="btn btn-outline-white"><i class="fas fa-headset"></i> 400-178-7667</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-info">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:40px;height:40px;background:linear-gradient(135deg,#0a3d7c,#0099d8);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:1.1rem;">盛</div>
+            <div>
+              <div style="color:white;font-weight:700;font-size:1rem;">山东盛鑫泽科技发展有限公司</div>
+              <div style="color:rgba(255,255,255,0.4);font-size:0.65rem;">Shandong Shengxinze Technology Development Co.,Ltd</div>
+            </div>
+          </div>
+          <p style="font-size:0.83rem;color:rgba(255,255,255,0.5);max-width:360px;line-height:1.8;">专注于工业过程在线分析领域，为高风险行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
+        </div>
+        <div>
+          <div class="footer-contact-item"><i class="fas fa-headset"></i><span>服务热线：400-178-7667</span></div>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>山东省济南市市中区二环西路5201号</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>sd_sxzkj@163.com</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright © 2024 山东盛鑫泽科技发展有限公司 版权所有</span>
+        <span><a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023008057号-1</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <script>
+    // Case data
+    const cases = [
+      {
+        title: '济宁某化工厂烟气在线监测项目',
+        industry: '石油化工',
+        product: '防爆分析小屋 + CEMS系统',
+        location: '山东济宁',
+        icon: 'fas fa-industry',
+        desc: '为济宁某大型化工厂提供烟气在线监测整体解决方案。项目包含防爆型分析小屋建设、烟气样品预处理系统、CEMS数据采集与传输系统，实现对SO₂、NOx、烟尘、烟气流速等参数的连续在线监测，数据实时上传至当地生态环境局监管平台。',
+        points: ['防爆等级：Ex d IIC T4', '监测参数：SO₂、NOx、烟尘、流速', '数据传输：实时上传环保平台', '服务内容：设计、供货、安装、调试']
+      },
+      {
+        title: '济南某水厂水质在线监测项目',
+        industry: '环保监测',
+        product: '水质在线监测系统',
+        location: '山东济南',
+        icon: 'fas fa-tint',
+        desc: '为济南某自来水厂建设水质在线监测系统，实现从水源地到出厂水的全流程水质监控。系统包含多参数水质分析仪、样品预处理装置及数据管理平台，监测指标涵盖COD、氨氮、总磷、浊度、余氯等关键参数，确保饮用水安全。',
+        points: ['监测指标：COD、氨氮、总磷等', '系统架构：分布式多点监测', '数据管理：云端数据平台', '维护方式：远程诊断+定期巡检']
+      },
+      {
+        title: '重庆某汽车制造VOCs在线监测项目',
+        industry: '制造业',
+        product: 'VOCs在线监测系统',
+        location: '重庆',
+        icon: 'fas fa-car',
+        desc: '针对汽车制造涂装工序VOCs排放监控需求，为重庆某汽车制造企业提供VOCs在线监测系统。采用FID+PID联合检测技术，实现涂装车间废气排放口的连续监测，帮助企业满足《挥发性有机物无组织排放控制标准》要求。',
+        points: ['检测技术：FID+PID联合检测', '监测范围：涂装车间所有排放口', '合规标准：GB 37822-2019', '系统集成：与企业MES系统对接']
+      },
+      {
+        title: '青岛某印刷厂VOCs在线监测项目',
+        industry: '制造业',
+        product: 'VOCs在线分析仪',
+        location: '山东青岛',
+        icon: 'fas fa-print',
+        desc: '为青岛某大型印刷企业提供VOCs在线监测解决方案，覆盖印刷、干燥、复合等主要工序的废气排放监控。系统采用便携式与固定式相结合的监测方式，实现全厂VOCs排放的精细化管理。',
+        points: ['覆盖工序：印刷、干燥、复合', '检测精度：≤1mg/m³', '报警功能：超标自动报警', '数据存储：本地+云端双备份']
+      },
+      {
+        title: '济南某药厂VOCs在线监测项目',
+        industry: '制药行业',
+        product: '系统集成 + VOCs监测',
+        location: '山东济南',
+        icon: 'fas fa-pills',
+        desc: '为济南某制药企业提供符合GMP规范要求的VOCs在线监测系统。项目充分考虑制药行业洁净度要求，采用不锈钢材质管路和防腐蚀设计，实现制药生产过程中有机溶剂挥发的实时监控，保障生产环境安全和合规排放。',
+        points: ['材质要求：316L不锈钢管路', '防爆设计：适用于洁净区', 'GMP合规：满足药厂洁净标准', '溶剂种类：乙醇、丙酮、甲苯等']
+      },
+      {
+        title: '聊城某工业园区空气质量监测项目',
+        industry: '环保监测',
+        product: '空气质量网格化监测系统',
+        location: '山东聊城',
+        icon: 'fas fa-wind',
+        desc: '为聊城某工业园区建设空气质量网格化监测系统，在园区内布设多个微型空气质量监测站，实现PM2.5、PM10、SO₂、NO₂、O₃、CO等六项指标的实时监测，为园区环境管理和污染溯源提供数据支撑。',
+        points: ['监测站点：12个微型监测站', '监测参数：六项标准污染物', '数据平台：GIS可视化展示', '应用场景：污染溯源与预警']
+      },
+      {
+        title: '泰安某石膏厂烟气在线监测站房配套项目',
+        industry: '环保监测',
+        product: '监测站房 + 配套设施',
+        location: '山东泰安',
+        icon: 'fas fa-home',
+        desc: '为泰安某石膏生产企业提供烟气在线监测站房配套建设服务。站房采用彩钢板结构，内置空调、照明、防雷接地、UPS不间断电源及仪器机柜等配套设施，为客户自购的CEMS仪器提供稳定可靠的运行环境。',
+        points: ['站房面积：3m×2.5m标准型', '配套设施：空调、UPS、机柜', '防护等级：IP54', '交付标准：一站式交钥匙工程']
+      },
+      {
+        title: '东营某化工厂防爆烟气在线监测项目配套防爆小屋',
+        industry: '石油化工',
+        product: '防爆分析小屋',
+        location: '山东东营',
+        icon: 'fas fa-shield-alt',
+        desc: '东营某化工厂位于爆炸危险区域Zone 1，需要配套防爆型分析小屋。我公司提供符合GB 3836标准的防爆分析小屋，防爆等级达到Ex d IIC T4，内部配置防爆空调、防爆照明及防爆电气系统，确保在危险区域内安全运行。',
+        points: ['防爆等级：Ex d IIC T4 Gb', '危险区域：Zone 1', '认证标准：GB 3836系列', '内部配置：防爆空调、防爆照明']
+      },
+      {
+        title: '潍坊某日企站房及VOCs在线监测站房配套项目',
+        industry: '制造业',
+        product: '监测站房 + VOCs系统',
+        location: '山东潍坊',
+        icon: 'fas fa-building',
+        desc: '为潍坊某日资制造企业提供监测站房及VOCs在线监测系统配套服务。项目严格按照日方质量管理标准执行，站房设计美观整洁，系统安装规范，充分满足了外资企业对工程质量和管理规范的高标准要求。',
+        points: ['质量标准：符合日方管理要求', '站房设计：定制化美观设计', '系统集成：与日方DCS系统对接', '文件交付：中英双语技术文档']
+      },
+      {
+        title: '淄博某化工厂空气质量监测项目',
+        industry: '石油化工',
+        product: '系统集成 + 空气质量监测',
+        location: '山东淄博',
+        icon: 'fas fa-wind',
+        desc: '为淄博某化工厂建设厂界及周边区域空气质量监测网络，实现对特征污染物的实时监控。系统采用分布式架构，多个监测点位数据汇聚至中控室，支持历史数据查询、趋势分析和超标报警功能。',
+        points: ['监测点位：8个固定监测站', '特征污染物：苯系物、氯化物等', '数据分析：趋势分析+超标报警', '系统对接：与企业环保管理系统集成']
+      },
+      {
+        title: '新泰某工业园区非甲烷总烃在线监测项目',
+        industry: '环保监测',
+        product: '在线分析仪器 + 预处理系统',
+        location: '山东新泰',
+        icon: 'fas fa-chart-line',
+        desc: '为新泰某工业园区提供非甲烷总烃（NMHC）在线监测系统，采用FID（氢火焰离子化检测器）技术，实现对工业废气中非甲烷总烃的连续自动监测，满足《大气污染物综合排放标准》的相关要求。',
+        points: ['检测原理：FID氢火焰离子化', '量程范围：0-100mg/m³', '检出限：≤0.1mg/m³', '标准依据：GB 16297-1996']
+      },
+      {
+        title: '济宁某化工厂激光气体分析仪项目',
+        industry: '石油化工',
+        product: '激光气体分析仪',
+        location: '山东济宁',
+        icon: 'fas fa-microscope',
+        desc: '为济宁某化工厂提供基于TDLAS（可调谐二极管激光吸收光谱）技术的激光气体分析仪，用于工业过程中特定气体组分的高精度在线分析。相比传统分析方法，激光分析仪具有响应速度快、无需样品预处理、维护量低等显著优势。',
+        points: ['检测技术：TDLAS激光吸收光谱', '检测组分：H₂S、NH₃、HF等', '响应时间：<1秒', '特点：免维护、高精度、长寿命']
+      }
+    ];
+
+    function openModal(idx) {
+      const c = cases[idx];
+      document.getElementById('modalTitle').textContent = c.title;
+      document.getElementById('modalBody').innerHTML = `
+        <div class="modal-img-fallback"><i class="${c.icon}"></i></div>
+        <div class="modal-tags">
+          <span class="modal-tag">${c.industry}</span>
+          <span class="modal-tag">${c.product}</span>
+          <span class="modal-tag"><i class="fas fa-map-marker-alt"></i> ${c.location}</span>
+        </div>
+        <h4>项目概述</h4>
+        <p>${c.desc}</p>
+        <h4>项目亮点</h4>
+        <div class="modal-info-grid">
+          ${c.points.map(p => `<div class="modal-info-item"><div class="val"><i class="fas fa-check-circle" style="color:var(--accent);margin-right:6px;"></i>${p}</div></div>`).join('')}
+        </div>
+        <div style="margin-top:20px;padding:14px 16px;background:rgba(0,153,216,0.06);border-radius:8px;display:flex;align-items:center;gap:12px;">
+          <i class="fas fa-headset" style="color:var(--accent);font-size:1.2rem;"></i>
+          <div>
+            <div style="font-size:0.83rem;color:var(--text-light);">有类似项目需求？欢迎联系我们</div>
+            <div style="font-size:1rem;font-weight:700;color:var(--primary);">服务热线：400-178-7667</div>
+          </div>
+        </div>
+      `;
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOutside(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+
+    function filterCases(industry, el) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      let count = 0;
+      document.querySelectorAll('.case-card').forEach(card => {
+        const show = industry === 'all' || card.dataset.industry === industry;
+        card.style.display = show ? '' : 'none';
+        if (show) count++;
+      });
+      document.getElementById('caseCount').textContent = count;
+    }
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.case-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
