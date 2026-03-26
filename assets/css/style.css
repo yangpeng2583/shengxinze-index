@@ -231,6 +231,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: #0a0c0f;
   flex-shrink: 0;
 }
+.logo-icon-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: transparent;
+}
 .logo-text { display: flex; flex-direction: column; }
 .logo-name {
   font-size: 16px;
