@@ -241,10 +241,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .logo-text { display: flex; flex-direction: column; }
 .logo-name {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--text-white);
   line-height: 1.2;
+  white-space: nowrap;
 }
 .logo-en {
   font-size: 10px;
