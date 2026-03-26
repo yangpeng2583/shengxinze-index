@@ -1,1878 +1,512 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>山东盛鑫泽科技发展有限公司 - 工业过程在线分析解决方案</title>
-  <meta name="description" content="山东盛鑫泽科技发展有限公司专注于工业过程在线分析领域，提供防爆分析小屋、样品预处理系统、系统集成及在线分析仪器等产品与服务。" />
-  <meta name="keywords" content="防爆分析小屋,样品预处理系统,在线分析仪器,系统集成,工业过程分析" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山东盛鑫泽科技发展有限公司 - 工业过程在线分析专家</title>
+  <meta name="description" content="山东盛鑫泽科技专注工业过程在线分析，提供防爆分析小屋、样品预处理系统、系统集成及在线分析仪器，服务石油化工、天然气、环保等行业。">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* ===== CSS Reset & Variables ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --primary:    #0a3d7c;
-      --primary-light: #1256b0;
-      --accent:     #0099d8;
-      --accent-dark:#0077a8;
-      --dark:       #0d1b2a;
-      --gray-dark:  #1e2d3d;
-      --gray:       #4a5568;
-      --gray-light: #a0aec0;
-      --bg-light:   #f5f8fc;
-      --white:      #ffffff;
-      --border:     #dde3ec;
-      --text:       #2d3748;
-      --text-light: #718096;
-      --shadow:     0 4px 20px rgba(10,61,124,0.10);
-      --shadow-lg:  0 8px 40px rgba(10,61,124,0.16);
-      --radius:     8px;
-      --radius-lg:  16px;
-      --transition: all 0.3s ease;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .section-title {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-    .section-title h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary);
-      position: relative;
-      display: inline-block;
-      padding-bottom: 16px;
-    }
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 60px; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--primary-light));
-      border-radius: 2px;
-    }
-    .section-title p {
-      margin-top: 12px;
-      color: var(--text-light);
-      font-size: 1rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      border-radius: var(--radius);
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      border: none;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--primary-light));
-      color: var(--white);
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, var(--accent-dark), var(--primary));
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,153,216,0.35);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.7);
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: var(--white);
-    }
-
-    /* ===== TOP BAR ===== */
-    .topbar {
-      background: var(--dark);
-      color: rgba(255,255,255,0.7);
-      font-size: 0.82rem;
-      padding: 7px 0;
-    }
-    .topbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .topbar-left { display: flex; gap: 24px; align-items: center; }
-    .topbar-left span { display: flex; align-items: center; gap: 6px; }
-    .topbar-left span i { color: var(--accent); font-size: 0.78rem; }
-    .topbar-right { display: flex; gap: 16px; }
-    .topbar-right a {
-      color: rgba(255,255,255,0.6);
-      transition: color 0.2s;
-    }
-    .topbar-right a:hover { color: var(--accent); }
-
-    /* ===== HEADER / NAVBAR ===== */
-    .header {
-      background: var(--white);
-      box-shadow: 0 2px 12px rgba(10,61,124,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-      height: 72px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
-    .logo-text .cn { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
-    .logo-text .en { font-size: 0.65rem; color: var(--gray-light); letter-spacing: 0.5px; }
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .nav-menu a {
-      padding: 8px 16px;
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: var(--text);
-      border-radius: 6px;
-      transition: var(--transition);
-      position: relative;
-    }
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: 4px; left: 50%;
-      transform: translateX(-50%) scaleX(0);
-      width: 20px; height: 2px;
-      background: var(--accent);
-      border-radius: 1px;
-      transition: transform 0.3s ease;
-    }
-    .nav-menu a:hover, .nav-menu a.active {
-      color: var(--accent);
-      background: rgba(0,153,216,0.06);
-    }
-    .nav-menu a:hover::after, .nav-menu a.active::after {
-      transform: translateX(-50%) scaleX(1);
-    }
-    .nav-hotline {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      padding: 8px 18px;
-      border-radius: 24px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .nav-hotline i { font-size: 0.85rem; }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      width: 24px; height: 2px;
-      background: var(--primary);
-      border-radius: 2px;
-      transition: var(--transition);
-    }
-
-    /* ===== HERO BANNER ===== */
-    .hero {
-      position: relative;
-      height: 580px;
-      overflow: hidden;
-      background: var(--dark);
-    }
-    .hero-slides { position: relative; width: 100%; height: 100%; }
+    /* ===== 首页专属样式 ===== */
+    .hero { position:relative; height:100vh; min-height:600px; overflow:hidden; }
+    .hero-slides { position:relative; width:100%; height:100%; }
     .hero-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.8s ease;
+      position:absolute; inset:0; opacity:0; transition:opacity 1s ease;
+      background-size:cover; background-position:center;
     }
-    .hero-slide.active { opacity: 1; }
-    .hero-slide-bg {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: brightness(0.45);
+    .hero-slide.active { opacity:1; }
+    .hero-slide::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(0,0,0,0.78) 0%,rgba(0,0,0,0.35) 60%,transparent 100%);
     }
-    .hero-slide-bg-fallback {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #0a1628 0%, #0a3d7c 50%, #0d5fa8 100%);
-    }
-    .hero-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      padding: 0 80px;
-    }
-    .hero-text { max-width: 620px; }
+    .hero-content { position:absolute; inset:0; display:flex; align-items:center; z-index:2; }
+    .hero-text { max-width:640px; }
     .hero-tag {
-      display: inline-block;
-      background: rgba(0,153,216,0.25);
-      border: 1px solid rgba(0,153,216,0.5);
-      color: var(--accent);
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:11px; font-weight:600; letter-spacing:3px;
+      text-transform:uppercase; color:var(--primary); margin-bottom:20px;
     }
-    .hero-text h1 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 16px;
+    .hero-tag::before { content:''; width:24px; height:1px; background:var(--primary); }
+    .hero-title {
+      font-size:clamp(36px,5.5vw,64px); font-weight:800;
+      line-height:1.1; color:#fff; margin-bottom:20px;
     }
-    .hero-text h1 span { color: var(--accent); }
-    .hero-text p {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.8;
-      margin-bottom: 32px;
-      max-width: 520px;
-    }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-title span { color:var(--primary); }
+    .hero-desc { font-size:16px; color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:36px; max-width:500px; }
+    .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
     .hero-indicators {
-      position: absolute;
-      bottom: 28px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; gap: 8px;
+      position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
+      display:flex; gap:8px; z-index:3;
     }
     .hero-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-      cursor: pointer;
-      transition: var(--transition);
+      width:8px; height:8px; border-radius:4px;
+      background:rgba(255,255,255,0.4); transition:all 0.3s; cursor:pointer;
     }
-    .hero-dot.active {
-      background: var(--accent);
-      width: 24px;
-      border-radius: 4px;
-    }
+    .hero-dot.active { width:28px; background:var(--primary); }
+    .hero-arrows { position:absolute; bottom:32px; right:40px; display:flex; gap:8px; z-index:3; }
     .hero-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px; height: 44px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1rem;
-      z-index: 10;
+      width:44px; height:44px; border-radius:8px;
+      border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center;
+      color:#fff; font-size:18px; cursor:pointer; transition:var(--transition);
     }
-    .hero-arrow:hover { background: rgba(0,153,216,0.5); border-color: var(--accent); }
-    .hero-arrow.prev { left: 28px; }
-    .hero-arrow.next { right: 28px; }
+    .hero-arrow:hover { background:var(--primary-glow); border-color:var(--primary); color:var(--primary); }
+    .hero-scroll {
+      position:absolute; bottom:40px; left:40px; z-index:3;
+      display:flex; align-items:center; gap:12px;
+      font-size:11px; letter-spacing:2px; color:rgba(255,255,255,0.45); text-transform:uppercase;
+    }
+    .hero-scroll-line { width:40px; height:1px; background:rgba(255,255,255,0.3); position:relative; overflow:hidden; }
+    .hero-scroll-line::after {
+      content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+      background:var(--primary); animation:scrollLine 2s infinite;
+    }
+    @keyframes scrollLine { to { left:100%; } }
 
-    /* ===== STATS BAR ===== */
-    .stats-bar {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      padding: 32px 0;
+    /* 统计栏 */
+    .stats-bar { background:var(--bg-card); border-bottom:1px solid var(--border-subtle); }
+    .stats-inner {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      max-width:1280px; margin:0 auto;
     }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-    .stat-item {
-      text-align: center;
-      padding: 16px 24px;
-      border-right: 1px solid rgba(255,255,255,0.15);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .stat-num span { color: var(--accent); font-size: 1.3rem; }
-    .stat-label {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      font-weight: 400;
-    }
+    .stat-item { padding:32px 24px; text-align:center; border-right:1px solid var(--border-subtle); }
+    .stat-item:last-child { border-right:none; }
 
-    /* ===== ABOUT SECTION ===== */
-    .about-section { padding: 80px 0; background: var(--white); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .about-content h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .about-content .subtitle {
-      color: var(--accent);
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .about-content .subtitle::before {
-      content: '';
-      width: 32px; height: 2px;
-      background: var(--accent);
-    }
-    .about-content p {
-      color: var(--text-light);
-      line-height: 1.9;
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    .about-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .about-feature {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      background: var(--bg-light);
-      border-radius: var(--radius);
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--primary);
-    }
-    .about-feature i { color: var(--accent); font-size: 1rem; }
-    .about-image {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .about-image img {
-      width: 100%; height: 400px;
-      object-fit: cover;
-    }
-    .about-image-fallback {
-      width: 100%; height: 400px;
-      background: linear-gradient(135deg, #0a3d7c, #0099d8);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      gap: 12px;
-    }
-    .about-image-fallback i { font-size: 4rem; opacity: 0.6; }
-    .about-image-fallback span { font-size: 1.1rem; opacity: 0.8; }
+    /* 关于我们 */
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .about-img-wrap { position:relative; }
+    .about-img { width:100%; border-radius:var(--radius-lg); border:1px solid var(--border-subtle); object-fit:cover; height:480px; }
     .about-badge {
-      position: absolute;
-      bottom: 24px; right: 24px;
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      position:absolute; bottom:-20px; right:-20px;
+      background:var(--primary); color:#0a0c0f;
+      padding:20px 24px; border-radius:var(--radius-lg); text-align:center;
+      box-shadow:0 8px 32px rgba(0,230,118,0.3);
     }
-    .about-badge i { font-size: 1.6rem; color: var(--accent); }
-    .about-badge-text .num { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
-    .about-badge-text .label { font-size: 0.75rem; color: var(--text-light); }
+    .about-badge-num { font-size:36px; font-weight:800; line-height:1; }
+    .about-badge-text { font-size:12px; font-weight:600; margin-top:4px; }
+    .about-features { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; }
+    .about-feature {
+      background:var(--bg-card); border:1px solid var(--border-subtle);
+      border-radius:var(--radius); padding:16px; transition:var(--transition);
+    }
+    .about-feature:hover { border-color:var(--border); }
+    .about-feature-icon { font-size:24px; margin-bottom:8px; }
+    .about-feature-title { font-size:14px; font-weight:700; color:var(--text-white); margin-bottom:4px; }
+    .about-feature-desc { font-size:12px; color:var(--text-gray); line-height:1.6; }
 
-    /* ===== PRODUCTS SECTION ===== */
-    .products-section { padding: 80px 0; background: var(--bg-light); }
-    .products-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
+    /* 服务流程 */
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+    .process-grid::before {
+      content:''; position:absolute; top:36px; left:12.5%; right:12.5%; height:1px;
+      background:linear-gradient(90deg,var(--primary),rgba(0,230,118,0.2),var(--primary)); z-index:0;
     }
-    .products-tab {
-      padding: 9px 22px;
-      border-radius: 24px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      background: var(--white);
-      color: var(--text);
-      border: 1px solid var(--border);
+    .process-item { text-align:center; padding:0 16px; position:relative; z-index:1; }
+    .process-num {
+      width:72px; height:72px; border-radius:50%;
+      background:var(--bg-card); border:2px solid var(--primary);
+      display:flex; align-items:center; justify-content:center;
+      font-size:22px; font-weight:800; color:var(--primary);
+      margin:0 auto 20px;
+      box-shadow:0 0 0 8px var(--bg-dark),0 0 24px rgba(0,230,118,0.2);
     }
-    .products-tab.active, .products-tab:hover {
-      background: var(--primary);
-      color: var(--white);
-      border-color: var(--primary);
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      cursor: pointer;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-    .product-card-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .product-card-img-fallback {
-      width: 100%;
-      height: 220px;
-      background: linear-gradient(135deg, var(--bg-light), #dde8f5);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: var(--primary-light);
-    }
-    .product-card-img-fallback i { font-size: 3rem; opacity: 0.5; }
-    .product-card-body { padding: 20px 22px 24px; }
-    .product-card-tag {
-      display: inline-block;
-      background: rgba(0,153,216,0.1);
-      color: var(--accent);
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .product-card-body h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .product-card-body p {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    .product-card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      transition: gap 0.2s;
-    }
-    .product-card-link:hover { gap: 10px; }
+    .process-title { font-size:16px; font-weight:700; margin-bottom:8px; }
+    .process-desc { font-size:13px; color:var(--text-gray); line-height:1.6; }
 
-    /* ===== SOLUTIONS SECTION ===== */
-    .solutions-section { padding: 80px 0; background: var(--white); }
-    .solutions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    /* 资质滑动 */
+    .certs-section { background:var(--bg-card); }
+    .certs-slider-wrap { overflow:hidden; }
+    .certs-slider { display:flex; gap:20px; transition:transform 0.5s ease; }
+    .cert-slide-item { flex:0 0 calc(20% - 16px); min-width:180px; }
+    .certs-nav { display:flex; justify-content:center; gap:12px; margin-top:32px; }
+    .certs-nav-btn {
+      width:40px; height:40px; border-radius:8px;
+      border:1px solid var(--border-subtle); background:var(--bg-dark);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--text-gray); font-size:18px; cursor:pointer; transition:var(--transition);
     }
-    .solution-card {
-      padding: 32px 28px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .solution-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: linear-gradient(180deg, var(--accent), var(--primary));
-      transform: scaleY(0);
-      transition: transform 0.3s ease;
-    }
-    .solution-card:hover::before { transform: scaleY(1); }
-    .solution-card:hover {
-      box-shadow: var(--shadow-lg);
-      border-color: transparent;
-      transform: translateY(-4px);
-    }
-    .solution-icon {
-      width: 56px; height: 56px;
-      background: linear-gradient(135deg, rgba(0,153,216,0.12), rgba(10,61,124,0.08));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-    .solution-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-    .solution-card p {
-      font-size: 0.87rem;
-      color: var(--text-light);
-      line-height: 1.8;
-    }
-    .solution-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 16px;
-    }
-    .solution-tag {
-      padding: 3px 10px;
-      background: var(--bg-light);
-      border-radius: 12px;
-      font-size: 0.75rem;
-      color: var(--gray);
-    }
+    .certs-nav-btn:hover { border-color:var(--primary); color:var(--primary); background:var(--primary-glow); }
 
-    /* ===== WHY US ===== */
-    .whyus-section {
-      padding: 80px 0;
-      background: linear-gradient(135deg, var(--dark) 0%, #0a2a4a 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .whyus-section::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: rgba(0,153,216,0.06);
-    }
-    .whyus-section .section-title h2 { color: var(--white); }
-    .whyus-section .section-title p { color: rgba(255,255,255,0.6); }
-    .whyus-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .whyus-card {
-      padding: 28px 22px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-lg);
-      text-align: center;
-      transition: var(--transition);
-    }
-    .whyus-card:hover {
-      background: rgba(0,153,216,0.12);
-      border-color: rgba(0,153,216,0.3);
-      transform: translateY(-4px);
-    }
-    .whyus-icon {
-      width: 64px; height: 64px;
-      background: linear-gradient(135deg, var(--accent), var(--primary-light));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      color: white;
-      margin: 0 auto 18px;
-    }
-    .whyus-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .whyus-card p {
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.8;
-    }
 
-    /* ===== NEWS SECTION ===== */
-    .news-section { padding: 80px 0; background: var(--bg-light); }
-    .news-grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 28px;
+    @media(max-width:1024px){
+      .about-grid { grid-template-columns:1fr; gap:48px; }
+      .about-img { height:320px; }
+      .about-badge { bottom:-10px; right:10px; }
+      .stats-inner { grid-template-columns:repeat(2,1fr); }
+      .stat-item:nth-child(2){ border-right:none; }
+      .stat-item:nth-child(3){ border-top:1px solid var(--border-subtle); }
+      .process-grid { grid-template-columns:repeat(2,1fr); gap:32px; }
+      .process-grid::before { display:none; }
+      .cert-slide-item { flex:0 0 calc(33.33% - 14px); }
     }
-    .news-featured {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-    .news-featured:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .news-featured-img {
-      width: 100%; height: 240px;
-      object-fit: cover;
-    }
-    .news-featured-img-fallback {
-      width: 100%; height: 240px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.3);
-      font-size: 4rem;
-    }
-    .news-featured-body { padding: 24px; }
-    .news-date {
-      font-size: 0.78rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .news-featured-body h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-    .news-featured-body p {
-      font-size: 0.87rem;
-      color: var(--text-light);
-      line-height: 1.8;
-    }
-    .news-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .news-item {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .news-item:hover { transform: translateX(4px); box-shadow: var(--shadow-lg); }
-    .news-item-date {
-      flex-shrink: 0;
-      background: var(--primary);
-      color: white;
-      border-radius: var(--radius);
-      padding: 8px 12px;
-      text-align: center;
-      min-width: 52px;
-    }
-    .news-item-date .day { font-size: 1.3rem; font-weight: 800; line-height: 1; }
-    .news-item-date .month { font-size: 0.7rem; opacity: 0.8; }
-    .news-item-content h4 {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 6px;
-      line-height: 1.5;
-    }
-    .news-item-content p {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    /* ===== CONTACT SECTION ===== */
-    .contact-section { padding: 80px 0; background: var(--white); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .contact-info h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .contact-info .sub {
-      color: var(--text-light);
-      font-size: 0.9rem;
-      margin-bottom: 28px;
-    }
-    .contact-items { display: flex; flex-direction: column; gap: 16px; }
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 18px;
-      background: var(--bg-light);
-      border-radius: var(--radius);
-      transition: var(--transition);
-    }
-    .contact-item:hover { background: rgba(0,153,216,0.06); }
-    .contact-item-icon {
-      width: 42px; height: 42px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .contact-item-text .label {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      margin-bottom: 3px;
-    }
-    .contact-item-text .value {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-    .contact-form-wrap {
-      background: var(--bg-light);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-    }
-    .contact-form-wrap h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label {
-      display: block;
-      font-size: 0.83rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 0.88rem;
-      font-family: inherit;
-      color: var(--text);
-      background: var(--white);
-      transition: border-color 0.2s;
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(0,153,216,0.1);
-    }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-    .form-submit {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: inherit;
-    }
-    .form-submit:hover {
-      background: linear-gradient(135deg, var(--accent), var(--primary));
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,153,216,0.3);
-    }
-
-    /* ===== QR CODE SECTION ===== */
-    .qr-section {
-      background: var(--bg-light);
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-    }
-    .qr-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-    }
-    .qr-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-    .qr-img-wrap {
-      width: 120px; height: 120px;
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .qr-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
-    .qr-img-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      color: var(--gray-light);
-    }
-    .qr-img-placeholder i { font-size: 2.5rem; }
-    .qr-img-placeholder span { font-size: 0.7rem; }
-    .qr-label {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      font-weight: 500;
-    }
-    .qr-divider {
-      width: 1px;
-      height: 80px;
-      background: var(--border);
-    }
-    .qr-text h4 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-    .qr-text p {
-      font-size: 0.85rem;
-      color: var(--text-light);
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.7);
-      padding: 56px 0 0;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 40px;
-      padding-bottom: 40px;
-    }
-    .footer-brand .logo-text .cn { color: white; font-size: 1.15rem; }
-    .footer-brand .logo-text .en { color: rgba(255,255,255,0.4); }
-    .footer-brand p {
-      margin-top: 16px;
-      font-size: 0.85rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.55);
-    }
-    .footer-col h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .footer-col ul li a::before {
-      content: '›';
-      color: var(--accent);
-      font-size: 1rem;
-    }
-    .footer-col ul li a:hover { color: var(--accent); }
-    .footer-contact-item {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px;
-      font-size: 0.85rem;
-    }
-    .footer-contact-item i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 18px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
-    .footer-bottom a:hover { color: var(--accent); }
-
-    /* ===== FLOATING SIDEBAR ===== */
-    .float-sidebar {
-      position: fixed;
-      right: 0; top: 50%;
-      transform: translateY(-50%);
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .float-btn {
-      width: 52px;
-      background: var(--primary);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 6px;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 0.65rem;
-      gap: 4px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      position: relative;
-    }
-    .float-btn:first-child { border-radius: 8px 0 0 0; }
-    .float-btn:last-child { border-radius: 0 0 0 8px; border-bottom: none; }
-    .float-btn i { font-size: 1.1rem; }
-    .float-btn:hover { background: var(--accent); }
-    .float-btn .float-tooltip {
-      position: absolute;
-      right: 58px; top: 50%;
-      transform: translateY(-50%);
-      background: var(--dark);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-    .float-btn:hover .float-tooltip { opacity: 1; }
-    .float-qr-popup {
-      position: absolute;
-      right: 58px; top: 50%;
-      transform: translateY(-50%);
-      background: white;
-      border-radius: var(--radius);
-      padding: 12px;
-      box-shadow: var(--shadow-lg);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-      width: 140px;
-      text-align: center;
-    }
-    .float-btn:hover .float-qr-popup { opacity: 1; pointer-events: auto; }
-    .float-qr-popup img { width: 110px; height: 110px; margin: 0 auto; }
-    .float-qr-popup .qr-placeholder {
-      width: 110px; height: 110px;
-      background: var(--bg-light);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      color: var(--gray-light);
-      margin: 0 auto;
-      border-radius: 4px;
-    }
-    .float-qr-popup .qr-placeholder i { font-size: 2rem; }
-    .float-qr-popup p { font-size: 0.75rem; color: var(--text-light); margin-top: 6px; }
-
-    /* ===== BACK TO TOP ===== */
-    .back-to-top {
-      position: fixed;
-      bottom: 32px; right: 64px;
-      width: 44px; height: 44px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 998;
-    }
-    .back-to-top.visible { opacity: 1; pointer-events: auto; }
-    .back-to-top:hover { background: var(--accent); transform: translateY(-3px); }
-
-    /* ===== MOBILE MENU ===== */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 1100;
-    }
-    .mobile-menu.open { display: block; }
-    .mobile-menu-panel {
-      position: absolute;
-      top: 0; right: 0;
-      width: 280px; height: 100%;
-      background: var(--white);
-      padding: 24px;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-    }
-    .mobile-menu.open .mobile-menu-panel { transform: translateX(0); }
-    .mobile-menu-close {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 24px;
-    }
-    .mobile-menu-close button {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--text);
-    }
-    .mobile-nav a {
-      display: block;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-    .mobile-nav a:hover { color: var(--accent); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .hero-content { padding: 0 48px; }
-      .hero-text h1 { font-size: 2.1rem; }
-      .products-grid { grid-template-columns: repeat(2, 1fr); }
-      .solutions-grid { grid-template-columns: repeat(2, 1fr); }
-      .whyus-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-    }
-    @media (max-width: 768px) {
-      .topbar { display: none; }
-      .nav-menu, .nav-hotline { display: none; }
-      .hamburger { display: flex; }
-      .hero { height: 440px; }
-      .hero-content { padding: 0 24px; }
-      .hero-text h1 { font-size: 1.7rem; }
-      .hero-text p { font-size: 0.88rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .products-grid { grid-template-columns: 1fr; }
-      .solutions-grid { grid-template-columns: 1fr; }
-      .whyus-grid { grid-template-columns: 1fr 1fr; }
-      .news-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-      .float-sidebar { display: none; }
-      .form-row { grid-template-columns: 1fr; }
+    @media(max-width:768px){
+      .hero-scroll,.hero-arrows { display:none; }
+      .about-features { grid-template-columns:1fr; }
+      .process-grid { grid-template-columns:1fr; }
+      .cert-slide-item { flex:0 0 calc(50% - 10px); }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-left">
-        <span><i class="fas fa-phone-alt"></i> 服务热线：400-178-7667</span>
-        <span><i class="fas fa-map-marker-alt"></i> 山东省济南市市中区二环西路5201号</span>
+<!-- ===== 导航栏 ===== -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">鑫</div>
+      <div class="logo-text">
+        <span class="logo-name">山东盛鑫泽科技</span>
+        <span class="logo-en">SHENGXINZE TECHNOLOGY</span>
       </div>
-      <div class="topbar-right">
-        <a href="mailto:sd_sxzkj@163.com"><i class="fas fa-envelope"></i> sd_sxzkj@163.com</a>
+    </a>
+    <div class="navbar-menu">
+      <a href="index.html" class="nav-link active">首页</a>
+      <a href="products.html" class="nav-link">产品中心</a>
+      <a href="solutions.html" class="nav-link">解决方案</a>
+      <a href="cases.html" class="nav-link">行业案例</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="contact.html" class="nav-link">在线留言</a>
+    </div>
+    <a href="tel:4001787667" class="navbar-hotline">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      400-178-7667
+    </a>
+    <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="mobile-nav-link active">首页</a>
+  <a href="products.html" class="mobile-nav-link">产品中心</a>
+  <a href="solutions.html" class="mobile-nav-link">解决方案</a>
+  <a href="cases.html" class="mobile-nav-link">行业案例</a>
+  <a href="about.html" class="mobile-nav-link">关于我们</a>
+  <a href="contact.html" class="mobile-nav-link">在线留言</a>
+  <a href="tel:4001787667" class="mobile-nav-link" style="color:var(--primary);font-weight:600;">📞 400-178-7667</a>
+</div>
+
+<!-- ===== 轮播Banner ===== -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('assets/images/banners/banner1.jpg')">
+      <div class="hero-content"><div class="container"><div class="hero-text">
+        <div class="hero-tag">SHENGXINZE TECHNOLOGY</div>
+        <h1 class="hero-title">防爆分析小屋<br><span>安全守护</span>工业现场</h1>
+        <p class="hero-desc">严格遵循 GB/T 3836、ATEX、IECEx 防爆标准，为石化、天然气、煤化工等高危场所提供全方位安全保障。</p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary">查看产品 →</a>
+          <a href="contact.html" class="btn btn-outline">获取方案</a>
+        </div>
+      </div></div></div>
+    </div>
+    <div class="hero-slide" style="background-image:url('assets/images/banners/banner2.jpg')">
+      <div class="hero-content"><div class="container"><div class="hero-text">
+        <div class="hero-tag">ONLINE ANALYSIS INSTRUMENTS</div>
+        <h1 class="hero-title">在线分析仪器<br><span>精准测量</span>工艺过程</h1>
+        <p class="hero-desc">GC-8080Plus 工业在线色谱分析仪，检测限低至 0.07ppm，满足炼油、石化、天然气等行业痕量分析需求。</p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary">了解产品 →</a>
+          <a href="cases.html" class="btn btn-outline">查看案例</a>
+        </div>
+      </div></div></div>
+    </div>
+    <div class="hero-slide" style="background-image:url('assets/images/banners/banner3.jpg')">
+      <div class="hero-content"><div class="container"><div class="hero-text">
+        <div class="hero-tag">SAMPLE PRETREATMENT SYSTEM</div>
+        <h1 class="hero-title">样品预处理系统<br><span>可靠保障</span>分析精度</h1>
+        <p class="hero-desc">针对高温、高压、高含尘等苛刻工况，提供9大类定制化预处理解决方案，确保样品完整性与分析准确性。</p>
+        <div class="hero-actions">
+          <a href="solutions.html" class="btn btn-primary">解决方案 →</a>
+          <a href="contact.html" class="btn btn-outline">联系我们</a>
+        </div>
+      </div></div></div>
+    </div>
+  </div>
+  <div class="hero-indicators">
+    <div class="hero-dot active" data-index="0"></div>
+    <div class="hero-dot" data-index="1"></div>
+    <div class="hero-dot" data-index="2"></div>
+  </div>
+  <div class="hero-arrows">
+    <button class="hero-arrow" id="heroPrev">&#8592;</button>
+    <button class="hero-arrow" id="heroNext">&#8594;</button>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div>SCROLL</div>
+</section>
+
+<!-- ===== 统计数据 ===== -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item fade-in">
+      <div class="stat-number"><span data-count="500">0</span><span class="stat-unit">+</span></div>
+      <div class="stat-label">成功交付项目</div>
+    </div>
+    <div class="stat-item fade-in fade-in-delay-1">
+      <div class="stat-number"><span data-count="15">0</span><span class="stat-unit">+</span></div>
+      <div class="stat-label">覆盖行业领域</div>
+    </div>
+    <div class="stat-item fade-in fade-in-delay-2">
+      <div class="stat-number"><span data-count="200">0</span><span class="stat-unit">+</span></div>
+      <div class="stat-label">合作客户企业</div>
+    </div>
+    <div class="stat-item fade-in fade-in-delay-3">
+      <div class="stat-number"><span data-count="7">0</span><span class="stat-unit">×24</span></div>
+      <div class="stat-label">全天候技术支持</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 关于我们 ===== -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-in">
+        <img src="assets/images/page2.jpg" alt="盛鑫泽科技 - 防爆分析小屋" class="about-img">
+        <div class="about-badge">
+          <div class="about-badge-num">5+</div>
+          <div class="about-badge-text">年深耕行业</div>
+        </div>
+      </div>
+      <div class="fade-in fade-in-delay-1">
+        <div class="section-tag">ABOUT US</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:20px;">引领工业安全与<br>智能化分析新纪元</h2>
+        <p style="color:var(--text-gray);line-height:1.9;margin-bottom:24px;font-size:15px;">
+          山东盛鑫泽科技发展有限公司是一家专注于工业过程在线分析领域，集研发、设计、生产、集成、销售与服务于一体的高科技技术企业。公司深耕于防爆分析小屋、样品预处理系统、系统集成及在线分析仪器等核心业务，致力于为石油、化工、天然气、制药、环保等高风险、高要求行业提供安全、可靠、智能的一站式在线分析解决方案。
+        </p>
+        <div class="about-features">
+          <div class="about-feature"><div class="about-feature-icon">🛡️</div><div class="about-feature-title">防爆安全保障</div><div class="about-feature-desc">严格遵循国际防爆标准，全系产品通过防爆认证</div></div>
+          <div class="about-feature"><div class="about-feature-icon">⚙️</div><div class="about-feature-title">定制化设计</div><div class="about-feature-desc">深入分析工况需求，提供量身定制的解决方案</div></div>
+          <div class="about-feature"><div class="about-feature-icon">🔬</div><div class="about-feature-title">技术研发实力</div><div class="about-feature-desc">自主研发核心技术，持续迭代产品性能</div></div>
+          <div class="about-feature"><div class="about-feature-icon">🤝</div><div class="about-feature-title">全程技术服务</div><div class="about-feature-desc">售前方案设计到售后运维，全生命周期服务</div></div>
+        </div>
+        <div style="margin-top:32px;"><a href="about.html" class="btn btn-outline">了解更多 →</a></div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <nav class="navbar">
-      <a href="index.html" class="logo">
-        <div class="logo-icon">盛</div>
-        <div class="logo-text">
-          <span class="cn">山东盛鑫泽科技</span>
-          <span class="en">Shandong Shengxinze Technology</span>
+<!-- ===== 产品中心预览 ===== -->
+<section class="section" style="background:var(--bg-card);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">PRODUCTS</div>
+      <h2 class="section-title">核心产品体系</h2>
+      <p class="section-subtitle">覆盖在线分析仪器、样品预处理、防爆分析小屋、系统集成四大产品线，为工业过程分析提供完整解决方案</p>
+    </div>
+    <div class="grid-3">
+      <div class="product-card fade-in">
+        <img src="assets/images/products/gc8080.jpg" alt="防爆工业在线色谱分析仪" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">在线分析仪器</div>
+          <h3 class="product-card-title">防爆工业在线色谱分析仪 GC-8080Plus</h3>
+          <p class="product-card-desc">专为石油化工、煤化工等高危场所设计，检测限低至0.07ppm，支持FPD/TCD/FID多种检测器，EPC精密控压，满足痕量分析需求。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-green">防爆认证</span>
+            <a href="product-detail.html?id=gc8080" class="product-card-link">查看详情 →</a>
+          </div>
         </div>
-      </a>
-      <div class="nav-menu" id="navMenu">
-        <a href="#home" class="active">首页</a>
-        <a href="#about">关于我们</a>
-        <a href="#products">产品中心</a>
-        <a href="#solutions">解决方案</a>
-        <a href="cases.html" target="_blank">行业案例</a>
-        <a href="#whyus">企业优势</a>
-        <a href="#news">新闻资讯</a>
-        <a href="#contact">联系我们</a>
       </div>
-      <div class="nav-hotline">
-        <i class="fas fa-headset"></i>
-        400-178-7667
+      <div class="product-card fade-in fade-in-delay-1">
+        <img src="assets/images/products/analysis_cabin.jpg" alt="防爆分析小屋" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">防爆分析小屋</div>
+          <h3 class="product-card-title">防爆正压分析小屋系统</h3>
+          <p class="product-card-desc">采用型钢框架结构，外墙及屋顶π型板拼装，底座工字梁槽道型。配备联锁报警系统及HVAC正压通风温控系统，满足Ex d px IIC T4 Gb防爆要求。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-blue">定制设计</span>
+            <a href="product-detail.html?id=cabin" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
       </div>
-      <div class="hamburger" id="hamburger" onclick="openMobileMenu()">
-        <span></span><span></span><span></span>
+      <div class="product-card fade-in fade-in-delay-2">
+        <img src="assets/images/products/pretreatment.jpg" alt="样品预处理系统" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">样品预处理系统</div>
+          <h3 class="product-card-title">工业在线样品预处理系统</h3>
+          <p class="product-card-desc">针对高温高压、高含水、高含尘、有毒腐蚀等9大类苛刻工况，提供全系列定制化预处理方案，确保样品代表性和分析仪器安全。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-orange">9大类型</span>
+            <a href="product-detail.html?id=pretreatment" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
       </div>
-    </nav>
-  </header>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="fade-in">
+      <a href="products.html" class="btn btn-outline">查看全部产品 →</a>
+    </div>
+  </div>
+</section>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu" onclick="closeMobileMenuOutside(event)">
-    <div class="mobile-menu-panel">
-      <div class="mobile-menu-close">
-        <button onclick="closeMobileMenu()"><i class="fas fa-times"></i></button>
+<!-- ===== 服务流程 ===== -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">SERVICE PROCESS</div>
+      <h2 class="section-title">专业服务全流程</h2>
+      <p class="section-subtitle">从需求分析到售后维护，盛鑫泽提供一站式交钥匙工程服务</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-item fade-in"><div class="process-num">01</div><div class="process-title">需求分析</div><p class="process-desc">深入了解工况条件，明确测量目标，制定技术规格书</p></div>
+      <div class="process-item fade-in fade-in-delay-1"><div class="process-num">02</div><div class="process-title">方案设计</div><p class="process-desc">定制化系统设计，提供P&amp;ID图纸及设备选型清单</p></div>
+      <div class="process-item fade-in fade-in-delay-2"><div class="process-num">03</div><div class="process-title">生产集成</div><p class="process-desc">工厂制造、系统集成、FAT出厂验收测试</p></div>
+      <div class="process-item fade-in fade-in-delay-3"><div class="process-num">04</div><div class="process-title">现场服务</div><p class="process-desc">现场安装调试、SAT验收、人员培训及长期售后支持</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 行业案例预览 ===== -->
+<section class="section" style="background:var(--bg-card);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">CASES</div>
+      <h2 class="section-title">典型行业案例</h2>
+      <p class="section-subtitle">覆盖炼油、石化、天然气、环保、钢铁等多个行业的成功实施案例</p>
+    </div>
+    <div class="grid-3">
+      <div class="case-card fade-in">
+        <img src="assets/images/page5.jpg" alt="炼油行业案例" class="case-card-img">
+        <div class="case-card-body">
+          <div class="case-card-industry">炼油行业</div>
+          <h3 class="case-card-title">催化裂化装置烟气在线分析系统</h3>
+          <p class="case-card-desc">为某大型炼化企业催化裂化装置提供烟气CO/CO₂/O₂在线分析系统，实现燃烧过程精准控制，降低能耗15%以上。</p>
+        </div>
       </div>
-      <nav class="mobile-nav">
-        <a href="#home" onclick="closeMobileMenu()">首页</a>
-        <a href="#about" onclick="closeMobileMenu()">关于我们</a>
-        <a href="#products" onclick="closeMobileMenu()">产品中心</a>
-        <a href="#solutions" onclick="closeMobileMenu()">解决方案</a>
-        <a href="cases.html" target="_blank">行业案例</a>
-        <a href="#whyus" onclick="closeMobileMenu()">企业优势</a>
-        <a href="#news" onclick="closeMobileMenu()">新闻资讯</a>
-        <a href="#contact" onclick="closeMobileMenu()">联系我们</a>
-        <a href="tel:4001787667" style="color:var(--accent);font-weight:700;margin-top:8px;">
-          <i class="fas fa-phone-alt"></i> 400-178-7667
+      <div class="case-card fade-in fade-in-delay-1">
+        <img src="assets/images/page5.jpg" alt="天然气行业案例" class="case-card-img">
+        <div class="case-card-body">
+          <div class="case-card-industry">天然气行业</div>
+          <h3 class="case-card-title">变换气总硫在线分析系统</h3>
+          <p class="case-card-desc">基于GC-8080Plus色谱仪，针对4.3MPa高压变换气工况，实现0.07ppm痕量总硫在线监测，全流路SilcoTek惰化处理。</p>
+        </div>
+      </div>
+      <div class="case-card fade-in fade-in-delay-2">
+        <img src="assets/images/page6.jpg" alt="环保行业案例" class="case-card-img">
+        <div class="case-card-body">
+          <div class="case-card-industry">环保行业</div>
+          <h3 class="case-card-title">垃圾焚烧烟气排放连续监测系统</h3>
+          <p class="case-card-desc">为垃圾焚烧发电厂提供CEMS烟气排放连续监测系统，实时监测SO₂/NO/NO₂/颗粒物/CO/HCl等多组分，满足环保合规要求。</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="fade-in">
+      <a href="cases.html" class="btn btn-outline">查看全部案例 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 公司资质 ===== -->
+<section class="section certs-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">CERTIFICATIONS</div>
+      <h2 class="section-title">权威资质认证</h2>
+      <p class="section-subtitle">多项国家级权威认证，是产品品质与技术实力的有力证明</p>
+    </div>
+    <div class="certs-slider-wrap fade-in">
+      <div class="certs-slider" id="certsSlider">
+        <div class="cert-slide-item"><div class="cert-card"><img src="assets/images/page2.jpg" alt="质量管理体系认证" class="cert-card-img"><div class="cert-card-name">ISO 9001 质量管理体系认证</div></div></div>
+        <div class="cert-slide-item"><div class="cert-card"><img src="assets/images/page2.jpg" alt="环境管理体系认证" class="cert-card-img"><div class="cert-card-name">ISO 14001 环境管理体系认证</div></div></div>
+        <div class="cert-slide-item"><div class="cert-card"><img src="assets/images/page2.jpg" alt="职业健康安全认证" class="cert-card-img"><div class="cert-card-name">ISO 45001 职业健康安全管理体系</div></div></div>
+        <div class="cert-slide-item"><div class="cert-card"><img src="assets/images/page2.jpg" alt="防爆合格证" class="cert-card-img"><div class="cert-card-name">防爆合格证书</div></div></div>
+        <div class="cert-slide-item"><div class="cert-card"><img src="assets/images/page2.jpg" alt="计量器具型式批准证书" class="cert-card-img"><div class="cert-card-name">计量器具型式批准证书</div></div></div>
+        <div class="cert-slide-item"><div class="cert-card"><img src="assets/images/page2.jpg" alt="AAA级信用认证" class="cert-card-img"><div class="cert-card-name">AAA级企业信用认证</div></div></div>
+      </div>
+    </div>
+    <div class="certs-nav">
+      <button class="certs-nav-btn" id="certsPrev">&#8592;</button>
+      <button class="certs-nav-btn" id="certsNext">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-logo" style="display:inline-flex;">
+          <div class="logo-icon">鑫</div>
+          <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
         </a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- HERO BANNER -->
-  <section class="hero" id="home">
-    <div class="hero-slides" id="heroSlides">
-      <!-- Slide 1 -->
-      <div class="hero-slide active">
-        <div class="hero-slide-bg-fallback" style="background: linear-gradient(135deg, #061525 0%, #0a3d7c 55%, #0d5fa8 100%);"></div>
-        <div class="hero-content">
-          <div class="hero-text">
-            <div class="hero-tag">工业过程在线分析专家</div>
-            <h1>防爆分析小屋<br /><span>安全·可靠·智能</span></h1>
-            <p>专为石油、化工、天然气等高危行业设计，满足ATEX/IECEx防爆认证标准，提供全方位在线分析解决方案。</p>
-            <div class="hero-btns">
-              <a href="#products" class="btn btn-primary"><i class="fas fa-th-large"></i> 查看产品</a>
-              <a href="#contact" class="btn btn-outline"><i class="fas fa-headset"></i> 联系我们</a>
-            </div>
-          </div>
+        <p class="footer-desc">专注于工业过程在线分析领域，集研发、设计、生产、集成、销售与服务于一体，为高风险行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
+        <div class="footer-qrcode">
+          <img src="images/qrcode_wechat.png" alt="微信公众号" style="width:100px;height:100px;border-radius:8px;border:1px solid var(--border-subtle);background:var(--bg-card2);">
+          <div class="footer-qrcode-label">微信公众号</div>
         </div>
       </div>
-      <!-- Slide 2 -->
-      <div class="hero-slide">
-        <div class="hero-slide-bg-fallback" style="background: linear-gradient(135deg, #071a30 0%, #0a4a6e 55%, #0099d8 100%);"></div>
-        <div class="hero-content">
-          <div class="hero-text">
-            <div class="hero-tag">样品预处理系统</div>
-            <h1>精准预处理<br /><span>保障分析准确性</span></h1>
-            <p>高效去除样品中的干扰成分，确保在线分析仪器获得准确、稳定的测量结果，延长仪器使用寿命。</p>
-            <div class="hero-btns">
-              <a href="#products" class="btn btn-primary"><i class="fas fa-th-large"></i> 了解更多</a>
-              <a href="cases.html" target="_blank" class="btn btn-outline"><i class="fas fa-folder-open"></i> 行业案例</a>
-            </div>
-          </div>
+      <div>
+        <div class="footer-col-title">快速导航</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">首页</a>
+          <a href="products.html" class="footer-link">产品中心</a>
+          <a href="solutions.html" class="footer-link">解决方案</a>
+          <a href="cases.html" class="footer-link">行业案例</a>
+          <a href="about.html" class="footer-link">关于我们</a>
+          <a href="contact.html" class="footer-link">在线留言</a>
         </div>
       </div>
-      <!-- Slide 3 -->
-      <div class="hero-slide">
-        <div class="hero-slide-bg-fallback" style="background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 55%, #0a3d7c 100%);"></div>
-        <div class="hero-content">
-          <div class="hero-text">
-            <div class="hero-tag">一站式在线分析解决方案</div>
-            <h1>系统集成服务<br /><span>从设计到交付</span></h1>
-            <p>提供从需求分析、系统设计、设备选型、安装调试到售后维护的全流程一站式服务，助力工业智能化升级。</p>
-            <div class="hero-btns">
-              <a href="#solutions" class="btn btn-primary"><i class="fas fa-cogs"></i> 解决方案</a>
-              <a href="#contact" class="btn btn-outline"><i class="fas fa-phone-alt"></i> 400-178-7667</a>
-            </div>
-          </div>
+      <div>
+        <div class="footer-col-title">产品导航</div>
+        <div class="footer-links">
+          <a href="products.html#analyzer" class="footer-link">在线分析仪器</a>
+          <a href="products.html#cabin" class="footer-link">防爆分析小屋</a>
+          <a href="products.html#pretreatment" class="footer-link">样品预处理系统</a>
+          <a href="products.html#integration" class="footer-link">系统集成</a>
+          <a href="products.html#gc" class="footer-link">在线色谱仪</a>
+          <a href="products.html#laser" class="footer-link">激光光谱分析仪</a>
         </div>
       </div>
-    </div>
-    <div class="hero-arrow prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></div>
-    <div class="hero-arrow next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></div>
-    <div class="hero-indicators" id="heroIndicators">
-      <div class="hero-dot active" onclick="goToSlide(0)"></div>
-      <div class="hero-dot" onclick="goToSlide(1)"></div>
-      <div class="hero-dot" onclick="goToSlide(2)"></div>
-    </div>
-  </section>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-num">500<span>+</span></div>
-          <div class="stat-label">成功案例</div>
+      <div>
+        <div class="footer-col-title">联系我们</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">服务热线</div><a href="tel:4001787667" class="footer-contact-value highlight">400-178-7667</a></div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">15<span>+</span></div>
-          <div class="stat-label">服务行业</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">电子邮箱</div><div class="footer-contact-value">sd_sxzkj@163.com</div></div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">200<span>+</span></div>
-          <div class="stat-label">合作客户</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">公司地址</div><div class="footer-contact-value">山东省济南市市中区二环西路5201号</div></div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">5<span>年+</span></div>
-          <div class="stat-label">行业经验</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">工作时间</div><div class="footer-contact-value">周一至周六 8:30 - 17:30</div></div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- ABOUT SECTION -->
-  <section class="about-section" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-content">
-          <div class="subtitle">关于我们</div>
-          <h2>山东盛鑫泽科技发展有限公司</h2>
-          <p>山东盛鑫泽科技发展有限公司是一家专注于工业过程在线分析领域，集研发、设计、生产、集成、销售与服务于一体的高科技技术企业。</p>
-          <p>公司深耕于防爆分析小屋、样品预处理系统、系统集成及在线分析仪器等核心业务，致力于为石油、化工、天然气、制药、环保等高风险、高要求行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
-          <div class="about-features">
-            <div class="about-feature"><i class="fas fa-shield-alt"></i> 防爆安全认证</div>
-            <div class="about-feature"><i class="fas fa-flask"></i> 在线分析仪器</div>
-            <div class="about-feature"><i class="fas fa-cogs"></i> 系统集成服务</div>
-            <div class="about-feature"><i class="fas fa-tools"></i> 样品预处理</div>
-            <div class="about-feature"><i class="fas fa-home"></i> 防爆分析小屋</div>
-            <div class="about-feature"><i class="fas fa-headset"></i> 全程技术支持</div>
-          </div>
-        </div>
-        <div class="about-image">
-          <div class="about-image-fallback">
-            <i class="fas fa-industry"></i>
-            <span>工业在线分析系统</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS SECTION -->
-  <section class="products-section" id="products">
-    <div class="container">
-      <div class="section-title">
-        <h2>产品中心</h2>
-        <p>专业工业过程在线分析产品，覆盖防爆、预处理、分析仪器及系统集成全系列</p>
-      </div>
-      <div class="products-tabs">
-        <div class="products-tab active" onclick="filterProducts('all', this)">全部产品</div>
-        <div class="products-tab" onclick="filterProducts('cabin', this)">防爆分析小屋</div>
-        <div class="products-tab" onclick="filterProducts('pretreat', this)">样品预处理系统</div>
-        <div class="products-tab" onclick="filterProducts('analyzer', this)">在线分析仪器</div>
-        <div class="products-tab" onclick="filterProducts('integration', this)">系统集成</div>
-      </div>
-      <div class="products-grid" id="productsGrid">
-        <!-- Product 1 -->
-        <div class="product-card" data-cat="cabin">
-          <div class="product-card-img-fallback">
-            <i class="fas fa-house-damage"></i>
-            <span style="font-size:0.8rem;color:var(--gray)">防爆分析小屋</span>
-          </div>
-          <div class="product-card-body">
-            <span class="product-card-tag">防爆分析小屋</span>
-            <h3>标准型防爆分析小屋</h3>
-            <p>符合ATEX/IECEx防爆认证，适用于Zone 1/Zone 2爆炸危险区域，内置空调、照明、通讯等配套设施。</p>
-            <a href="#contact" class="product-card-link">了解详情 <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="product-card" data-cat="cabin">
-          <div class="product-card-img-fallback">
-            <i class="fas fa-box"></i>
-            <span style="font-size:0.8rem;color:var(--gray)">集装箱式小屋</span>
-          </div>
-          <div class="product-card-body">
-            <span class="product-card-tag">防爆分析小屋</span>
-            <h3>集装箱式防爆分析小屋</h3>
-            <p>采用标准集装箱改造，结构坚固，可快速部署，适合临时或移动式在线分析场景，防爆等级Ex d IIC。</p>
-            <a href="#contact" class="product-card-link">了解详情 <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="product-card" data-cat="pretreat">
-          <div class="product-card-img-fallback">
-            <i class="fas fa-filter"></i>
-            <span style="font-size:0.8rem;color:var(--gray)">样品预处理</span>
-          </div>
-          <div class="product-card-body">
-            <span class="product-card-tag">样品预处理系统</span>
-            <h3>气体样品预处理系统</h3>
-            <p>针对工业过程气体样品，提供过滤、脱水、调压、流量控制等全套预处理功能，确保分析仪器稳定运行。</p>
-            <a href="#contact" class="product-card-link">了解详情 <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="product-card" data-cat="pretreat">
-          <div class="product-card-img-fallback">
-            <i class="fas fa-tint"></i>
-            <span style="font-size:0.8rem;color:var(--gray)">液体预处理</span>
-          </div>
-          <div class="product-card-body">
-            <span class="product-card-tag">样品预处理系统</span>
-            <h3>液体样品预处理系统</h3>
-            <p>适用于液态样品的过滤、稀释、调温、pH调节等预处理操作，保障液体分析仪器的精准测量。</p>
-            <a href="#contact" class="product-card-link">了解详情 <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Product 5 -->
-        <div class="product-card" data-cat="analyzer">
-          <div class="product-card-img-fallback">
-            <i class="fas fa-microscope"></i>
-            <span style="font-size:0.8rem;color:var(--gray)">在线分析仪</span>
-          </div>
-          <div class="product-card-body">
-            <span class="product-card-tag">在线分析仪器</span>
-            <h3>激光气体分析仪</h3>
-            <p>基于TDLAS激光吸收光谱技术，可实时监测H₂S、NH₃、HF等多种工业气体浓度，响应速度快，精度高。</p>
-            <a href="#contact" class="product-card-link">了解详情 <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Product 6 -->
-        <div class="product-card" data-cat="integration">
-          <div class="product-card-img-fallback">
-            <i class="fas fa-network-wired"></i>
-            <span style="font-size:0.8rem;color:var(--gray)">系统集成</span>
-          </div>
-          <div class="product-card-body">
-            <span class="product-card-tag">系统集成</span>
-            <h3>在线分析系统集成</h3>
-            <p>提供从仪器选型、系统设计、安装调试到数据联网的全流程集成服务，支持DCS/SCADA系统对接。</p>
-            <a href="#contact" class="product-card-link">了解详情 <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUTIONS SECTION -->
-  <section class="solutions-section" id="solutions">
-    <div class="container">
-      <div class="section-title">
-        <h2>解决方案</h2>
-        <p>针对不同行业特点，提供定制化在线分析整体解决方案</p>
-      </div>
-      <div class="solutions-grid">
-        <div class="solution-card">
-          <div class="solution-icon"><i class="fas fa-oil-can"></i></div>
-          <h3>石油化工行业</h3>
-          <p>针对炼油、化工生产过程中的有毒有害气体、VOCs等进行实时在线监测，保障生产安全与合规排放。</p>
-          <div class="solution-tags">
-            <span class="solution-tag">防爆分析小屋</span>
-            <span class="solution-tag">VOCs监测</span>
-            <span class="solution-tag">H₂S检测</span>
-          </div>
-        </div>
-        <div class="solution-card">
-          <div class="solution-icon"><i class="fas fa-fire"></i></div>
-          <h3>天然气行业</h3>
-          <p>为天然气开采、输送、储存环节提供防爆型在线分析系统，实现甲烷、硫化氢等关键组分的连续监测。</p>
-          <div class="solution-tags">
-            <span class="solution-tag">甲烷检测</span>
-            <span class="solution-tag">防爆系统</span>
-            <span class="solution-tag">管道监测</span>
-          </div>
-        </div>
-        <div class="solution-card">
-          <div class="solution-icon"><i class="fas fa-pills"></i></div>
-          <h3>制药行业</h3>
-          <p>满足GMP规范要求，提供洁净室环境监测、工艺气体纯度分析及VOCs在线检测系统，确保药品生产质量。</p>
-          <div class="solution-tags">
-            <span class="solution-tag">GMP合规</span>
-            <span class="solution-tag">纯度分析</span>
-            <span class="solution-tag">环境监测</span>
-          </div>
-        </div>
-        <div class="solution-card">
-          <div class="solution-icon"><i class="fas fa-leaf"></i></div>
-          <h3>环保监测行业</h3>
-          <p>提供烟气在线监测（CEMS）、废水水质在线监测、环境空气质量监测等整体解决方案，助力企业绿色发展。</p>
-          <div class="solution-tags">
-            <span class="solution-tag">CEMS系统</span>
-            <span class="solution-tag">水质监测</span>
-            <span class="solution-tag">空气质量</span>
-          </div>
-        </div>
-        <div class="solution-card">
-          <div class="solution-icon"><i class="fas fa-industry"></i></div>
-          <h3>冶金建材行业</h3>
-          <p>针对钢铁、水泥、玻璃等高温高尘工况，提供耐高温、抗腐蚀的烟气分析系统及配套防爆分析小屋。</p>
-          <div class="solution-tags">
-            <span class="solution-tag">高温工况</span>
-            <span class="solution-tag">烟气分析</span>
-            <span class="solution-tag">防腐设计</span>
-          </div>
-        </div>
-        <div class="solution-card">
-          <div class="solution-icon"><i class="fas fa-bolt"></i></div>
-          <h3>电力能源行业</h3>
-          <p>为火电、核电等电力企业提供烟气脱硫脱硝在线监测、氢气纯度分析及SF₆气体检测等专业解决方案。</p>
-          <div class="solution-tags">
-            <span class="solution-tag">脱硫脱硝</span>
-            <span class="solution-tag">氢气分析</span>
-            <span class="solution-tag">SF₆检测</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US SECTION -->
-  <section class="whyus-section" id="whyus">
-    <div class="container">
-      <div class="section-title">
-        <h2>企业优势</h2>
-        <p>专注工业过程在线分析领域，以技术实力和服务品质赢得客户信赖</p>
-      </div>
-      <div class="whyus-grid">
-        <div class="whyus-card">
-          <div class="whyus-icon"><i class="fas fa-shield-alt"></i></div>
-          <h3>防爆安全保障</h3>
-          <p>所有产品严格按照国家及国际防爆标准设计制造，通过权威机构防爆认证，确保危险区域安全使用。</p>
-        </div>
-        <div class="whyus-card">
-          <div class="whyus-icon"><i class="fas fa-drafting-compass"></i></div>
-          <h3>定制化设计</h3>
-          <p>根据客户现场工况、工艺需求及安装条件，提供个性化定制设计服务，确保系统最优适配。</p>
-        </div>
-        <div class="whyus-card">
-          <div class="whyus-icon"><i class="fas fa-tools"></i></div>
-          <h3>全程技术服务</h3>
-          <p>从项目立项到竣工验收，提供全程技术支持；售后提供定期维护、远程诊断及快速响应服务。</p>
-        </div>
-        <div class="whyus-card">
-          <div class="whyus-icon"><i class="fas fa-certificate"></i></div>
-          <h3>资质认证齐全</h3>
-          <p>持有ISO质量管理体系认证及多项产品专利，技术实力雄厚，品质值得信赖。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWS SECTION -->
-  <section class="news-section" id="news">
-    <div class="container">
-      <div class="section-title">
-        <h2>新闻资讯</h2>
-        <p>行业动态、技术前沿与公司新闻，持续关注在线分析领域最新进展</p>
-      </div>
-      <div class="news-grid">
-        <div class="news-featured">
-          <div class="news-featured-img-fallback"><i class="fas fa-newspaper"></i></div>
-          <div class="news-featured-body">
-            <div class="news-date"><i class="far fa-calendar-alt"></i> 2023-07-04</div>
-            <h3>生态环境部给出时间表，CCER重启加速！</h3>
-            <p>生态环境部近日发布相关通知，明确了中国核证自愿减排量（CCER）市场重启的时间节点，这将对在线分析仪器及监测系统市场带来新的发展机遇...</p>
-          </div>
-        </div>
-        <div class="news-list">
-          <div class="news-item">
-            <div class="news-item-date">
-              <div class="day">03</div>
-              <div class="month">2023-07</div>
-            </div>
-            <div class="news-item-content">
-              <h4>钢铁行业纳入全国碳市场专项研究第二次工作会议顺利召开</h4>
-              <p>推动钢铁行业碳排放精准监测，在线分析系统需求持续增长。</p>
-            </div>
-          </div>
-          <div class="news-item">
-            <div class="news-item-date">
-              <div class="day">29</div>
-              <div class="month">2023-06</div>
-            </div>
-            <div class="news-item-content">
-              <h4>高端仪器仪表国产化博弈看4点，技术还不是关键</h4>
-              <p>国产在线分析仪器迎来重要发展机遇，市场替代进程加速推进。</p>
-            </div>
-          </div>
-          <div class="news-item">
-            <div class="news-item-date">
-              <div class="day">28</div>
-              <div class="month">2023-06</div>
-            </div>
-            <div class="news-item-content">
-              <h4>关注生产安全，生态环境部召开部系统安全隐患排查整治工作视频会议</h4>
-              <p>强化危险化学品企业安全监测，防爆在线分析系统需求提升。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>联系我们</h2>
-        <p>欢迎咨询，我们的专业团队将为您提供最优质的服务</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>山东盛鑫泽科技发展有限公司</h3>
-          <p class="sub">工业过程在线分析领域专业服务商</p>
-          <div class="contact-items">
-            <div class="contact-item">
-              <div class="contact-item-icon"><i class="fas fa-headset"></i></div>
-              <div class="contact-item-text">
-                <div class="label">服务热线</div>
-                <div class="value">400-178-7667</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="contact-item-text">
-                <div class="label">公司地址</div>
-                <div class="value">山东省济南市市中区二环西路5201号</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-              <div class="contact-item-text">
-                <div class="label">邮箱地址</div>
-                <div class="value">sd_sxzkj@163.com</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
-              <div class="contact-item-text">
-                <div class="label">服务时间</div>
-                <div class="value">周一至周六 08:30 - 18:00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="contact-form-wrap">
-          <h3><i class="fas fa-paper-plane" style="color:var(--accent);margin-right:8px;"></i>在线留言</h3>
-          <form onsubmit="submitForm(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label>您的姓名 *</label>
-                <input type="text" placeholder="请输入姓名" required />
-              </div>
-              <div class="form-group">
-                <label>联系电话 *</label>
-                <input type="tel" placeholder="请输入手机号" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label>公司名称</label>
-              <input type="text" placeholder="请输入公司名称" />
-            </div>
-            <div class="form-group">
-              <label>咨询产品</label>
-              <select>
-                <option value="">请选择产品类型</option>
-                <option>防爆分析小屋</option>
-                <option>样品预处理系统</option>
-                <option>在线分析仪器</option>
-                <option>系统集成服务</option>
-                <option>其他</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>留言内容</label>
-              <textarea placeholder="请描述您的需求或问题..."></textarea>
-            </div>
-            <button type="submit" class="form-submit">
-              <i class="fas fa-paper-plane"></i> 提交留言
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- QR CODE SECTION -->
-  <div class="qr-section">
-    <div class="container">
-      <div class="qr-inner">
-        <div class="qr-box">
-          <div class="qr-img-wrap">
-            <!-- 请替换为实际公众号二维码图片 -->
-            <img src="images/qrcode_wechat.png" alt="微信公众号二维码" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div class="qr-img-placeholder" style="display:none;">
-              <i class="fab fa-weixin"></i>
-              <span>公众号二维码</span>
-            </div>
-          </div>
-          <div class="qr-label">扫码关注微信公众号</div>
-        </div>
-        <div class="qr-divider"></div>
-        <div class="qr-text">
-          <h4>关注盛鑫泽科技公众号</h4>
-          <p>获取最新产品资讯、行业动态及技术干货</p>
-          <p style="margin-top:6px;color:var(--accent);font-weight:600;">服务热线：400-178-7667</p>
-        </div>
-      </div>
+  <div class="divider"></div>
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 山东盛鑫泽科技发展有限公司 版权所有</div>
+      <div class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备XXXXXXXX号</a></div>
     </div>
   </div>
+</footer>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="logo">
-            <div class="logo-icon">盛</div>
-            <div class="logo-text">
-              <span class="cn">山东盛鑫泽科技</span>
-              <span class="en">Shandong Shengxinze Technology</span>
-            </div>
-          </div>
-          <p>专注于工业过程在线分析领域，集研发、设计、生产、集成、销售与服务于一体的高科技技术企业。致力于为高风险、高要求行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
-        </div>
-        <div class="footer-col">
-          <h4>快速导航</h4>
-          <ul>
-            <li><a href="#home">网站首页</a></li>
-            <li><a href="#about">关于我们</a></li>
-            <li><a href="#products">产品中心</a></li>
-            <li><a href="#solutions">解决方案</a></li>
-            <li><a href="cases.html" target="_blank">行业案例</a></li>
-            <li><a href="#news">新闻资讯</a></li>
-            <li><a href="#contact">联系我们</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>产品系列</h4>
-          <ul>
-            <li><a href="#products">防爆分析小屋</a></li>
-            <li><a href="#products">样品预处理系统</a></li>
-            <li><a href="#products">在线分析仪器</a></li>
-            <li><a href="#products">系统集成服务</a></li>
-            <li><a href="#solutions">行业解决方案</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>联系方式</h4>
-          <div class="footer-contact-item">
-            <i class="fas fa-headset"></i>
-            <span>服务热线：400-178-7667</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>山东省济南市市中区二环西路5201号</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>sd_sxzkj@163.com</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-clock"></i>
-            <span>周一至周六 08:30-18:00</span>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>Copyright © 2024 山东盛鑫泽科技发展有限公司 版权所有</span>
-        <span>
-          <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023008057号-1</a>
-        </span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- FLOATING SIDEBAR -->
-  <div class="float-sidebar">
-    <div class="float-btn">
-      <i class="fas fa-headset"></i>
-      <span>热线</span>
-      <div class="float-tooltip">400-178-7667</div>
-    </div>
-    <div class="float-btn">
-      <i class="fab fa-weixin"></i>
-      <span>微信</span>
-      <div class="float-qr-popup">
-        <img src="images/qrcode_wechat.png" alt="公众号二维码" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-        <div class="qr-placeholder" style="display:none;">
-          <i class="fab fa-weixin"></i>
-          <span style="font-size:0.7rem;">公众号二维码</span>
-        </div>
-        <p>扫码关注公众号</p>
-      </div>
-    </div>
-    <div class="float-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-      <i class="fas fa-comment-dots"></i>
-      <span>留言</span>
-      <div class="float-tooltip">在线留言</div>
-    </div>
-  </div>
-
-  <!-- BACK TO TOP -->
-  <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <i class="fas fa-chevron-up"></i>
-  </div>
-
-  <script>
-    // ===== HERO SLIDER =====
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    let autoSlideTimer;
-
-    function goToSlide(n) {
-      slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
-      currentSlide = (n + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-    }
-    function nextSlide() { goToSlide(currentSlide + 1); resetAutoSlide(); }
-    function prevSlide() { goToSlide(currentSlide - 1); resetAutoSlide(); }
-    function resetAutoSlide() {
-      clearInterval(autoSlideTimer);
-      autoSlideTimer = setInterval(() => nextSlide(), 5000);
-    }
-    autoSlideTimer = setInterval(() => nextSlide(), 5000);
-
-    // ===== PRODUCT FILTER =====
-    function filterProducts(cat, el) {
-      document.querySelectorAll('.products-tab').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-      document.querySelectorAll('.product-card').forEach(card => {
-        if (cat === 'all' || card.dataset.cat === cat) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // ===== BACK TO TOP =====
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    });
-
-    // ===== ACTIVE NAV =====
-    const sections = document.querySelectorAll('section[id], div[id="home"]');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-      });
-    });
-
-    // ===== MOBILE MENU =====
-    function openMobileMenu() {
-      document.getElementById('mobileMenu').classList.add('open');
-    }
-    function closeMobileMenu() {
-      document.getElementById('mobileMenu').classList.remove('open');
-    }
-    function closeMobileMenuOutside(e) {
-      if (e.target === document.getElementById('mobileMenu')) closeMobileMenu();
-    }
-
-    // ===== FORM SUBMIT =====
-    function submitForm(e) {
-      e.preventDefault();
-      alert('感谢您的留言！我们将尽快与您联系。\n服务热线：400-178-7667');
-      e.target.reset();
-    }
-
-    // ===== SCROLL ANIMATION =====
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.product-card, .solution-card, .whyus-card, .news-item, .contact-item').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
-    });
-  </script>
+<script src="assets/js/common.js"></script>
+<script>
+(function(){
+  const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot');
+  let cur=0,timer;
+  function go(n){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');dots[cur].classList.add('active');}
+  function auto(){timer=setInterval(()=>go(cur+1),5000);}
+  function reset(){clearInterval(timer);auto();}
+  document.getElementById('heroNext').addEventListener('click',()=>{go(cur+1);reset();});
+  document.getElementById('heroPrev').addEventListener('click',()=>{go(cur-1);reset();});
+  dots.forEach(d=>d.addEventListener('click',()=>{go(parseInt(d.dataset.index));reset();}));
+  auto();
+})();
+(function(){
+  const slider=document.getElementById('certsSlider');
+  if(!slider)return;
+  let pos=0;
+  function getItemW(){return slider.children[0]?slider.children[0].offsetWidth+20:200;}
+  const max=slider.children.length-5;
+  document.getElementById('certsNext').addEventListener('click',()=>{if(pos<max){pos++;slider.style.transform=`translateX(-${pos*getItemW()}px)`;}});
+  document.getElementById('certsPrev').addEventListener('click',()=>{if(pos>0){pos--;slider.style.transform=`translateX(-${pos*getItemW()}px)`;}});
+})();
+</script>
 </body>
 </html>

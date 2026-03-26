@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解决方案 - 山东盛鑫泽科技发展有限公司</title>
+  <meta name="description" content="盛鑫泽科技为炼油、石化、天然气、化工、电力、环保、钢铁冶金、半导体、水泥等9大行业提供工业过程在线分析解决方案。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .solutions-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .solution-item { display:none; }
+    .solution-item.show { display:flex; }
+    .solution-card {
+      background:var(--bg-card); border:1px solid var(--border-subtle);
+      border-radius:var(--radius-lg); overflow:hidden;
+      transition:var(--transition); flex-direction:column; width:100%;
+      cursor:pointer;
+    }
+    .solution-card:hover { border-color:var(--border); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+    .solution-card-img { width:100%; height:200px; object-fit:cover; }
+    .solution-card-body { padding:24px; flex:1; }
+    .solution-card-industry {
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:11px; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; color:var(--primary); margin-bottom:12px;
+    }
+    .solution-card-title { font-size:18px; font-weight:700; color:var(--text-white); margin-bottom:12px; line-height:1.4; }
+    .solution-card-desc { font-size:13px; color:var(--text-gray); line-height:1.8; margin-bottom:16px; }
+    .solution-card-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+    .solution-card-tag { background:var(--bg-card2); border:1px solid var(--border-subtle); border-radius:20px; padding:4px 10px; font-size:11px; color:var(--text-gray); }
+    .solution-card-link { font-size:13px; color:var(--primary); font-weight:600; }
+    .solution-card-link:hover { text-decoration:underline; }
+
+    /* 弹窗 */
+    .solution-modal { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.8); backdrop-filter:blur(4px); overflow-y:auto; padding:40px 20px; }
+    .solution-modal.open { display:flex; align-items:flex-start; justify-content:center; }
+    .solution-modal-box {
+      background:var(--bg-card); border:1px solid var(--border-subtle);
+      border-radius:var(--radius-lg); max-width:800px; width:100%;
+      margin:auto; overflow:hidden; position:relative;
+    }
+    .solution-modal-img { width:100%; height:280px; object-fit:cover; }
+    .solution-modal-body { padding:40px; }
+    .solution-modal-close {
+      position:absolute; top:16px; right:16px;
+      width:36px; height:36px; border-radius:50%;
+      background:rgba(0,0,0,0.5); border:none;
+      color:#fff; font-size:18px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:var(--transition);
+    }
+    .solution-modal-close:hover { background:var(--primary); color:#000; }
+    .solution-modal-title { font-size:24px; font-weight:800; color:var(--text-white); margin-bottom:8px; }
+    .solution-modal-industry { font-size:12px; color:var(--primary); font-weight:600; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; }
+    .solution-modal-section { margin-bottom:24px; }
+    .solution-modal-section-title { font-size:15px; font-weight:700; color:var(--text-white); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-subtle); }
+    .solution-modal-list { list-style:none; }
+    .solution-modal-list li { display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--text-gray); line-height:1.7; margin-bottom:6px; }
+    .solution-modal-list li::before { content:'▸'; color:var(--primary); flex-shrink:0; margin-top:2px; }
+
+    @media(max-width:1024px){ .solutions-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:600px){ .solutions-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">鑫</div>
+      <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+    </a>
+    <div class="navbar-menu">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="products.html" class="nav-link">产品中心</a>
+      <a href="solutions.html" class="nav-link active">解决方案</a>
+      <a href="cases.html" class="nav-link">行业案例</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="contact.html" class="nav-link">在线留言</a>
+    </div>
+    <a href="tel:4001787667" class="navbar-hotline">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      400-178-7667
+    </a>
+    <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">首页</a>
+  <a href="products.html" class="mobile-nav-link">产品中心</a>
+  <a href="solutions.html" class="mobile-nav-link active">解决方案</a>
+  <a href="cases.html" class="mobile-nav-link">行业案例</a>
+  <a href="about.html" class="mobile-nav-link">关于我们</a>
+  <a href="contact.html" class="mobile-nav-link">在线留言</a>
+</div>
+
+<!-- 页面Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-breadcrumb">
+      <a href="index.html">首页</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>解决方案</span>
+    </div>
+    <div class="section-tag">SOLUTIONS</div>
+    <h1 class="page-hero-title">行业解决方案</h1>
+    <p class="page-hero-subtitle">深耕9大行业，提供针对性的工业过程在线分析整体解决方案，助力客户实现安全生产、节能降耗、提质增效</p>
+  </div>
+</div>
+
+<!-- 解决方案列表 -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="filter-tabs fade-in">
+      <button class="filter-tab active" data-filter="all">全部行业</button>
+      <button class="filter-tab" data-filter="petro">石油化工</button>
+      <button class="filter-tab" data-filter="gas">天然气</button>
+      <button class="filter-tab" data-filter="power">电力能源</button>
+      <button class="filter-tab" data-filter="env">环保监测</button>
+      <button class="filter-tab" data-filter="steel">钢铁冶金</button>
+      <button class="filter-tab" data-filter="other">其他行业</button>
+    </div>
+
+    <div class="solutions-grid" id="solutionsGrid">
+
+      <div class="solution-item show fade-in" data-cat="petro">
+        <div class="solution-card" onclick="openSolutionModal('refinery')">
+          <img src="assets/images/page5.jpg" alt="炼油行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">⛽ 炼油行业</div>
+            <h3 class="solution-card-title">炼油装置在线分析整体解决方案</h3>
+            <p class="solution-card-desc">针对常减压、催化裂化、加氢裂化、硫磺回收等炼油核心装置，提供全流程在线分析解决方案，实现工艺优化和安全监控。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">硫磺回收</span><span class="solution-card-tag">催化裂化</span><span class="solution-card-tag">加氢精制</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in fade-in-delay-1" data-cat="petro">
+        <div class="solution-card" onclick="openSolutionModal('petrochemical')">
+          <img src="assets/images/page5.jpg" alt="石化行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">🏭 石油化工</div>
+            <h3 class="solution-card-title">石化装置工艺气体在线分析方案</h3>
+            <p class="solution-card-desc">为乙烯、丙烯、苯乙烯等石化装置提供工艺气体组分在线分析，实现产品质量实时控制，提升装置运行效率。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">乙烯裂解</span><span class="solution-card-tag">芳烃联合</span><span class="solution-card-tag">聚合物装置</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in fade-in-delay-2" data-cat="gas">
+        <div class="solution-card" onclick="openSolutionModal('naturalgas')">
+          <img src="assets/images/page6.jpg" alt="天然气行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">💨 天然气行业</div>
+            <h3 class="solution-card-title">天然气处理与输配在线分析方案</h3>
+            <p class="solution-card-desc">覆盖天然气净化、液化、储运、门站等全链条，提供组分分析、热值计量、硫化物监测等完整在线分析解决方案。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">天然气净化</span><span class="solution-card-tag">LNG液化</span><span class="solution-card-tag">城市门站</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in" data-cat="petro">
+        <div class="solution-card" onclick="openSolutionModal('coalchem')">
+          <img src="assets/images/page5.jpg" alt="煤化工行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">⚗️ 煤化工行业</div>
+            <h3 class="solution-card-title">煤化工过程气体在线分析方案</h3>
+            <p class="solution-card-desc">针对煤气化、变换、甲醇合成、费托合成等煤化工核心工艺，提供高压、高温、高含水工况下的可靠在线分析解决方案。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">煤气化</span><span class="solution-card-tag">变换工艺</span><span class="solution-card-tag">甲醇合成</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in fade-in-delay-1" data-cat="power">
+        <div class="solution-card" onclick="openSolutionModal('power')">
+          <img src="assets/images/page6.jpg" alt="电力行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">⚡ 电力行业</div>
+            <h3 class="solution-card-title">电力行业烟气及过程分析方案</h3>
+            <p class="solution-card-desc">为燃煤电厂、燃气电厂、垃圾发电等提供锅炉燃烧优化、烟气排放监测（CEMS）、脱硫脱硝效率监测等完整解决方案。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">CEMS</span><span class="solution-card-tag">燃烧优化</span><span class="solution-card-tag">脱硫脱硝</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in fade-in-delay-2" data-cat="env">
+        <div class="solution-card" onclick="openSolutionModal('environment')">
+          <img src="assets/images/page6.jpg" alt="环保行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">🌿 环保监测</div>
+            <h3 class="solution-card-title">工业排放连续监测系统（CEMS）</h3>
+            <p class="solution-card-desc">符合HJ75、HJ76等国家标准，为各类工业排放源提供烟气排放连续监测系统，满足环保合规要求，支持数据上传至监管平台。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">烟气CEMS</span><span class="solution-card-tag">VOCs监测</span><span class="solution-card-tag">废水监测</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in" data-cat="steel">
+        <div class="solution-card" onclick="openSolutionModal('steel')">
+          <img src="assets/images/page5.jpg" alt="钢铁冶金" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">🔩 钢铁冶金</div>
+            <h3 class="solution-card-title">钢铁冶金过程气体在线分析方案</h3>
+            <p class="solution-card-desc">针对高炉、转炉、焦化、烧结等钢铁冶金工艺，提供高温、高含尘工况下的煤气组分在线分析，实现燃烧控制和能源管理。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">高炉煤气</span><span class="solution-card-tag">转炉煤气</span><span class="solution-card-tag">焦炉煤气</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in fade-in-delay-1" data-cat="other">
+        <div class="solution-card" onclick="openSolutionModal('semiconductor')">
+          <img src="assets/images/page6.jpg" alt="半导体行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">💻 半导体行业</div>
+            <h3 class="solution-card-title">半导体特种气体在线分析方案</h3>
+            <p class="solution-card-desc">针对半导体制造过程中的特种气体（H₂、N₂、Ar、SiH₄等）纯度监测和尾气处理，提供高精度、高洁净度的在线分析解决方案。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">特种气体</span><span class="solution-card-tag">纯度监测</span><span class="solution-card-tag">尾气处理</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-item show fade-in fade-in-delay-2" data-cat="other">
+        <div class="solution-card" onclick="openSolutionModal('cement')">
+          <img src="assets/images/page5.jpg" alt="水泥行业" class="solution-card-img">
+          <div class="solution-card-body">
+            <div class="solution-card-industry">🏗️ 水泥行业</div>
+            <h3 class="solution-card-title">水泥窑炉过程气体在线分析方案</h3>
+            <p class="solution-card-desc">基于激光光谱技术，实现水泥窑炉高温烟气中O₂/CO的原位在线测量，优化燃烧控制，降低燃料消耗，减少NOx排放。</p>
+            <div class="solution-card-tags"><span class="solution-card-tag">窑炉燃烧</span><span class="solution-card-tag">O₂/CO监测</span><span class="solution-card-tag">NOx减排</span></div>
+            <span class="solution-card-link">了解详情 →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 解决方案弹窗 -->
+<div class="solution-modal" id="solutionModal">
+  <div class="solution-modal-box">
+    <button class="solution-modal-close" onclick="closeSolutionModal()">✕</button>
+    <img src="" alt="" class="solution-modal-img" id="modalImg">
+    <div class="solution-modal-body">
+      <div class="solution-modal-industry" id="modalIndustry"></div>
+      <h2 class="solution-modal-title" id="modalTitle"></h2>
+      <div id="modalContent"></div>
+      <div style="margin-top:24px;display:flex;gap:12px;">
+        <a href="contact.html" class="btn btn-primary">获取方案 →</a>
+        <a href="cases.html" class="btn btn-outline">查看案例</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-logo" style="display:inline-flex;">
+          <div class="logo-icon">鑫</div>
+          <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+        </a>
+        <p class="footer-desc">专注于工业过程在线分析领域，为高风险行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
+      </div>
+      <div>
+        <div class="footer-col-title">快速导航</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">首页</a>
+          <a href="products.html" class="footer-link">产品中心</a>
+          <a href="solutions.html" class="footer-link">解决方案</a>
+          <a href="cases.html" class="footer-link">行业案例</a>
+          <a href="about.html" class="footer-link">关于我们</a>
+          <a href="contact.html" class="footer-link">在线留言</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">行业解决方案</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link" onclick="filterSolutions('petro')">石油化工</a>
+          <a href="#" class="footer-link" onclick="filterSolutions('gas')">天然气</a>
+          <a href="#" class="footer-link" onclick="filterSolutions('power')">电力能源</a>
+          <a href="#" class="footer-link" onclick="filterSolutions('env')">环保监测</a>
+          <a href="#" class="footer-link" onclick="filterSolutions('steel')">钢铁冶金</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">联系我们</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">服务热线</div><a href="tel:4001787667" class="footer-contact-value highlight">400-178-7667</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">公司地址</div><div class="footer-contact-value">山东省济南市市中区二环西路5201号</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 山东盛鑫泽科技发展有限公司 版权所有</div>
+      <div class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备XXXXXXXX号</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script>
+// 筛选
+const tabs = document.querySelectorAll('.filter-tab');
+const items = document.querySelectorAll('.solution-item');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    items.forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.classList.add('show');
+      } else {
+        item.classList.remove('show');
+      }
+    });
+  });
+});
+
+function filterSolutions(cat) {
+  const tab = document.querySelector(`[data-filter="${cat}"]`);
+  if (tab) { tab.click(); window.scrollTo({top:300,behavior:'smooth'}); }
+}
+
+// 弹窗数据
+const solutionDetails = {
+  refinery: {
+    industry: '⛽ 炼油行业',
+    title: '炼油装置在线分析整体解决方案',
+    img: 'assets/images/page5.jpg',
+    challenges: ['硫磺回收装置需要精确监测H₂S/SO₂比值，控制克劳斯反应效率','催化裂化烟气需实时监测CO/CO₂/O₂，优化再生器燃烧','加氢装置需监测循环氢纯度和硫化氢含量，保障催化剂活性','常减压装置需监测产品馏分组成，实现精馏塔优化控制'],
+    products: ['GC-8080Plus 防爆工业在线色谱分析仪（硫化物分析）','在线激光光谱分析仪（烟气O₂/CO原位测量）','防爆正压分析小屋（集成多台仪器）','高压/高温样品预处理系统'],
+    benefits: ['硫磺回收率提升至99.5%以上，减少SO₂排放','催化裂化装置能耗降低8-15%','加氢装置催化剂寿命延长20%以上','实现工艺参数实时优化，提升产品质量']
+  },
+  naturalgas: {
+    industry: '💨 天然气行业',
+    title: '天然气处理与输配在线分析方案',
+    img: 'assets/images/page6.jpg',
+    challenges: ['天然气净化装置需精确监测H₂S/CO₂脱除效率','LNG液化装置需监测重烃含量，防止冻堵','城市门站需实时监测天然气热值和组分，用于贸易计量','高压输气管道需监测气质，保障管道安全运行'],
+    products: ['GC-8080Plus 防爆工业在线色谱分析仪（组分分析）','在线激光光谱分析仪（H₂S/CO₂监测）','防爆正压分析小屋','高压样品预处理系统（最高25MPa）'],
+    benefits: ['天然气净化效率提升，产品气质量稳定达标','LNG装置运行安全性显著提升','贸易计量精度达到国家一级标准','管道运行安全性和经济性大幅提升']
+  },
+  power: {
+    industry: '⚡ 电力行业',
+    title: '电力行业烟气及过程分析方案',
+    img: 'assets/images/page6.jpg',
+    challenges: ['燃煤电厂锅炉燃烧需实时优化，降低NOx生成','烟气排放需满足超低排放标准，实现连续监测','脱硫脱硝系统需监测效率，优化药剂投加量','垃圾发电需监测HCl/二噁英等特殊污染物'],
+    products: ['在线激光光谱分析仪（锅炉O₂/CO原位测量）','在线紫外光谱分析仪（CEMS，SO₂/NO/NO₂）','CEMS烟气排放连续监测系统','防爆分析小屋（脱硫脱硝区域）'],
+    benefits: ['锅炉热效率提升1-3%，年节煤效益显著','烟气排放稳定满足超低排放标准','脱硫脱硝药剂消耗降低10-20%','实现环保数据实时上传，满足监管要求']
+  },
+  environment: {
+    industry: '🌿 环保监测',
+    title: '工业排放连续监测系统（CEMS）',
+    img: 'assets/images/page6.jpg',
+    challenges: ['各类工业排放源需满足HJ75、HJ76等国家标准','监测数据需实时上传至环保监管平台','恶劣工况下仪器可靠性和维护便利性要求高','多组分同时监测，系统集成度要求高'],
+    products: ['在线紫外光谱分析仪（SO₂/NO/NO₂）','在线红外光谱分析仪（CO/CO₂）','颗粒物在线监测仪','CEMS数据采集与传输系统'],
+    benefits: ['满足HJ75、HJ76等国家标准要求','数据实时上传，满足环保监管要求','系统可靠性高，年运行率&gt;95%','维护简便，运营成本低']
+  },
+  steel: {
+    industry: '🔩 钢铁冶金',
+    title: '钢铁冶金过程气体在线分析方案',
+    img: 'assets/images/page5.jpg',
+    challenges: ['高炉煤气温度高、含尘量大，取样困难','转炉煤气CO含量高，安全风险大','焦炉煤气成分复杂，需多组分同时分析','煤气热值需实时监测，用于能源调度'],
+    products: ['在线激光光谱分析仪（高炉煤气O₂/CO原位测量）','GC-8080Plus（焦炉煤气多组分分析）','高温高含尘样品预处理系统','防爆正压分析小屋'],
+    benefits: ['高炉燃烧效率提升，焦比降低2-5kg/t铁','转炉煤气回收率提升5-10%','焦炉煤气热值监测精度达到±0.5%','实现全厂能源介质的统一调度管理']
+  },
+  petrochemical: {
+    industry: '🏭 石油化工',
+    title: '石化装置工艺气体在线分析方案',
+    img: 'assets/images/page5.jpg',
+    challenges: ['乙烯裂解炉需实时监测裂解气组分，优化裂解深度','芳烃联合装置需监测苯/甲苯/二甲苯含量，控制产品质量','聚合物装置需监测单体纯度，保障聚合反应稳定','高温高压工况下取样和分析难度大'],
+    products: ['GC-8080Plus 防爆工业在线色谱分析仪','防爆正压分析小屋','高温高压样品预处理系统','系统集成方案'],
+    benefits: ['乙烯收率提升0.5-1%，经济效益显著','产品质量稳定性大幅提升','装置运行安全性显著改善','实现工艺参数闭环控制']
+  },
+  coalchem: {
+    industry: '⚗️ 煤化工行业',
+    title: '煤化工过程气体在线分析方案',
+    img: 'assets/images/page5.jpg',
+    challenges: ['气化炉出口合成气压力高（&gt;4MPa），温度高（&gt;200℃）','变换工艺需精确监测H₂/CO比值，控制变换深度','甲醇合成需监测循环气组分，优化合成效率','高含水、高含尘工况下预处理难度大'],
+    products: ['GC-8080Plus（高压合成气分析，配高压预处理）','在线热导气体分析仪（H₂浓度监测）','高压高温样品预处理系统','防爆正压分析小屋'],
+    benefits: ['变换反应效率提升，蒸汽消耗降低','甲醇合成效率提升3-8%','装置运行稳定性显著提升','实现工艺参数实时优化']
+  },
+  semiconductor: {
+    industry: '💻 半导体行业',
+    title: '半导体特种气体在线分析方案',
+    img: 'assets/images/page6.jpg',
+    challenges: ['特种气体纯度要求极高（ppb级杂质监测）','洁净室环境对仪器材质和洁净度有严格要求','多种特种气体需同时监测','安全性要求极高（SiH₄等危险气体）'],
+    products: ['高纯气体在线分析仪（ppb级检测）','在线激光光谱分析仪','超高纯样品预处理系统','防爆分析机柜'],
+    benefits: ['特种气体纯度监测精度达到ppb级','保障芯片制造工艺稳定性','提升产品良率，降低废品率','满足半导体行业严格安全标准']
+  },
+  cement: {
+    industry: '🏗️ 水泥行业',
+    title: '水泥窑炉过程气体在线分析方案',
+    img: 'assets/images/page5.jpg',
+    challenges: ['水泥窑炉温度极高（&gt;1400℃），传统取样分析困难','含尘量极大，样品预处理难度高','需实时监测O₂/CO，优化燃烧控制','NOx排放需满足环保标准要求'],
+    products: ['在线激光光谱分析仪（原位O₂/CO测量，无需预处理）','在线紫外光谱分析仪（NOx监测）','CEMS烟气排放监测系统','防爆分析小屋'],
+    benefits: ['窑炉热耗降低3-8%，节煤效益显著','NOx排放满足超低排放标准','熟料质量稳定性显著提升','系统维护简便，运行成本低']
+  }
+};
+
+function openSolutionModal(id) {
+  const d = solutionDetails[id];
+  if (!d) return;
+  document.getElementById('modalImg').src = d.img;
+  document.getElementById('modalImg').alt = d.title;
+  document.getElementById('modalIndustry').textContent = d.industry;
+  document.getElementById('modalTitle').textContent = d.title;
+  const challengesHtml = d.challenges.map(c => `<li>${c}</li>`).join('');
+  const productsHtml = d.products.map(p => `<li>${p}</li>`).join('');
+  const benefitsHtml = d.benefits.map(b => `<li>${b}</li>`).join('');
+  document.getElementById('modalContent').innerHTML = `
+    <div class="solution-modal-section">
+      <div class="solution-modal-section-title">行业痛点与挑战</div>
+      <ul class="solution-modal-list">${challengesHtml}</ul>
+    </div>
+    <div class="solution-modal-section">
+      <div class="solution-modal-section-title">推荐产品与方案</div>
+      <ul class="solution-modal-list">${productsHtml}</ul>
+    </div>
+    <div class="solution-modal-section">
+      <div class="solution-modal-section-title">客户价值与收益</div>
+      <ul class="solution-modal-list">${benefitsHtml}</ul>
+    </div>
+  `;
+  document.getElementById('solutionModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSolutionModal() {
+  document.getElementById('solutionModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('solutionModal').addEventListener('click', function(e) {
+  if (e.target === this) closeSolutionModal();
+});
+</script>
+</body>
+</html>

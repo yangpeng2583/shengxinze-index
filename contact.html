@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在线留言 - 山东盛鑫泽科技发展有限公司</title>
+  <meta name="description" content="联系山东盛鑫泽科技，获取工业过程在线分析产品报价和技术支持。服务热线：400-178-7667">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .contact-layout { display:grid; grid-template-columns:1fr 1.5fr; gap:60px; align-items:start; }
+    .contact-info-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:40px; }
+    .contact-info-title { font-size:20px; font-weight:800; color:var(--text-white); margin-bottom:8px; }
+    .contact-info-sub { font-size:14px; color:var(--text-gray); margin-bottom:32px; line-height:1.7; }
+    .contact-info-item { display:flex; align-items:flex-start; gap:16px; margin-bottom:28px; }
+    .contact-info-icon { width:44px; height:44px; border-radius:var(--radius); background:rgba(0,212,255,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .contact-info-label { font-size:12px; color:var(--text-gray); margin-bottom:4px; }
+    .contact-info-value { font-size:15px; font-weight:600; color:var(--text-white); line-height:1.5; }
+    .contact-info-value.highlight { color:var(--primary); font-size:20px; font-weight:800; }
+    .contact-qr { margin-top:32px; padding-top:28px; border-top:1px solid var(--border-subtle); text-align:center; }
+    .contact-qr-img { width:120px; height:120px; border-radius:var(--radius); margin:0 auto 12px; background:var(--bg-card2); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .contact-qr-img img { width:100%; height:100%; object-fit:cover; }
+    .contact-qr-label { font-size:13px; color:var(--text-gray); }
+
+    /* 表单 */
+    .contact-form-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:40px; }
+    .form-title { font-size:22px; font-weight:800; color:var(--text-white); margin-bottom:8px; }
+    .form-sub { font-size:14px; color:var(--text-gray); margin-bottom:32px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-group { margin-bottom:20px; }
+    .form-label { display:block; font-size:13px; font-weight:600; color:var(--text-white); margin-bottom:8px; }
+    .form-label span { color:#ef4444; margin-left:2px; }
+    .form-input, .form-select, .form-textarea {
+      width:100%; padding:12px 16px;
+      background:var(--bg-card2); border:1px solid var(--border-subtle);
+      border-radius:var(--radius); color:var(--text-white); font-size:14px;
+      font-family:inherit; transition:var(--transition); outline:none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color:var(--text-gray); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(0,212,255,0.1); }
+    .form-select option { background:var(--bg-card); color:var(--text-white); }
+    .form-textarea { resize:vertical; min-height:120px; }
+    .form-checkbox { display:flex; align-items:flex-start; gap:10px; margin-bottom:24px; }
+    .form-checkbox input { margin-top:3px; accent-color:var(--primary); }
+    .form-checkbox label { font-size:13px; color:var(--text-gray); line-height:1.6; }
+    .form-submit { width:100%; padding:14px; background:var(--primary); color:#fff; border:none; border-radius:var(--radius); font-size:15px; font-weight:700; cursor:pointer; transition:var(--transition); }
+    .form-submit:hover { background:var(--primary-dark); transform:translateY(-1px); }
+    .form-success { display:none; text-align:center; padding:40px; }
+    .form-success-icon { font-size:48px; margin-bottom:16px; }
+    .form-success-title { font-size:20px; font-weight:800; color:var(--text-white); margin-bottom:8px; }
+    .form-success-desc { font-size:14px; color:var(--text-gray); }
+
+    /* 地图占位 */
+    .map-placeholder { width:100%; height:300px; background:var(--bg-card2); border-radius:var(--radius-lg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; border:1px solid var(--border-subtle); margin-top:48px; }
+    .map-placeholder-icon { font-size:40px; }
+    .map-placeholder-text { font-size:14px; color:var(--text-gray); }
+
+    @media(max-width:1024px){ .contact-layout { grid-template-columns:1fr; gap:32px; } }
+    @media(max-width:600px){ .form-row { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">鑫</div>
+      <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+    </a>
+    <div class="navbar-menu">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="products.html" class="nav-link">产品中心</a>
+      <a href="solutions.html" class="nav-link">解决方案</a>
+      <a href="cases.html" class="nav-link">行业案例</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="contact.html" class="nav-link active">在线留言</a>
+    </div>
+    <a href="tel:4001787667" class="navbar-hotline">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      400-178-7667
+    </a>
+    <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">首页</a>
+  <a href="products.html" class="mobile-nav-link">产品中心</a>
+  <a href="solutions.html" class="mobile-nav-link">解决方案</a>
+  <a href="cases.html" class="mobile-nav-link">行业案例</a>
+  <a href="about.html" class="mobile-nav-link">关于我们</a>
+  <a href="contact.html" class="mobile-nav-link active">在线留言</a>
+</div>
+
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-breadcrumb">
+      <a href="index.html">首页</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>在线留言</span>
+    </div>
+    <div class="section-tag">CONTACT US</div>
+    <h1 class="page-hero-title">联系我们</h1>
+    <p class="page-hero-subtitle">无论您有产品咨询、方案需求还是售后服务问题，我们的专业团队将在第一时间为您提供支持</p>
+  </div>
+</div>
+
+<!-- 联系内容 -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- 左侧联系信息 -->
+      <div class="fade-in">
+        <div class="contact-info-card">
+          <h2 class="contact-info-title">联系方式</h2>
+          <p class="contact-info-sub">我们随时准备为您提供专业的技术支持和服务，欢迎通过以下方式联系我们。</p>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">服务热线（7×24小时）</div>
+              <a href="tel:4001787667" class="contact-info-value highlight">400-178-7667</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">电子邮箱</div>
+              <div class="contact-info-value">info@shengxinze.com</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">公司地址</div>
+              <div class="contact-info-value">山东省济南市市中区<br>二环西路5201号</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">工作时间</div>
+              <div class="contact-info-value">周一至周五 08:30 - 17:30<br><span style="font-size:13px;color:var(--text-gray);">节假日可拨打服务热线</span></div>
+            </div>
+          </div>
+
+          <div class="contact-qr">
+            <div class="contact-qr-img">
+              <img src="assets/images/qrcode_wechat.png" alt="微信公众号二维码" onerror="this.parentElement.innerHTML='<div style=\'font-size:40px;\'>📱</div>'">
+            </div>
+            <div class="contact-qr-label">扫码关注微信公众号<br>获取最新产品资讯</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧留言表单 -->
+      <div class="fade-in fade-in-delay-1">
+        <div class="contact-form-card">
+          <div id="formArea">
+            <h2 class="form-title">在线留言</h2>
+            <p class="form-sub">请填写以下信息，我们的技术销售团队将在1个工作日内与您联系。</p>
+            <form id="contactForm" onsubmit="submitForm(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">您的姓名<span>*</span></label>
+                  <input type="text" class="form-input" placeholder="请输入您的姓名" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">联系电话<span>*</span></label>
+                  <input type="tel" class="form-input" placeholder="请输入联系电话" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">所在公司</label>
+                  <input type="text" class="form-input" placeholder="请输入公司名称">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">所属行业</label>
+                  <select class="form-select">
+                    <option value="">请选择行业</option>
+                    <option>炼油行业</option>
+                    <option>石油化工</option>
+                    <option>天然气行业</option>
+                    <option>煤化工行业</option>
+                    <option>电力能源</option>
+                    <option>环保监测</option>
+                    <option>钢铁冶金</option>
+                    <option>半导体行业</option>
+                    <option>水泥行业</option>
+                    <option>其他行业</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">感兴趣的产品<span>*</span></label>
+                <select class="form-select" required>
+                  <option value="">请选择产品类型</option>
+                  <option>在线分析仪器（气相色谱仪）</option>
+                  <option>在线分析仪器（激光光谱仪）</option>
+                  <option>在线分析仪器（紫外光谱仪）</option>
+                  <option>在线分析仪器（热导分析仪）</option>
+                  <option>在线分析仪器（其他）</option>
+                  <option>样品预处理系统</option>
+                  <option>防爆正压分析小屋</option>
+                  <option>系统集成方案</option>
+                  <option>CEMS烟气监测系统</option>
+                  <option>其他/不确定</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">留言内容<span>*</span></label>
+                <textarea class="form-textarea" placeholder="请描述您的需求，例如：测量介质、工况条件、测量组分、精度要求等，我们将为您提供更精准的解决方案..." required></textarea>
+              </div>
+              <div class="form-checkbox">
+                <input type="checkbox" id="agree" required>
+                <label for="agree">我已阅读并同意<a href="#" style="color:var(--primary);">《隐私政策》</a>，同意盛鑫泽科技通过电话或邮件与我联系，提供产品信息和技术支持。</label>
+              </div>
+              <button type="submit" class="form-submit">提交留言 →</button>
+            </form>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">✅</div>
+            <div class="form-success-title">留言提交成功！</div>
+            <div class="form-success-desc">感谢您的留言，我们的技术销售团队将在1个工作日内与您联系。<br>如有紧急需求，请直接拨打服务热线 <a href="tel:4001787667" style="color:var(--primary);font-weight:700;">400-178-7667</a></div>
+            <button onclick="resetForm()" class="btn btn-outline" style="margin-top:24px;">再次留言</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 地图 -->
+    <div class="map-placeholder fade-in">
+      <div class="map-placeholder-icon">📍</div>
+      <div class="map-placeholder-text">山东省济南市市中区二环西路5201号</div>
+      <a href="https://map.baidu.com/search/山东省济南市市中区二环西路5201号" target="_blank" class="btn btn-outline" style="margin-top:8px;">在百度地图中查看</a>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-logo" style="display:inline-flex;">
+          <div class="logo-icon">鑫</div>
+          <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+        </a>
+        <p class="footer-desc">专注于工业过程在线分析领域，为高风险行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
+      </div>
+      <div>
+        <div class="footer-col-title">快速导航</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">首页</a>
+          <a href="products.html" class="footer-link">产品中心</a>
+          <a href="solutions.html" class="footer-link">解决方案</a>
+          <a href="cases.html" class="footer-link">行业案例</a>
+          <a href="about.html" class="footer-link">关于我们</a>
+          <a href="contact.html" class="footer-link">在线留言</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">联系我们</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">服务热线</div><a href="tel:4001787667" class="footer-contact-value highlight">400-178-7667</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">公司地址</div><div class="footer-contact-value">山东省济南市市中区二环西路5201号</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">微信公众号</div>
+        <div style="width:100px;height:100px;background:var(--bg-card2);border-radius:var(--radius);overflow:hidden;margin-bottom:8px;">
+          <img src="assets/images/qrcode_wechat.png" alt="公众号二维码" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        </div>
+        <p style="font-size:12px;color:var(--text-gray);">扫码关注公众号</p>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 山东盛鑫泽科技发展有限公司 版权所有</div>
+      <div class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备XXXXXXXX号</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script>
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('formArea').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+function resetForm() {
+  document.getElementById('contactForm').reset();
+  document.getElementById('formArea').style.display = 'block';
+  document.getElementById('formSuccess').style.display = 'none';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我们 - 山东盛鑫泽科技发展有限公司</title>
+  <meta name="description" content="山东盛鑫泽科技发展有限公司，专注工业过程在线分析领域，集研发、设计、生产、集成、销售与服务于一体的高科技技术企业。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .about-intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .about-intro-img { border-radius:var(--radius-lg); overflow:hidden; position:relative; }
+    .about-intro-img img { width:100%; height:420px; object-fit:cover; }
+    .about-intro-img-badge {
+      position:absolute; bottom:24px; left:24px;
+      background:var(--primary); color:#fff;
+      padding:12px 20px; border-radius:var(--radius);
+      font-size:13px; font-weight:700;
+    }
+    .about-intro-img-badge span { display:block; font-size:28px; font-weight:900; }
+    .about-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; }
+    .about-stat { text-align:center; padding:24px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); }
+    .about-stat-num { font-size:36px; font-weight:900; color:var(--primary); line-height:1; }
+    .about-stat-unit { font-size:16px; font-weight:700; color:var(--primary); }
+    .about-stat-label { font-size:13px; color:var(--text-gray); margin-top:6px; }
+
+    /* 企业优势 */
+    .advantages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .advantage-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px; transition:var(--transition); }
+    .advantage-card:hover { border-color:var(--border); transform:translateY(-4px); }
+    .advantage-icon { width:56px; height:56px; background:rgba(0,212,255,0.1); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; margin-bottom:20px; font-size:28px; }
+    .advantage-title { font-size:17px; font-weight:700; color:var(--text-white); margin-bottom:12px; }
+    .advantage-desc { font-size:13px; color:var(--text-gray); line-height:1.8; }
+
+    /* 资质证书 */
+    .cert-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px; }
+    .cert-tab { padding:8px 20px; border-radius:20px; font-size:13px; font-weight:600; cursor:pointer; transition:var(--transition); background:var(--bg-card); color:var(--text-gray); border:1px solid var(--border-subtle); }
+    .cert-tab.active, .cert-tab:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .certs-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+    .cert-item { display:none; }
+    .cert-item.show { display:block; }
+    .cert-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); cursor:pointer; }
+    .cert-card:hover { border-color:var(--primary); transform:translateY(-3px); }
+    .cert-card-img { width:100%; height:160px; object-fit:cover; }
+    .cert-card-body { padding:12px; }
+    .cert-card-name { font-size:12px; font-weight:600; color:var(--text-white); line-height:1.4; }
+    .cert-card-type { font-size:11px; color:var(--text-gray); margin-top:4px; }
+
+    /* 证书弹窗 */
+    .cert-modal { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; }
+    .cert-modal.open { display:flex; }
+    .cert-modal-img { max-width:600px; max-height:80vh; border-radius:var(--radius-lg); object-fit:contain; }
+    .cert-modal-close { position:fixed; top:24px; right:24px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:none; color:#fff; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+
+    /* 发展历程 */
+    .timeline { position:relative; padding-left:32px; }
+    .timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, var(--primary), transparent); }
+    .timeline-item { position:relative; margin-bottom:32px; }
+    .timeline-dot { position:absolute; left:-28px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--primary); border:2px solid var(--bg-dark); }
+    .timeline-year { font-size:12px; font-weight:700; color:var(--primary); letter-spacing:1px; margin-bottom:6px; }
+    .timeline-title { font-size:15px; font-weight:700; color:var(--text-white); margin-bottom:6px; }
+    .timeline-desc { font-size:13px; color:var(--text-gray); line-height:1.7; }
+
+    @media(max-width:1024px){ .about-intro-grid { grid-template-columns:1fr; gap:32px; } .about-stats { grid-template-columns:repeat(2,1fr); } .advantages-grid { grid-template-columns:repeat(2,1fr); } .certs-grid { grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:600px){ .about-stats { grid-template-columns:repeat(2,1fr); } .advantages-grid { grid-template-columns:1fr; } .certs-grid { grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">鑫</div>
+      <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+    </a>
+    <div class="navbar-menu">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="products.html" class="nav-link">产品中心</a>
+      <a href="solutions.html" class="nav-link">解决方案</a>
+      <a href="cases.html" class="nav-link">行业案例</a>
+      <a href="about.html" class="nav-link active">关于我们</a>
+      <a href="contact.html" class="nav-link">在线留言</a>
+    </div>
+    <a href="tel:4001787667" class="navbar-hotline">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      400-178-7667
+    </a>
+    <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">首页</a>
+  <a href="products.html" class="mobile-nav-link">产品中心</a>
+  <a href="solutions.html" class="mobile-nav-link">解决方案</a>
+  <a href="cases.html" class="mobile-nav-link">行业案例</a>
+  <a href="about.html" class="mobile-nav-link active">关于我们</a>
+  <a href="contact.html" class="mobile-nav-link">在线留言</a>
+</div>
+
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-breadcrumb">
+      <a href="index.html">首页</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>关于我们</span>
+    </div>
+    <div class="section-tag">ABOUT US</div>
+    <h1 class="page-hero-title">关于盛鑫泽科技</h1>
+    <p class="page-hero-subtitle">专注工业过程在线分析领域，致力于为高风险行业提供安全、可靠、智能的一站式在线分析解决方案</p>
+  </div>
+</div>
+
+<!-- 公司介绍 -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="about-intro-grid">
+      <div class="about-intro-img fade-in">
+        <img src="assets/images/page2.jpg" alt="公司介绍">
+        <div class="about-intro-img-badge">
+          <span>10+</span>年专注在线分析领域
+        </div>
+      </div>
+      <div class="fade-in fade-in-delay-1">
+        <div class="section-tag">COMPANY PROFILE</div>
+        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);margin-bottom:24px;">专注在线分析<br>赋能工业安全</h2>
+        <p style="font-size:15px;color:var(--text-gray);line-height:1.9;margin-bottom:20px;">
+          山东盛鑫泽科技发展有限公司是一家专注于工业过程在线分析领域，集研发、设计、生产、集成、销售与服务于一体的高科技技术企业。公司深耕于防爆分析小屋、样品预处理系统、系统集成及在线分析仪器等核心业务，致力于为石油、化工、天然气、制药、环保等高风险、高要求行业提供安全、可靠、智能的一站式在线分析解决方案。
+        </p>
+        <p style="font-size:15px;color:var(--text-gray);line-height:1.9;margin-bottom:32px;">
+          公司拥有一支经验丰富的专业技术团队，核心成员均具有10年以上工业分析领域从业经验。凭借深厚的技术积累和对客户需求的深刻理解，盛鑫泽科技已为国内外500余家企业提供了高质量的在线分析解决方案，赢得了客户的广泛信赖与好评。
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">联系我们</a>
+          <a href="products.html" class="btn btn-outline">了解产品</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据统计 -->
+    <div class="about-stats fade-in">
+      <div class="about-stat">
+        <div><span class="about-stat-num">10</span><span class="about-stat-unit">+</span></div>
+        <div class="about-stat-label">年行业深耕经验</div>
+      </div>
+      <div class="about-stat">
+        <div><span class="about-stat-num">500</span><span class="about-stat-unit">+</span></div>
+        <div class="about-stat-label">成功实施项目</div>
+      </div>
+      <div class="about-stat">
+        <div><span class="about-stat-num">9</span><span class="about-stat-unit">大</span></div>
+        <div class="about-stat-label">覆盖行业领域</div>
+      </div>
+      <div class="about-stat">
+        <div><span class="about-stat-num">98</span><span class="about-stat-unit">%</span></div>
+        <div class="about-stat-label">客户满意度</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 企业愿景 -->
+<section class="section-sm" style="background:var(--bg-card);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
+      <div class="fade-in" style="text-align:center;padding:32px;">
+        <div style="font-size:40px;margin-bottom:16px;">🎯</div>
+        <h3 style="font-size:18px;font-weight:800;color:var(--text-white);margin-bottom:12px;">企业使命</h3>
+        <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">用精准的在线分析技术，守护工业生产的安全与高效，为客户创造持续价值。</p>
+      </div>
+      <div class="fade-in fade-in-delay-1" style="text-align:center;padding:32px;border-left:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);">
+        <div style="font-size:40px;margin-bottom:16px;">🌟</div>
+        <h3 style="font-size:18px;font-weight:800;color:var(--text-white);margin-bottom:12px;">企业愿景</h3>
+        <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">成为中国工业过程在线分析领域最受信赖的解决方案提供商，引领行业技术发展。</p>
+      </div>
+      <div class="fade-in fade-in-delay-2" style="text-align:center;padding:32px;">
+        <div style="font-size:40px;margin-bottom:16px;">💎</div>
+        <h3 style="font-size:18px;font-weight:800;color:var(--text-white);margin-bottom:12px;">核心价值观</h3>
+        <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">专注专业、诚信务实、创新进取、客户至上，以技术实力赢得市场信任。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 企业优势 -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">ADVANTAGES</div>
+      <h2 class="section-title">核心竞争优势</h2>
+      <p class="section-subtitle">深厚的技术积累与丰富的行业经验，是盛鑫泽科技为客户提供优质服务的根本保障</p>
+    </div>
+    <div class="advantages-grid">
+      <div class="advantage-card fade-in">
+        <div class="advantage-icon">🔬</div>
+        <h3 class="advantage-title">深厚技术积累</h3>
+        <p class="advantage-desc">核心团队拥有10年以上工业在线分析领域从业经验，深入理解各类工业工况下的分析技术难点，能够为客户提供针对性的技术解决方案。</p>
+      </div>
+      <div class="advantage-card fade-in fade-in-delay-1">
+        <div class="advantage-icon">🏭</div>
+        <h3 class="advantage-title">全产品线覆盖</h3>
+        <p class="advantage-desc">从在线分析仪器、样品预处理系统到防爆分析小屋、系统集成，提供完整的产品线，实现一站式采购，降低客户的供应链管理成本。</p>
+      </div>
+      <div class="advantage-card fade-in fade-in-delay-2">
+        <div class="advantage-icon">⚙️</div>
+        <h3 class="advantage-title">定制化能力强</h3>
+        <p class="advantage-desc">针对客户的特殊工况和个性化需求，提供从方案设计、设备定制到系统集成的全流程定制化服务，确保每个项目都能完美满足客户要求。</p>
+      </div>
+      <div class="advantage-card fade-in">
+        <div class="advantage-icon">🛡️</div>
+        <h3 class="advantage-title">资质认证齐全</h3>
+        <p class="advantage-desc">公司通过ISO 9001质量管理体系认证、ISO 14001环境管理体系认证，产品获得防爆认证（Ex d px IIC）、计量器具型式批准证书等多项权威认证。</p>
+      </div>
+      <div class="advantage-card fade-in fade-in-delay-1">
+        <div class="advantage-icon">🚀</div>
+        <h3 class="advantage-title">快速响应服务</h3>
+        <p class="advantage-desc">建立完善的售后服务体系，提供7×24小时技术支持热线，承诺关键故障24小时内响应、48小时内到达现场，最大限度降低客户装置停产风险。</p>
+      </div>
+      <div class="advantage-card fade-in fade-in-delay-2">
+        <div class="advantage-icon">🌐</div>
+        <h3 class="advantage-title">广泛行业经验</h3>
+        <p class="advantage-desc">深耕炼油、石化、天然气、煤化工、电力、环保、钢铁冶金、半导体、水泥等9大行业，积累了500+成功项目案例，具备丰富的跨行业解决方案经验。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 公司资质 -->
+<section class="section" style="background:var(--bg-card);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">QUALIFICATIONS</div>
+      <h2 class="section-title">公司资质</h2>
+      <p class="section-subtitle">多项权威认证，是盛鑫泽科技专业实力与产品质量的有力证明</p>
+    </div>
+
+    <div class="cert-tabs fade-in">
+      <button class="cert-tab active" data-filter="all">全部资质</button>
+      <button class="cert-tab" data-filter="quality">质量体系</button>
+      <button class="cert-tab" data-filter="explosion">防爆认证</button>
+      <button class="cert-tab" data-filter="patent">专利证书</button>
+      <button class="cert-tab" data-filter="honor">荣誉资质</button>
+    </div>
+
+    <div class="certs-grid fade-in">
+      <div class="cert-item show" data-cat="quality">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','ISO 9001质量管理体系认证证书')">
+          <img src="assets/images/page4.jpg" alt="ISO 9001" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">ISO 9001质量管理体系认证</div>
+            <div class="cert-card-type">质量体系</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="quality">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','ISO 14001环境管理体系认证证书')">
+          <img src="assets/images/page4.jpg" alt="ISO 14001" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">ISO 14001环境管理体系认证</div>
+            <div class="cert-card-type">质量体系</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="explosion">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','防爆合格证书 Ex d px IIC T6 Gb')">
+          <img src="assets/images/page4.jpg" alt="防爆认证" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">防爆合格证书 Ex d px IIC T6 Gb</div>
+            <div class="cert-card-type">防爆认证</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="honor">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','AAA级信用企业证书')">
+          <img src="assets/images/page4.jpg" alt="AAA信用" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">AAA级信用企业认证</div>
+            <div class="cert-card-type">荣誉资质</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="patent">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','发明专利证书')">
+          <img src="assets/images/page4.jpg" alt="发明专利" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">防爆分析小屋发明专利</div>
+            <div class="cert-card-type">专利证书</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="patent">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','实用新型专利证书')">
+          <img src="assets/images/page4.jpg" alt="实用新型专利" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">样品预处理系统实用新型专利</div>
+            <div class="cert-card-type">专利证书</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="honor">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','重合同守信用企业证书')">
+          <img src="assets/images/page4.jpg" alt="重合同守信用" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">重合同守信用企业</div>
+            <div class="cert-card-type">荣誉资质</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="quality">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','计量器具型式批准证书')">
+          <img src="assets/images/page4.jpg" alt="计量认证" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">计量器具型式批准证书</div>
+            <div class="cert-card-type">质量体系</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="honor">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','山东省科技型企业证书')">
+          <img src="assets/images/page4.jpg" alt="科技型企业" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">山东省科技型企业</div>
+            <div class="cert-card-type">荣誉资质</div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-item show" data-cat="patent">
+        <div class="cert-card" onclick="openCertModal('assets/images/page4.jpg','软件著作权证书')">
+          <img src="assets/images/page4.jpg" alt="软件著作权" class="cert-card-img">
+          <div class="cert-card-body">
+            <div class="cert-card-name">在线分析系统软件著作权</div>
+            <div class="cert-card-type">专利证书</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--text-gray);margin-top:16px;">以上为彩页图片占位，后续可替换为实际资质证书扫描件</p>
+  </div>
+</section>
+
+<!-- 发展历程 -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">HISTORY</div>
+      <h2 class="section-title">发展历程</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
+      <div class="timeline fade-in">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2014年</div>
+          <div class="timeline-title">公司成立</div>
+          <div class="timeline-desc">山东盛鑫泽科技发展有限公司正式成立，专注于工业过程在线分析领域，开始为石油化工行业提供在线分析解决方案。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2016年</div>
+          <div class="timeline-title">防爆分析小屋产品化</div>
+          <div class="timeline-desc">自主研发的防爆正压分析小屋通过防爆认证，成为公司核心产品，填补了国内市场空白。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2018年</div>
+          <div class="timeline-title">通过ISO 9001认证</div>
+          <div class="timeline-desc">公司质量管理体系通过ISO 9001认证，建立了完善的研发、生产、质检流程，产品质量大幅提升。</div>
+        </div>
+      </div>
+      <div class="timeline fade-in fade-in-delay-1">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2020年</div>
+          <div class="timeline-title">业务规模快速扩张</div>
+          <div class="timeline-desc">累计服务客户突破200家，业务覆盖炼油、石化、天然气、煤化工、电力等多个行业，年营收实现翻番增长。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022年</div>
+          <div class="timeline-title">激光光谱仪产品线上线</div>
+          <div class="timeline-desc">推出在线激光光谱气体分析仪（DLAS）产品线，实现原位在线测量，进一步完善公司产品矩阵。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024年</div>
+          <div class="timeline-title">累计服务500+客户</div>
+          <div class="timeline-desc">累计成功实施项目超过500个，服务客户遍布全国20余个省市，成为国内工业在线分析领域知名品牌。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 证书弹窗 -->
+<div class="cert-modal" id="certModal" onclick="closeCertModal()">
+  <button class="cert-modal-close" onclick="closeCertModal()">✕</button>
+  <img src="" alt="" class="cert-modal-img" id="certModalImg">
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-logo" style="display:inline-flex;">
+          <div class="logo-icon">鑫</div>
+          <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+        </a>
+        <p class="footer-desc">专注于工业过程在线分析领域，为高风险行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
+      </div>
+      <div>
+        <div class="footer-col-title">快速导航</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">首页</a>
+          <a href="products.html" class="footer-link">产品中心</a>
+          <a href="solutions.html" class="footer-link">解决方案</a>
+          <a href="cases.html" class="footer-link">行业案例</a>
+          <a href="about.html" class="footer-link">关于我们</a>
+          <a href="contact.html" class="footer-link">在线留言</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">联系我们</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">服务热线</div><a href="tel:4001787667" class="footer-contact-value highlight">400-178-7667</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">公司地址</div><div class="footer-contact-value">山东省济南市市中区二环西路5201号</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">加入我们</div>
+        <p style="font-size:14px;color:var(--text-gray);line-height:1.8;margin-bottom:16px;">我们期待与优秀的人才共同成长，欢迎加入盛鑫泽科技大家庭。</p>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">联系我们</a>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 山东盛鑫泽科技发展有限公司 版权所有</div>
+      <div class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备XXXXXXXX号</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script>
+// 资质筛选
+const certTabs = document.querySelectorAll('.cert-tab');
+const certItems = document.querySelectorAll('.cert-item');
+certTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    certTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    certItems.forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.classList.add('show');
+      } else {
+        item.classList.remove('show');
+      }
+    });
+  });
+});
+
+function openCertModal(src, alt) {
+  document.getElementById('certModalImg').src = src;
+  document.getElementById('certModalImg').alt = alt;
+  document.getElementById('certModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal() {
+  document.getElementById('certModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

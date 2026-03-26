@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品中心 - 山东盛鑫泽科技发展有限公司</title>
+  <meta name="description" content="盛鑫泽科技产品中心：在线分析仪器、防爆分析小屋、样品预处理系统、系统集成，为工业过程分析提供完整产品线。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .product-item { display:none; }
+    .product-item.show { display:flex; }
+    @media(max-width:1024px){ .products-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:600px){ .products-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">鑫</div>
+      <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+    </a>
+    <div class="navbar-menu">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="products.html" class="nav-link active">产品中心</a>
+      <a href="solutions.html" class="nav-link">解决方案</a>
+      <a href="cases.html" class="nav-link">行业案例</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="contact.html" class="nav-link">在线留言</a>
+    </div>
+    <a href="tel:4001787667" class="navbar-hotline">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      400-178-7667
+    </a>
+    <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">首页</a>
+  <a href="products.html" class="mobile-nav-link active">产品中心</a>
+  <a href="solutions.html" class="mobile-nav-link">解决方案</a>
+  <a href="cases.html" class="mobile-nav-link">行业案例</a>
+  <a href="about.html" class="mobile-nav-link">关于我们</a>
+  <a href="contact.html" class="mobile-nav-link">在线留言</a>
+  <a href="tel:4001787667" class="mobile-nav-link" style="color:var(--primary);font-weight:600;">📞 400-178-7667</a>
+</div>
+
+<!-- 页面Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-breadcrumb">
+      <a href="index.html">首页</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>产品中心</span>
+    </div>
+    <div class="section-tag">PRODUCTS</div>
+    <h1 class="page-hero-title">核心产品体系</h1>
+    <p class="page-hero-subtitle">覆盖在线分析仪器、样品预处理系统、防爆分析小屋、系统集成四大产品线，为工业过程分析提供完整解决方案</p>
+  </div>
+</div>
+
+<!-- 产品列表 -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <!-- 筛选标签 -->
+    <div class="filter-tabs fade-in">
+      <button class="filter-tab active" data-filter="all">全部产品</button>
+      <button class="filter-tab" data-filter="analyzer">在线分析仪器</button>
+      <button class="filter-tab" data-filter="cabin">防爆分析小屋</button>
+      <button class="filter-tab" data-filter="pretreatment">样品预处理系统</button>
+      <button class="filter-tab" data-filter="integration">系统集成</button>
+    </div>
+
+    <!-- 产品网格 -->
+    <div class="products-grid" id="productsGrid">
+
+      <!-- 在线分析仪器 -->
+      <div class="product-card product-item show fade-in" data-cat="analyzer">
+        <img src="assets/images/products/gc8080.jpg" alt="防爆工业在线色谱分析仪" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">在线分析仪器</div>
+          <h3 class="product-card-title">防爆工业在线色谱分析仪 GC-8080Plus</h3>
+          <p class="product-card-desc">专为石油化工、煤化工等高危场所设计，检测限低至0.07ppm，支持FPD/TCD/FID多种检测器，EPC精密控压，满足痕量分析需求。防爆等级Ex d px IIC T6 Gb。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-green">防爆认证</span>
+            <a href="product-detail.html?id=gc8080" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-1" data-cat="analyzer">
+        <img src="assets/images/products/product_display.jpg" alt="常规在线色谱分析仪" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">在线分析仪器</div>
+          <h3 class="product-card-title">常规在线气相色谱分析仪</h3>
+          <p class="product-card-desc">适用于非防爆区域的工业过程在线色谱分析，支持多组分同时检测，配备工业级PC控制系统，操作简便，维护成本低。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-blue">多组分检测</span>
+            <a href="product-detail.html?id=gc-standard" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-2" data-cat="analyzer">
+        <img src="assets/images/products/system_integration.jpg" alt="在线激光光谱气体分析仪" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">在线分析仪器</div>
+          <h3 class="product-card-title">在线激光光谱气体分析仪（DLAS）</h3>
+          <p class="product-card-desc">基于可调谐二极管激光吸收光谱（TDLAS）技术，响应速度快（&lt;1s），无需样品预处理，可直接测量高温高压工况下的气体浓度。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-orange">原位测量</span>
+            <a href="product-detail.html?id=laser" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in" data-cat="analyzer">
+        <img src="assets/images/products/factory_bg.jpg" alt="在线紫外光谱气体分析仪" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">在线分析仪器</div>
+          <h3 class="product-card-title">在线紫外光谱气体分析仪（DOAS）</h3>
+          <p class="product-card-desc">采用差分光学吸收光谱技术，可同时测量SO₂、NO、NO₂、NH₃等多种气体，广泛应用于烟气排放监测（CEMS）领域。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-green">CEMS专用</span>
+            <a href="product-detail.html?id=uv" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-1" data-cat="analyzer">
+        <img src="assets/images/products/gc8080.jpg" alt="防爆型热导气体分析仪" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">在线分析仪器</div>
+          <h3 class="product-card-title">防爆型热导气体分析仪（TCD）</h3>
+          <p class="product-card-desc">基于热导检测原理，适用于H₂、CO₂、N₂等二元或多元混合气体的连续在线测量，结构简单，性能稳定，维护方便。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-green">防爆认证</span>
+            <a href="product-detail.html?id=tcd" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-2" data-cat="analyzer">
+        <img src="assets/images/products/product_display.jpg" alt="在线红外光谱气体分析仪" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">在线分析仪器</div>
+          <h3 class="product-card-title">在线红外光谱气体分析仪（NDIR）</h3>
+          <p class="product-card-desc">非分散红外技术，可测量CO、CO₂、CH₄、SO₂等多种气体，量程宽，线性好，适用于工业过程控制和环境监测。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-blue">多量程</span>
+            <a href="product-detail.html?id=ndir" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 防爆分析小屋 -->
+      <div class="product-card product-item show fade-in" data-cat="cabin">
+        <img src="assets/images/products/analysis_cabin.jpg" alt="防爆正压分析小屋" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">防爆分析小屋</div>
+          <h3 class="product-card-title">防爆正压分析小屋系统</h3>
+          <p class="product-card-desc">采用型钢框架结构，外墙及屋顶π型板拼装，底座工字梁槽道型。配备联锁报警系统及HVAC正压通风温控系统，满足Ex d px IIC T4 Gb防爆要求。标准尺寸3000×4000×2800mm，支持定制。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-green">Ex d px IIC T4 Gb</span>
+            <a href="product-detail.html?id=cabin" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-1" data-cat="cabin">
+        <img src="assets/images/products/analysis_cabin.jpg" alt="户外正压防爆机柜" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">防爆分析小屋</div>
+          <h3 class="product-card-title">户外正压防爆分析机柜</h3>
+          <p class="product-card-desc">304不锈钢机柜，尺寸2100×1500×1000mm，Ex d px IIC T6 Gb防爆等级，内置空调温控系统，适用于户外恶劣环境下的分析仪器安装。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-blue">户外型</span>
+            <a href="product-detail.html?id=cabinet" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 样品预处理系统 -->
+      <div class="product-card product-item show fade-in" data-cat="pretreatment">
+        <img src="assets/images/products/pretreatment.jpg" alt="通用样品处理系统" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">样品预处理系统</div>
+          <h3 class="product-card-title">通用样品预处理系统</h3>
+          <p class="product-card-desc">适用于常规工况下的气体样品预处理，包含过滤、减压、流量控制等基本功能，模块化设计，安装维护方便，适用范围广泛。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-blue">通用型</span>
+            <a href="product-detail.html?id=pretreatment" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-1" data-cat="pretreatment">
+        <img src="assets/images/products/pretreatment.jpg" alt="高压样品处理系统" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">样品预处理系统</div>
+          <h3 class="product-card-title">高压样品预处理系统</h3>
+          <p class="product-card-desc">专为高压工况设计（最高可处理10MPa以上），采用Tescom高压减压阀，配置双级快速回路，确保高压样气安全降压并实时刷新，适用于天然气、合成气等高压场合。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-orange">高压专用</span>
+            <a href="product-detail.html?id=hp-pretreatment" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-2" data-cat="pretreatment">
+        <img src="assets/images/products/pretreatment.jpg" alt="高温高含水样品处理系统" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">样品预处理系统</div>
+          <h3 class="product-card-title">高温高含水样品预处理系统</h3>
+          <p class="product-card-desc">针对高温（最高可处理200℃以上）、高含水工况，配置伴热管线、冷凝脱水装置，全程伴热保温，防止样品冷凝损失，适用于炼油、化工等高温工艺。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-orange">高温专用</span>
+            <a href="product-detail.html?id=ht-pretreatment" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 系统集成 -->
+      <div class="product-card product-item show fade-in" data-cat="integration">
+        <img src="assets/images/products/system_integration.jpg" alt="密闭式分析机柜" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">系统集成</div>
+          <h3 class="product-card-title">密闭式在线分析系统机柜</h3>
+          <p class="product-card-desc">将分析仪器、样品预处理系统、数据采集系统集成于密闭机柜内，适用于非防爆区域，提供完整的在线分析解决方案，支持DCS/PLC通讯接口。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-blue">系统集成</span>
+            <a href="product-detail.html?id=closed-cabinet" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card product-item show fade-in fade-in-delay-1" data-cat="integration">
+        <img src="assets/images/products/system_integration.jpg" alt="正压吹扫式分析系统" class="product-card-img">
+        <div class="product-card-body">
+          <div class="product-card-category">系统集成</div>
+          <h3 class="product-card-title">正压吹扫式防爆分析系统</h3>
+          <p class="product-card-desc">采用正压吹扫防爆技术，将分析仪器安装于正压吹扫机柜内，适用于Zone 1/Zone 2防爆区域，无需分析仪器本身具备防爆认证，降低系统成本。</p>
+          <div class="product-card-footer">
+            <span class="badge badge-green">防爆区域</span>
+            <a href="product-detail.html?id=purge-cabinet" class="product-card-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-logo" style="display:inline-flex;">
+          <div class="logo-icon">鑫</div>
+          <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+        </a>
+        <p class="footer-desc">专注于工业过程在线分析领域，集研发、设计、生产、集成、销售与服务于一体，为高风险行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
+        <div class="footer-qrcode">
+          <img src="images/qrcode_wechat.png" alt="微信公众号" style="width:100px;height:100px;border-radius:8px;border:1px solid var(--border-subtle);background:var(--bg-card2);">
+          <div class="footer-qrcode-label">微信公众号</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">快速导航</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">首页</a>
+          <a href="products.html" class="footer-link">产品中心</a>
+          <a href="solutions.html" class="footer-link">解决方案</a>
+          <a href="cases.html" class="footer-link">行业案例</a>
+          <a href="about.html" class="footer-link">关于我们</a>
+          <a href="contact.html" class="footer-link">在线留言</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">产品导航</div>
+        <div class="footer-links">
+          <a href="products.html" class="footer-link" onclick="filterProducts('analyzer')">在线分析仪器</a>
+          <a href="products.html" class="footer-link" onclick="filterProducts('cabin')">防爆分析小屋</a>
+          <a href="products.html" class="footer-link" onclick="filterProducts('pretreatment')">样品预处理系统</a>
+          <a href="products.html" class="footer-link" onclick="filterProducts('integration')">系统集成</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">联系我们</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">服务热线</div><a href="tel:4001787667" class="footer-contact-value highlight">400-178-7667</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">公司地址</div><div class="footer-contact-value">山东省济南市市中区二环西路5201号</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 山东盛鑫泽科技发展有限公司 版权所有</div>
+      <div class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备XXXXXXXX号</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script>
+// 产品筛选
+const tabs = document.querySelectorAll('.filter-tab');
+const items = document.querySelectorAll('.product-item');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    items.forEach(item => {
+      const cat = item.dataset.cat;
+      if (filter === 'all' || cat === filter) {
+        item.classList.add('show');
+      } else {
+        item.classList.remove('show');
+      }
+    });
+  });
+});
+
+// URL参数筛选
+const urlParams = new URLSearchParams(window.location.search);
+const catParam = urlParams.get('cat') || window.location.hash.replace('#','');
+if (catParam) {
+  const matchTab = document.querySelector(`[data-filter="${catParam}"]`);
+  if (matchTab) matchTab.click();
+}
+</script>
+</body>
+</html>

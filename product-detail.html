@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品详情 - 山东盛鑫泽科技发展有限公司</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .detail-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+    .detail-img-wrap { position:sticky; top:100px; }
+    .detail-main-img { width:100%; border-radius:var(--radius-lg); border:1px solid var(--border-subtle); object-fit:cover; height:420px; }
+    .detail-thumbs { display:flex; gap:12px; margin-top:16px; }
+    .detail-thumb { width:80px; height:60px; border-radius:8px; border:2px solid var(--border-subtle); object-fit:cover; cursor:pointer; transition:var(--transition); }
+    .detail-thumb.active, .detail-thumb:hover { border-color:var(--primary); }
+    .detail-category { font-size:13px; color:var(--primary); font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; }
+    .detail-title { font-size:clamp(22px,3vw,32px); font-weight:800; color:var(--text-white); line-height:1.3; margin-bottom:16px; }
+    .detail-badges { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+    .detail-desc { font-size:15px; color:var(--text-gray); line-height:1.9; margin-bottom:32px; }
+    .detail-section { margin-bottom:32px; }
+    .detail-section-title { font-size:16px; font-weight:700; color:var(--text-white); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border-subtle); }
+    .detail-features { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .detail-feature { display:flex; align-items:flex-start; gap:10px; }
+    .detail-feature-dot { width:6px; height:6px; border-radius:50%; background:var(--primary); margin-top:7px; flex-shrink:0; }
+    .detail-feature-text { font-size:14px; color:var(--text-gray); line-height:1.6; }
+    .detail-specs { width:100%; border-collapse:collapse; }
+    .detail-specs tr:nth-child(even) td { background:rgba(255,255,255,0.02); }
+    .detail-specs td { padding:10px 16px; font-size:13px; border-bottom:1px solid var(--border-subtle); }
+    .detail-specs td:first-child { color:var(--text-gray); width:40%; font-weight:500; }
+    .detail-specs td:last-child { color:var(--text-white); }
+    .detail-apps { display:flex; flex-wrap:wrap; gap:8px; }
+    .detail-app-tag { background:var(--bg-card2); border:1px solid var(--border-subtle); border-radius:20px; padding:6px 14px; font-size:12px; color:var(--text-gray); }
+    .detail-actions { display:flex; gap:12px; margin-top:32px; flex-wrap:wrap; }
+    @media(max-width:1024px){ .detail-layout { grid-template-columns:1fr; gap:32px; } .detail-img-wrap { position:static; } }
+    @media(max-width:600px){ .detail-features { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">鑫</div>
+      <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+    </a>
+    <div class="navbar-menu">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="products.html" class="nav-link active">产品中心</a>
+      <a href="solutions.html" class="nav-link">解决方案</a>
+      <a href="cases.html" class="nav-link">行业案例</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="contact.html" class="nav-link">在线留言</a>
+    </div>
+    <a href="tel:4001787667" class="navbar-hotline">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      400-178-7667
+    </a>
+    <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">首页</a>
+  <a href="products.html" class="mobile-nav-link active">产品中心</a>
+  <a href="solutions.html" class="mobile-nav-link">解决方案</a>
+  <a href="cases.html" class="mobile-nav-link">行业案例</a>
+  <a href="about.html" class="mobile-nav-link">关于我们</a>
+  <a href="contact.html" class="mobile-nav-link">在线留言</a>
+</div>
+
+<!-- 面包屑 -->
+<div style="background:var(--bg-card);border-bottom:1px solid var(--border-subtle);padding:12px 0;margin-top:72px;">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-gray);">
+      <a href="index.html" style="color:var(--text-gray);transition:color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-gray)'">首页</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <a href="products.html" style="color:var(--text-gray);transition:color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-gray)'">产品中心</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span id="breadcrumbName" style="color:var(--text-white);">产品详情</span>
+    </div>
+  </div>
+</div>
+
+<!-- 产品详情 -->
+<section class="section" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="detail-layout" id="productDetail">
+      <!-- 动态内容由JS填充 -->
+    </div>
+  </div>
+</section>
+
+<!-- 相关产品 -->
+<section class="section-sm" style="background:var(--bg-card);">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:32px;">
+      <div class="section-tag">RELATED</div>
+      <h2 class="section-title" style="font-size:24px;">相关产品推荐</h2>
+    </div>
+    <div class="grid-3" id="relatedProducts"></div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-logo" style="display:inline-flex;">
+          <div class="logo-icon">鑫</div>
+          <div class="logo-text"><span class="logo-name">山东盛鑫泽科技</span><span class="logo-en">SHENGXINZE TECHNOLOGY</span></div>
+        </a>
+        <p class="footer-desc">专注于工业过程在线分析领域，为高风险行业提供安全、可靠、智能的一站式在线分析解决方案。</p>
+      </div>
+      <div>
+        <div class="footer-col-title">快速导航</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">首页</a>
+          <a href="products.html" class="footer-link">产品中心</a>
+          <a href="solutions.html" class="footer-link">解决方案</a>
+          <a href="cases.html" class="footer-link">行业案例</a>
+          <a href="about.html" class="footer-link">关于我们</a>
+          <a href="contact.html" class="footer-link">在线留言</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">联系我们</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">服务热线</div><a href="tel:4001787667" class="footer-contact-value highlight">400-178-7667</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="footer-contact-text"><div class="footer-contact-label">公司地址</div><div class="footer-contact-value">山东省济南市市中区二环西路5201号</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">获取报价</div>
+        <p style="font-size:14px;color:var(--text-gray);line-height:1.8;margin-bottom:16px;">如需了解产品详细参数或获取报价，请联系我们的技术销售团队。</p>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">立即咨询</a>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 山东盛鑫泽科技发展有限公司 版权所有</div>
+      <div class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备XXXXXXXX号</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script>
+// 产品数据库
+const products = {
+  'gc8080': {
+    name: '防爆工业在线色谱分析仪 GC-8080Plus',
+    category: '在线分析仪器',
+    cat: 'analyzer',
+    img: 'assets/images/products/gc8080.jpg',
+    badges: ['<span class="badge badge-green">防爆认证 Ex d px IIC T6 Gb</span>','<span class="badge badge-blue">FPD/TCD/FID</span>','<span class="badge badge-orange">检测限 0.07ppm</span>'],
+    desc: 'GC-8080Plus 防爆工业在线气相色谱分析仪是盛鑫泽科技专为石油化工、煤化工、天然气等高危场所设计的高性能在线分析仪器。仪器采用防爆正压机柜，防爆等级达到 Ex d px IIC T6 Gb，可在 Zone 1/Zone 2 危险区域安全运行。仪器支持 FPD（火焰光度检测器）、TCD（热导检测器）、FID（氢火焰离子化检测器）等多种检测器配置，满足不同组分的检测需求，检测限低至 0.07ppm，满足痕量分析要求。',
+    features: [
+      '防爆等级 Ex d px IIC T6 Gb，适用于 Zone 1/Zone 2 危险区域',
+      '支持 FPD/TCD/FID 多种检测器，满足不同组分分析需求',
+      'EPC（电子压力控制）精密控压，保证分析重复性',
+      '检测限低至 0.07ppm，满足痕量总硫分析需求',
+      '全流路 SilcoTek 惰化处理，防止活性组分吸附损失',
+      '工业级 PC 控制系统，支持远程操控和数据传输',
+      '模块化设计，维护方便，备件通用性强',
+      '支持 Modbus、HART、4-20mA 等多种通讯接口'
+    ],
+    apps: ['炼油厂硫磺回收尾气分析','天然气总硫在线监测','煤化工变换气分析','石化装置工艺气体分析','天然气组分分析','合成气质量控制'],
+    specs: [
+      ['防爆等级','Ex d px IIC T6 Gb'],
+      ['检测器','FPD / TCD / FID（可选）'],
+      ['检测限（FPD）','≤0.07 ppm（以H₂S计）'],
+      ['分析周期','3~30 min（可设定）'],
+      ['载气','高纯氮气（99.999%）或高纯氦气'],
+      ['样品压力','0.1~4.3 MPa（配高压预处理）'],
+      ['样品温度','常温至200℃（配伴热预处理）'],
+      ['工作温度','-20℃ ~ +55℃'],
+      ['供电','220V AC ±10%，50Hz'],
+      ['功耗','≤1500W'],
+      ['通讯接口','Modbus RTU/TCP、4-20mA、HART'],
+      ['外形尺寸','600×500×1800mm（正压机柜）']
+    ]
+  },
+  'cabin': {
+    name: '防爆正压分析小屋系统',
+    category: '防爆分析小屋',
+    cat: 'cabin',
+    img: 'assets/images/products/analysis_cabin.jpg',
+    badges: ['<span class="badge badge-green">Ex d px IIC T4 Gb</span>','<span class="badge badge-blue">HVAC温控</span>','<span class="badge badge-orange">定制设计</span>'],
+    desc: '防爆正压分析小屋是盛鑫泽科技的核心产品之一，专为危险区域的在线分析仪器提供安全、舒适的安装环境。小屋采用型钢框架结构，外墙及屋顶采用π型板拼装，底座采用工字梁槽道型，整体结构坚固耐用。配备完善的联锁报警系统及HVAC正压通风温控系统，确保小屋内部始终保持正压状态，防止危险气体侵入，同时维持适宜的温湿度环境，保障仪器正常运行。',
+    features: [
+      '防爆等级 Ex d px IIC T4 Gb，满足 Zone 1/Zone 2 危险区域要求',
+      '型钢框架结构，π型板外墙，结构强度高，抗风耐腐蚀',
+      'HVAC 正压通风温控系统，室内温度控制在 15~30℃',
+      '完善的联锁报警系统，可燃/有毒气体检测、火灾报警、断电保护',
+      '内置照明、插座、通讯、消防等完整配套设施',
+      '支持多台分析仪器同时安装，最大化空间利用率',
+      '模块化设计，工厂预制，现场快速安装',
+      '支持标准尺寸和定制尺寸，满足不同项目需求'
+    ],
+    apps: ['石油化工装置分析站','天然气处理厂分析小屋','煤化工在线分析系统','炼油厂分析仪器间','海上平台分析小屋','LNG接收站分析系统'],
+    specs: [
+      ['防爆等级','Ex d px IIC T4 Gb'],
+      ['标准尺寸','3000×4000×2800mm（L×W×H）'],
+      ['框架材质','Q235B型钢，热浸锌防腐'],
+      ['外墙材质','π型彩钢夹芯板，厚度75mm'],
+      ['温控范围','室内温度 15~30℃（HVAC控制）'],
+      ['正压值','≥50Pa（相对于外部环境）'],
+      ['照明','防爆荧光灯，照度≥300lux'],
+      ['电源','380V AC 三相五线，50Hz'],
+      ['承重','地面承重≥500kg/m²'],
+      ['设计寿命','≥20年'],
+      ['认证标准','GB/T 3836、ATEX（可选）'],
+      ['交货周期','标准款60天，定制款90天']
+    ]
+  },
+  'pretreatment': {
+    name: '工业在线样品预处理系统',
+    category: '样品预处理系统',
+    cat: 'pretreatment',
+    img: 'assets/images/products/pretreatment.jpg',
+    badges: ['<span class="badge badge-blue">9大类型</span>','<span class="badge badge-orange">定制设计</span>'],
+    desc: '盛鑫泽科技的工业在线样品预处理系统是在线分析仪器正常运行的重要保障。针对工业现场高温、高压、高含水、高含尘、有毒腐蚀等9大类苛刻工况，提供全系列定制化预处理方案。系统采用模块化设计，包含取样探针、过滤器、减压阀、流量控制、排放系统等核心部件，确保样品的代表性、完整性和分析仪器的安全运行。',
+    features: [
+      '覆盖9大类苛刻工况：高温、高压、高含水、高含尘、有毒腐蚀等',
+      '模块化设计，标准化接口，安装维护方便',
+      '全流路采用316L不锈钢或哈氏合金，耐腐蚀性强',
+      '关键部件采用国际知名品牌（Tescom、Swagelok等）',
+      '支持伴热保温，防止样品冷凝损失',
+      '配置快速回路，保证样品实时性',
+      '支持防爆设计，适用于危险区域',
+      '提供完整的P&ID图纸和操作维护手册'
+    ],
+    apps: ['炼油装置工艺气体取样','天然气高压样品预处理','煤化工高温高含水预处理','CEMS烟气预处理系统','化工装置腐蚀性气体预处理','制药行业洁净气体预处理'],
+    specs: [
+      ['适用介质','气体（含液态烃、含水气体等）'],
+      ['工作压力','0.1~10 MPa（高压型可达25MPa）'],
+      ['工作温度','-40℃ ~ +200℃（高温型可达400℃）'],
+      ['过滤精度','0.5μm ~ 50μm（可选）'],
+      ['流量范围','0.1~10 L/min（可调）'],
+      ['材质','316L不锈钢 / 哈氏合金（可选）'],
+      ['接口规格','1/4" ~ 1/2" Swagelok（可选）'],
+      ['防爆等级','Ex d IIC T6 Gb（防爆型）'],
+      ['安装方式','壁挂式 / 落地式 / 机柜内嵌'],
+      ['伴热方式','电伴热 / 蒸汽伴热（可选）'],
+      ['认证标准','SH/T 3005、GB/T 3836（防爆型）'],
+      ['定制周期','标准款30天，定制款45天']
+    ]
+  },
+  'laser': {
+    name: '在线激光光谱气体分析仪（DLAS）',
+    category: '在线分析仪器',
+    cat: 'analyzer',
+    img: 'assets/images/products/system_integration.jpg',
+    badges: ['<span class="badge badge-orange">原位测量</span>','<span class="badge badge-blue">响应 &lt;1s</span>'],
+    desc: '在线激光光谱气体分析仪（DLAS）基于可调谐二极管激光吸收光谱（TDLAS）技术，可实现对工业过程气体的原位、实时、连续在线测量。无需样品预处理系统，直接在管道或烟道上安装，响应速度快（&lt;1s），维护工作量极低，特别适用于高温高压、高含尘、强腐蚀等传统分析仪器难以胜任的苛刻工况。',
+    features: [
+      '原位测量，无需样品预处理，安装维护简便',
+      '响应时间&lt;1s，实时反映工艺变化',
+      '激光光源寿命长（&gt;10万小时），运行成本低',
+      '不受背景气体干扰，选择性好，测量精度高',
+      '适用于高温（&lt;1400℃）、高压、高含尘等苛刻工况',
+      '支持防爆设计，适用于危险区域',
+      '支持多种安装方式：对射式、单端反射式',
+      '支持Modbus、HART、4-20mA等通讯接口'
+    ],
+    apps: ['水泥窑炉O₂/CO在线监测','钢铁高炉煤气分析','电厂锅炉燃烧优化','化工反应器气体监测','垃圾焚烧烟气监测','天然气管道泄漏检测'],
+    specs: [
+      ['测量原理','TDLAS（可调谐二极管激光吸收光谱）'],
+      ['可测组分','O₂、CO、CO₂、CH₄、HF、HCl、NH₃、H₂O等'],
+      ['测量范围','0~100%（视组分而定）'],
+      ['检测限','ppm级（视组分而定）'],
+      ['响应时间','&lt;1s（T90）'],
+      ['测量精度','±1% F.S.'],
+      ['工作温度（气体）','常温至1400℃'],
+      ['工作压力','常压至2MPa'],
+      ['光路长度','0.1~30m（可调）'],
+      ['防爆等级','Ex d IIC T6 Gb（防爆型）'],
+      ['供电','24V DC 或 220V AC'],
+      ['通讯接口','Modbus RTU/TCP、4-20mA、HART']
+    ]
+  }
+};
+
+// 相关产品数据
+const relatedData = {
+  'analyzer': [
+    {id:'cabin', name:'防爆正压分析小屋系统', cat:'防爆分析小屋', img:'assets/images/products/analysis_cabin.jpg'},
+    {id:'pretreatment', name:'工业在线样品预处理系统', cat:'样品预处理系统', img:'assets/images/products/pretreatment.jpg'},
+    {id:'laser', name:'在线激光光谱气体分析仪', cat:'在线分析仪器', img:'assets/images/products/system_integration.jpg'}
+  ],
+  'cabin': [
+    {id:'gc8080', name:'防爆工业在线色谱分析仪 GC-8080Plus', cat:'在线分析仪器', img:'assets/images/products/gc8080.jpg'},
+    {id:'pretreatment', name:'工业在线样品预处理系统', cat:'样品预处理系统', img:'assets/images/products/pretreatment.jpg'},
+    {id:'laser', name:'在线激光光谱气体分析仪', cat:'在线分析仪器', img:'assets/images/products/system_integration.jpg'}
+  ],
+  'pretreatment': [
+    {id:'gc8080', name:'防爆工业在线色谱分析仪 GC-8080Plus', cat:'在线分析仪器', img:'assets/images/products/gc8080.jpg'},
+    {id:'cabin', name:'防爆正压分析小屋系统', cat:'防爆分析小屋', img:'assets/images/products/analysis_cabin.jpg'},
+    {id:'laser', name:'在线激光光谱气体分析仪', cat:'在线分析仪器', img:'assets/images/products/system_integration.jpg'}
+  ]
+};
+
+function renderProduct(id) {
+  const p = products[id];
+  if (!p) {
+    document.getElementById('productDetail').innerHTML = '<div style="text-align:center;padding:80px;color:var(--text-gray);">产品信息暂未录入，请联系我们获取详情。</div>';
+    return;
+  }
+  document.title = p.name + ' - 山东盛鑫泽科技发展有限公司';
+  document.getElementById('breadcrumbName').textContent = p.name;
+
+  const specsHtml = p.specs.map(s => `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('');
+  const featuresHtml = p.features.map(f => `<div class="detail-feature"><div class="detail-feature-dot"></div><div class="detail-feature-text">${f}</div></div>`).join('');
+  const appsHtml = p.apps.map(a => `<div class="detail-app-tag">${a}</div>`).join('');
+
+  document.getElementById('productDetail').innerHTML = `
+    <div class="detail-img-wrap fade-in">
+      <img src="${p.img}" alt="${p.name}" class="detail-main-img" id="mainImg">
+    </div>
+    <div class="fade-in fade-in-delay-1">
+      <div class="detail-category">${p.category}</div>
+      <h1 class="detail-title">${p.name}</h1>
+      <div class="detail-badges">${p.badges.join('')}</div>
+      <p class="detail-desc">${p.desc}</p>
+      <div class="detail-section">
+        <div class="detail-section-title">产品特点</div>
+        <div class="detail-features">${featuresHtml}</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-title">主要应用</div>
+        <div class="detail-apps">${appsHtml}</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-title">技术指标</div>
+        <table class="detail-specs"><tbody>${specsHtml}</tbody></table>
+      </div>
+      <div class="detail-actions">
+        <a href="contact.html" class="btn btn-primary">获取报价 →</a>
+        <a href="products.html" class="btn btn-outline">返回产品列表</a>
+      </div>
+    </div>
+  `;
+
+  // 相关产品
+  const related = relatedData[p.cat] || relatedData['analyzer'];
+  const relatedHtml = related.slice(0,3).map(r => `
+    <div class="product-card fade-in">
+      <img src="${r.img}" alt="${r.name}" class="product-card-img">
+      <div class="product-card-body">
+        <div class="product-card-category">${r.cat}</div>
+        <h3 class="product-card-title">${r.name}</h3>
+        <div class="product-card-footer">
+          <a href="product-detail.html?id=${r.id}" class="product-card-link">查看详情 →</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('relatedProducts').innerHTML = relatedHtml;
+
+  // 重新触发动画
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 100);
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id') || 'gc8080';
+renderProduct(productId);
+</script>
+</body>
+</html>
