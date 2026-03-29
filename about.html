@@ -8,15 +8,29 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .about-intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    /* 产品图片轮播 */
     .about-intro-img { border-radius:var(--radius-lg); overflow:hidden; position:relative; }
-    .about-intro-img img { width:100%; height:420px; object-fit:cover; }
-    .about-intro-img-badge {
-      position:absolute; bottom:24px; left:24px;
-      background:var(--primary); color:#fff;
-      padding:12px 20px; border-radius:var(--radius);
-      font-size:13px; font-weight:700;
+    .about-prod-slider { position:relative; border-radius:var(--radius-lg); overflow:hidden; height:420px; }
+    .about-prod-slides { display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .about-prod-slide { min-width:100%; height:100%; position:relative; flex-shrink:0; }
+    .about-prod-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+    .about-prod-slide-caption {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(transparent, rgba(0,0,0,0.75));
+      padding:32px 24px 20px;
+      color:#fff;
     }
-    .about-intro-img-badge span { display:block; font-size:28px; font-weight:900; }
+    .about-prod-slide-caption .caption-tag { font-size:11px; font-weight:700; letter-spacing:2px; color:var(--primary); text-transform:uppercase; margin-bottom:6px; }
+    .about-prod-slide-caption .caption-name { font-size:16px; font-weight:700; line-height:1.4; }
+    /* 轮播指示点 */
+    .about-prod-dots { position:absolute; bottom:16px; right:20px; display:flex; gap:6px; z-index:5; }
+    .about-prod-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.4); cursor:pointer; transition:var(--transition); border:none; padding:0; }
+    .about-prod-dot.active { background:var(--primary); width:22px; border-radius:4px; }
+    /* 轮播箭头 */
+    .about-prod-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:5; width:36px; height:36px; border-radius:50%; background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--transition); }
+    .about-prod-arrow:hover { background:var(--primary); border-color:var(--primary); }
+    .about-prod-arrow.prev { left:14px; }
+    .about-prod-arrow.next { right:14px; }
     .about-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; }
     .about-stat { text-align:center; padding:24px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); }
     .about-stat-num { font-size:36px; font-weight:900; color:var(--primary); line-height:1; }
@@ -114,10 +128,51 @@
 <section class="section" style="background:var(--bg-dark);">
   <div class="container">
     <div class="about-intro-grid">
-      <div class="about-intro-img fade-in">
-        <img src="assets/images/page2.jpg" alt="公司介绍">
-        <div class="about-intro-img-badge">
-          <span>10+</span>年专注在线分析领域
+      <!-- 产品图片轮播 -->
+      <div class="about-prod-slider fade-in" id="aboutProdSlider">
+        <div class="about-prod-slides" id="aboutProdSlides">
+          <!-- 幻灯片1：GC-8080Plus -->
+          <div class="about-prod-slide">
+            <img src="assets/images/products/prod_gc8080.png" alt="防爆工业在线色谱分析仪 GC-8080Plus">
+            <div class="about-prod-slide-caption">
+              <div class="caption-tag">在线分析仪器</div>
+              <div class="caption-name">防爆工业在线色谱分析仪 GC-8080Plus</div>
+            </div>
+          </div>
+          <!-- 幻灯片2：紫外光谱 -->
+          <div class="about-prod-slide">
+            <img src="assets/images/products/prod_uv.png" alt="在线紫外光谱气体分析仪（DOAS）">
+            <div class="about-prod-slide-caption">
+              <div class="caption-tag">在线分析仪器</div>
+              <div class="caption-name">在线紫外光谱气体分析仪（DOAS）</div>
+            </div>
+          </div>
+          <!-- 幻灯片3：红外光谱 -->
+          <div class="about-prod-slide">
+            <img src="assets/images/products/prod_infrared.png" alt="在线红外光谱气体分析仪（NDIR）">
+            <div class="about-prod-slide-caption">
+              <div class="caption-tag">在线分析仪器</div>
+              <div class="caption-name">在线红外光谱气体分析仪（NDIR）</div>
+            </div>
+          </div>
+          <!-- 幻灯片4：防爆分析小屋 -->
+          <div class="about-prod-slide">
+            <img src="assets/images/products/prod_shelter.png" alt="防爆正压分析小屋系统">
+            <div class="about-prod-slide-caption">
+              <div class="caption-tag">防爆分析小屋</div>
+              <div class="caption-name">防爆正压分析小屋系统</div>
+            </div>
+          </div>
+        </div>
+        <!-- 左右箭头 -->
+        <button class="about-prod-arrow prev" id="aboutProdPrev">&#8249;</button>
+        <button class="about-prod-arrow next" id="aboutProdNext">&#8250;</button>
+        <!-- 指示点 -->
+        <div class="about-prod-dots" id="aboutProdDots">
+          <button class="about-prod-dot active" data-idx="0"></button>
+          <button class="about-prod-dot" data-idx="1"></button>
+          <button class="about-prod-dot" data-idx="2"></button>
+          <button class="about-prod-dot" data-idx="3"></button>
         </div>
       </div>
       <div class="fade-in fade-in-delay-1">
@@ -511,6 +566,45 @@ function closeCertModal() {
   document.getElementById('certModal').classList.remove('open');
   document.body.style.overflow = '';
 }
+
+// ===== 关于我们 - 产品图片轮播 =====
+(function(){
+  const slides = document.getElementById('aboutProdSlides');
+  const dots   = document.querySelectorAll('#aboutProdDots .about-prod-dot');
+  const total  = 4;
+  let cur = 0, timer;
+
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    slides.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  function startAuto() {
+    timer = setInterval(() => goTo(cur + 1), 3500);
+  }
+
+  function stopAuto() {
+    clearInterval(timer);
+  }
+
+  document.getElementById('aboutProdPrev').addEventListener('click', () => { stopAuto(); goTo(cur - 1); startAuto(); });
+  document.getElementById('aboutProdNext').addEventListener('click', () => { stopAuto(); goTo(cur + 1); startAuto(); });
+  dots.forEach(d => {
+    d.addEventListener('click', () => { stopAuto(); goTo(+d.dataset.idx); startAuto(); });
+  });
+
+  // 触摸滑动支持
+  let touchX = 0;
+  const slider = document.getElementById('aboutProdSlider');
+  slider.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive:true });
+  slider.addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { stopAuto(); goTo(diff > 0 ? cur + 1 : cur - 1); startAuto(); }
+  }, { passive:true });
+
+  startAuto();
+})();
 </script>
 </body>
 </html>
