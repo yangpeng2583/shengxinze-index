@@ -583,6 +583,7 @@ function closeCertModal() {
 
 // ===== 关于我们 - 产品图片轮播 =====
 (function(){
+  const slider = document.getElementById('aboutProdSlider');
   const slides = document.getElementById('aboutProdSlides');
   const dots   = document.querySelectorAll('#aboutProdDots .about-prod-dot');
   const total  = 4;
@@ -590,7 +591,8 @@ function closeCertModal() {
 
   function goTo(idx) {
     cur = (idx + total) % total;
-    slides.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    const w = slider.offsetWidth;
+    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
     dots.forEach((d, i) => d.classList.toggle('active', i === cur));
   }
 
@@ -610,12 +612,14 @@ function closeCertModal() {
 
   // 触摸滑动支持
   let touchX = 0;
-  const slider = document.getElementById('aboutProdSlider');
   slider.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive:true });
   slider.addEventListener('touchend', e => {
     const diff = touchX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) { stopAuto(); goTo(diff > 0 ? cur + 1 : cur - 1); startAuto(); }
   }, { passive:true });
+
+  // 窗口resize时重新定位
+  window.addEventListener('resize', () => { goTo(cur); });
 
   startAuto();
 })();

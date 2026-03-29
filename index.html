@@ -573,6 +573,7 @@
 })();
 // 首页公司介绍区产品图片轮播
 (function(){
+  const slider = document.getElementById('homeProdSlider');
   const slides = document.getElementById('homeProdSlides');
   const dots = document.querySelectorAll('#homeProdDots .home-prod-dot');
   if(!slides) return;
@@ -580,7 +581,8 @@
   let cur = 0, timer;
   function go(n){
     cur = (n + total) % total;
-    slides.style.transform = `translateX(-${cur * 100}%)`;
+    const w = slider.offsetWidth;
+    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
     dots.forEach((d,i)=>d.classList.toggle('active', i===cur));
   }
   function auto(){ timer = setInterval(()=>go(cur+1), 3500); }
@@ -588,6 +590,8 @@
   document.getElementById('homeProdPrev').addEventListener('click',()=>{go(cur-1);reset();});
   document.getElementById('homeProdNext').addEventListener('click',()=>{go(cur+1);reset();});
   dots.forEach(d=>d.addEventListener('click',()=>{go(parseInt(d.dataset.idx));reset();}));
+  // 窗口resize时重新定位
+  window.addEventListener('resize', ()=>{ go(cur); });
   auto();
 })();
 </script>
