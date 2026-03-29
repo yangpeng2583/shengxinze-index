@@ -581,9 +581,15 @@
   let cur = 0, timer;
   function setLayout(){
     const w = slider.offsetWidth;
-    // 强制JS设置宽度，彻底绕过CSS百分比问题
+    // 强制设置容器overflow和宽度
+    slider.style.overflow = 'hidden';
     slides.style.width = (w * total) + 'px';
-    Array.from(slides.children).forEach(s => { s.style.width = w + 'px'; });
+    slides.style.minWidth = 'unset';
+    Array.from(slides.children).forEach(s => {
+      s.style.width = w + 'px';
+      s.style.minWidth = 'unset';
+      s.style.flexShrink = '0';
+    });
     slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
   }
   function go(n){
