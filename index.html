@@ -76,14 +76,27 @@
     .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
     .about-img-wrap { position:relative; }
     .about-img { width:100%; border-radius:var(--radius-lg); border:1px solid var(--border-subtle); object-fit:cover; height:480px; }
-    .about-badge {
-      position:absolute; bottom:-20px; right:-20px;
-      background:var(--primary); color:#0a0c0f;
-      padding:20px 24px; border-radius:var(--radius-lg); text-align:center;
-      box-shadow:0 8px 32px rgba(0,230,118,0.3);
+
+    /* 首页公司介绍 - 产品图片轮播 */
+    .home-prod-slider { position:relative; border-radius:var(--radius-lg); overflow:hidden; height:480px; border:1px solid var(--border-subtle); }
+    .home-prod-slides { display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .home-prod-slide { min-width:100%; height:100%; position:relative; flex-shrink:0; }
+    .home-prod-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+    .home-prod-slide-caption {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(transparent, rgba(0,0,0,0.78));
+      padding:36px 24px 22px;
+      color:#fff;
     }
-    .about-badge-num { font-size:36px; font-weight:800; line-height:1; }
-    .about-badge-text { font-size:12px; font-weight:600; margin-top:4px; }
+    .home-prod-slide-caption .cap-tag { font-size:11px; font-weight:700; letter-spacing:2px; color:var(--primary); text-transform:uppercase; margin-bottom:6px; }
+    .home-prod-slide-caption .cap-name { font-size:16px; font-weight:700; line-height:1.4; }
+    .home-prod-dots { position:absolute; bottom:18px; right:20px; display:flex; gap:6px; z-index:5; }
+    .home-prod-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.4); cursor:pointer; transition:var(--transition); border:none; padding:0; }
+    .home-prod-dot.active { background:var(--primary); width:22px; border-radius:4px; }
+    .home-prod-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:5; width:38px; height:38px; border-radius:50%; background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--transition); }
+    .home-prod-arrow:hover { background:var(--primary); border-color:var(--primary); color:#000; }
+    .home-prod-arrow.prev { left:14px; }
+    .home-prod-arrow.next { right:14px; }
     .about-features { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; }
     .about-feature {
       background:var(--bg-card); border:1px solid var(--border-subtle);
@@ -258,11 +271,47 @@
 <section class="section" style="background:var(--bg-dark);">
   <div class="container">
     <div class="about-grid">
+      <!-- 产品图片轮播 -->
       <div class="about-img-wrap fade-in">
-        <img src="assets/images/page2.jpg" alt="盛鑫泽科技 - 防爆分析小屋" class="about-img">
-        <div class="about-badge">
-          <div class="about-badge-num">5+</div>
-          <div class="about-badge-text">年深耕行业</div>
+        <div class="home-prod-slider" id="homeProdSlider">
+          <div class="home-prod-slides" id="homeProdSlides">
+            <div class="home-prod-slide">
+              <img src="assets/images/products/prod_gc8080.png" alt="防爆工业在线色谱分析仪 GC-8080Plus">
+              <div class="home-prod-slide-caption">
+                <div class="cap-tag">在线分析仪器</div>
+                <div class="cap-name">防爆工业在线色谱分析仪 GC-8080Plus</div>
+              </div>
+            </div>
+            <div class="home-prod-slide">
+              <img src="assets/images/products/prod_uv.png" alt="在线紫外光谱气体分析仪（DOAS）">
+              <div class="home-prod-slide-caption">
+                <div class="cap-tag">在线分析仪器</div>
+                <div class="cap-name">在线紫外光谱气体分析仪（DOAS）</div>
+              </div>
+            </div>
+            <div class="home-prod-slide">
+              <img src="assets/images/products/prod_infrared.png" alt="在线红外光谱气体分析仪（NDIR）">
+              <div class="home-prod-slide-caption">
+                <div class="cap-tag">在线分析仪器</div>
+                <div class="cap-name">在线红外光谱气体分析仪（NDIR）</div>
+              </div>
+            </div>
+            <div class="home-prod-slide">
+              <img src="assets/images/products/prod_shelter.png" alt="防爆正压分析小屋系统">
+              <div class="home-prod-slide-caption">
+                <div class="cap-tag">防爆分析小屋</div>
+                <div class="cap-name">防爆正压分析小屋系统</div>
+              </div>
+            </div>
+          </div>
+          <button class="home-prod-arrow prev" id="homeProdPrev">&#8249;</button>
+          <button class="home-prod-arrow next" id="homeProdNext">&#8250;</button>
+          <div class="home-prod-dots" id="homeProdDots">
+            <button class="home-prod-dot active" data-idx="0"></button>
+            <button class="home-prod-dot" data-idx="1"></button>
+            <button class="home-prod-dot" data-idx="2"></button>
+            <button class="home-prod-dot" data-idx="3"></button>
+          </div>
         </div>
       </div>
       <div class="fade-in fade-in-delay-1">
@@ -521,6 +570,25 @@
   const max=slider.children.length-5;
   document.getElementById('certsNext').addEventListener('click',()=>{if(pos<max){pos++;slider.style.transform=`translateX(-${pos*getItemW()}px)`;}});
   document.getElementById('certsPrev').addEventListener('click',()=>{if(pos>0){pos--;slider.style.transform=`translateX(-${pos*getItemW()}px)`;}});
+})();
+// 首页公司介绍区产品图片轮播
+(function(){
+  const slides = document.getElementById('homeProdSlides');
+  const dots = document.querySelectorAll('#homeProdDots .home-prod-dot');
+  if(!slides) return;
+  const total = 4;
+  let cur = 0, timer;
+  function go(n){
+    cur = (n + total) % total;
+    slides.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d,i)=>d.classList.toggle('active', i===cur));
+  }
+  function auto(){ timer = setInterval(()=>go(cur+1), 3500); }
+  function reset(){ clearInterval(timer); auto(); }
+  document.getElementById('homeProdPrev').addEventListener('click',()=>{go(cur-1);reset();});
+  document.getElementById('homeProdNext').addEventListener('click',()=>{go(cur+1);reset();});
+  dots.forEach(d=>d.addEventListener('click',()=>{go(parseInt(d.dataset.idx));reset();}));
+  auto();
 })();
 </script>
 </body>
