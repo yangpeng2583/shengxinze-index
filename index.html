@@ -273,44 +273,50 @@
     <div class="about-grid">
       <!-- 产品图片轮播 -->
       <div class="about-img-wrap fade-in">
-        <div class="home-prod-slider" id="homeProdSlider" style="overflow:hidden;position:relative;width:100%;max-width:100%;">
-          <div class="home-prod-slides" id="homeProdSlides" style="display:flex;height:100%;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
-            <div class="home-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
+        <div class="about-prod-slider fade-in" id="homeProdSlider" style="overflow:hidden;position:relative;width:100%;max-width:100%;">
+          <div class="about-prod-slides" id="homeProdSlides" style="display:flex;height:100%;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
+            <!-- 幻灯片1：GC-8080Plus -->
+            <div class="about-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
               <img src="assets/images/products/prod_gc8080.png" alt="防爆工业在线色谱分析仪 GC-8080Plus">
-              <div class="home-prod-slide-caption">
-                <div class="cap-tag">气体在线分析仪</div>
-                <div class="cap-name">防爆工业在线色谱分析仪 GC-8080Plus</div>
+              <div class="about-prod-slide-caption">
+                <div class="caption-tag">气体在线分析仪</div>
+                <div class="caption-name">防爆工业在线色谱分析仪 GC-8080Plus</div>
               </div>
             </div>
-            <div class="home-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
+            <!-- 幻灯片2：紫外光谱 -->
+            <div class="about-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
               <img src="assets/images/products/prod_uv.png" alt="在线紫外光谱气体分析仪（DOAS）">
-              <div class="home-prod-slide-caption">
-                <div class="cap-tag">气体在线分析仪</div>
-                <div class="cap-name">在线紫外光谱气体分析仪（DOAS）</div>
+              <div class="about-prod-slide-caption">
+                <div class="caption-tag">气体在线分析仪</div>
+                <div class="caption-name">在线紫外光谱气体分析仪（DOAS）</div>
               </div>
             </div>
-            <div class="home-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
+            <!-- 幻灯片3：红外光谱 -->
+            <div class="about-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
               <img src="assets/images/products/prod_infrared.png" alt="在线红外光谱气体分析仪（NDIR）">
-              <div class="home-prod-slide-caption">
-                <div class="cap-tag">气体在线分析仪</div>
-                <div class="cap-name">在线红外光谱气体分析仪（NDIR）</div>
+              <div class="about-prod-slide-caption">
+                <div class="caption-tag">气体在线分析仪</div>
+                <div class="caption-name">在线红外光谱气体分析仪（NDIR）</div>
               </div>
             </div>
-            <div class="home-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
+            <!-- 幻灯片4：防爆分析小屋 -->
+            <div class="about-prod-slide" style="min-width:100%;flex-shrink:0;height:100%;position:relative;">
               <img src="assets/images/products/prod_shelter.png" alt="防爆正压分析小屋系统">
-              <div class="home-prod-slide-caption">
-                <div class="cap-tag">防爆分析小屋</div>
-                <div class="cap-name">防爆正压分析小屋系统</div>
+              <div class="about-prod-slide-caption">
+                <div class="caption-tag">防爆分析小屋</div>
+                <div class="caption-name">防爆正压分析小屋系统</div>
               </div>
             </div>
           </div>
-          <button class="home-prod-arrow prev" id="homeProdPrev">&#8249;</button>
-          <button class="home-prod-arrow next" id="homeProdNext">&#8250;</button>
-          <div class="home-prod-dots" id="homeProdDots">
-            <button class="home-prod-dot active" data-idx="0"></button>
-            <button class="home-prod-dot" data-idx="1"></button>
-            <button class="home-prod-dot" data-idx="2"></button>
-            <button class="home-prod-dot" data-idx="3"></button>
+          <!-- 左右箭头 -->
+          <button class="about-prod-arrow prev" id="homeProdPrev">&#8249;</button>
+          <button class="about-prod-arrow next" id="homeProdNext">&#8250;</button>
+          <!-- 指示点 -->
+          <div class="about-prod-dots" id="homeProdDots">
+            <button class="about-prod-dot active" data-idx="0"></button>
+            <button class="about-prod-dot" data-idx="1"></button>
+            <button class="about-prod-dot" data-idx="2"></button>
+            <button class="about-prod-dot" data-idx="3"></button>
           </div>
         </div>
       </div>
@@ -646,37 +652,54 @@
   document.getElementById('certsNext').addEventListener('click',()=>{if(pos<max){pos++;slider.style.transform=`translateX(-${pos*getItemW()}px)`;}});
   document.getElementById('certsPrev').addEventListener('click',()=>{if(pos>0){pos--;slider.style.transform=`translateX(-${pos*getItemW()}px)`;}});
 })();
-// 首页公司介绍区产品图片轮播
+// 首页公司介绍区产品图片轮播（与关于我们页面完全一致）
 (function(){
   const slider = document.getElementById('homeProdSlider');
   const slides = document.getElementById('homeProdSlides');
-  const dots = document.querySelectorAll('#homeProdDots .home-prod-dot');
-  if(!slides) return;
-  const total = 4;
+  const dots   = document.querySelectorAll('#homeProdDots .about-prod-dot');
+  const total  = 4;
   let cur = 0, timer;
-  function setLayout(){
+
+  function setLayout() {
     const w = slider.offsetWidth;
-    // 用JS直接设置像素宽度，彻底解决flex子项百分比宽度计算问题
     Array.from(slides.children).forEach(s => {
       s.style.width = w + 'px';
       s.style.minWidth = w + 'px';
     });
     slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
   }
-  function go(n){
-    cur = (n + total) % total;
+  function goTo(idx) {
+    cur = (idx + total) % total;
     const w = slider.offsetWidth;
     slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
-    dots.forEach((d,i) => d.classList.toggle('active', i===cur));
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
   }
-  function auto(){ timer = setInterval(()=>go(cur+1), 3500); }
-  function reset(){ clearInterval(timer); auto(); }
-  document.getElementById('homeProdPrev').addEventListener('click',()=>{go(cur-1);reset();});
-  document.getElementById('homeProdNext').addEventListener('click',()=>{go(cur+1);reset();});
-  dots.forEach(d=>d.addEventListener('click',()=>{go(parseInt(d.dataset.idx));reset();}));
-  window.addEventListener('resize', ()=>{ setLayout(); });
+
+  function startAuto() {
+    timer = setInterval(() => goTo(cur + 1), 3500);
+  }
+
+  function stopAuto() {
+    clearInterval(timer);
+  }
+
+  document.getElementById('homeProdPrev').addEventListener('click', () => { stopAuto(); goTo(cur - 1); startAuto(); });
+  document.getElementById('homeProdNext').addEventListener('click', () => { stopAuto(); goTo(cur + 1); startAuto(); });
+  dots.forEach(d => {
+    d.addEventListener('click', () => { stopAuto(); goTo(+d.dataset.idx); startAuto(); });
+  });
+
+  // 触摸滑动支持
+  let touchX = 0;
+  slider.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive:true });
+  slider.addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { stopAuto(); goTo(diff > 0 ? cur + 1 : cur - 1); startAuto(); }
+  }, { passive:true });
+
+  window.addEventListener('resize', () => { setLayout(); });
   setLayout();
-  auto();
+  startAuto();
 })();
 </script>
 </body>
