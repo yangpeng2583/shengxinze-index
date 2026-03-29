@@ -157,6 +157,37 @@
       .process-grid { grid-template-columns:1fr; }
       .cert-slide-item { flex:0 0 calc(50% - 10px); }
     }
+
+    /* 国际品牌代理网格 */
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .brand-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: var(--transition);
+    }
+    .brand-card .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+    @media(max-width:1024px){
+      .brands-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width:640px){
+      .brands-grid { grid-template-columns: 1fr; gap: 16px; }
+      .brand-card { padding: 24px 20px; }
+      .brand-card .brand-name { font-size: 18px; white-space: normal; }
+    }
   </style>
 </head>
 <body>
@@ -455,10 +486,10 @@
       <h2 class="section-title">国际品牌代理</h2>
       <p class="section-subtitle">公司积极与国际知名品牌合作，提供进口分析仪集成解决方案，为客户提供多元化的选择方案，以适应客户现场的实际需求</p>
     </div>
-    <div class="brands-grid fade-in" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div class="brands-grid fade-in">
 
-      <div class="brand-card" style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px 28px;transition:var(--transition);">
-        <div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:12px;letter-spacing:1px;">SICK 西克麦哈克</div>
+      <div class="brand-card">
+        <div class="brand-name">SICK 西克麦哈克</div>
         <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">西克麦哈克（北京）仪器有限公司</div>
         <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">专注于工业气体分析仪器的研发、生产、销售及服务，提供全面的气体分析解决方案。业务涵盖电力、石化、冶金、水泥、垃圾焚烧、油气、交通、船舶等多个行业。核心产品为气体分析仪，用于烟气排放监测、工业过程气体分析及环境空气质量监测。</p>
         <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
@@ -467,8 +498,8 @@
         </div>
       </div>
 
-      <div class="brand-card" style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px 28px;transition:var(--transition);">
-        <div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:12px;letter-spacing:1px;">岛津</div>
+      <div class="brand-card">
+        <div class="brand-name">岛津</div>
         <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">岛津企业管理（中国）有限公司</div>
         <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">通过其先进的分析仪器，广泛应用于制药、食品、环境、化工、材料等领域。在工业过程分析领域具有深厚的技术积累与广泛的市场应用经验，为全球客户提供高精度分析仪器和全面的分析解决方案。</p>
         <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
@@ -477,8 +508,8 @@
         </div>
       </div>
 
-      <div class="brand-card" style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px 28px;transition:var(--transition);">
-        <div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:12px;letter-spacing:1px;">西门子</div>
+      <div class="brand-card">
+        <div class="brand-name">西门子</div>
         <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Siemens AG</div>
         <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">西门子气体分析仪已在过程工业中使用超过30年，以无可挑剔的质量、可靠性、准确度而享誉全球。6系列连续过程气体分析仪凭借灵活配置能力，能为各种应用找到最优解决方案，是西门子"全集成自动化"理念的重要组成部分。</p>
         <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
@@ -487,8 +518,8 @@
         </div>
       </div>
 
-      <div class="brand-card" style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px 28px;transition:var(--transition);">
-        <div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:12px;letter-spacing:1px;">ABB</div>
+      <div class="brand-card">
+        <div class="brand-name">ABB</div>
         <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">ABB 测量与分析</div>
         <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">ABB致力于使用户对仪表和分析仪的了解、选择、购买、安装、运行和维护的整个过程变得更简单，以便用户可以聚焦于其自身业务。提供包括过程气体分析仪、在线水质分析仪在内的全系列测量与分析解决方案。</p>
         <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
@@ -497,8 +528,8 @@
         </div>
       </div>
 
-      <div class="brand-card" style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px 28px;transition:var(--transition);">
-        <div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:12px;letter-spacing:1px;">横河电机</div>
+      <div class="brand-card">
+        <div class="brand-name">横河电机</div>
         <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">横河电机（中国）有限公司</div>
         <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">涵盖工业自动化控制系统、现场仪表等相关产品，在中国市场深耕60年，在能源、化工、材料、制药和食品等多个行业积累了丰富的经验，能够为不同行业客户提供定制化解决方案，包括仪表盘设计、制造、安装、调试及软件系统开发等技术服务。</p>
         <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
@@ -507,8 +538,8 @@
         </div>
       </div>
 
-      <div class="brand-card" style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px 28px;transition:var(--transition);">
-        <div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:12px;letter-spacing:1px;">Sievers / 威立雅</div>
+      <div class="brand-card">
+        <div class="brand-name">Sievers / 威立雅</div>
         <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">威立雅水务技术（上海）有限公司</div>
         <p style="font-size:14px;color:var(--text-gray);line-height:1.8;">Sievers分析仪（原GE分析仪器）是全球领先的TOC分析仪制造商之一，分析范围涵盖从0.03ppb至50000ppm的动态范围。广泛应用于制药用水检测、清洁验证、过程分析技术（PAT）等领域，同时提供超纯水在线硼分析仪及细菌内毒素检测仪等完整解决方案。</p>
         <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
