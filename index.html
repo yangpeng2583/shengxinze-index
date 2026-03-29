@@ -656,22 +656,13 @@
 (function(){
   const slider = document.getElementById('homeProdSlider');
   const slides = document.getElementById('homeProdSlides');
-  const dots   = document.querySelectorAll('#homeProdDots .about-prod-dot');
+  const dots   = document.querySelectorAll('#homeProdDots .home-prod-dot');
   const total  = 4;
   let cur = 0, timer;
 
-  function setLayout() {
-    const w = slider.offsetWidth;
-    Array.from(slides.children).forEach(s => {
-      s.style.width = w + 'px';
-      s.style.minWidth = w + 'px';
-    });
-    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
-  }
   function goTo(idx) {
     cur = (idx + total) % total;
-    const w = slider.offsetWidth;
-    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
+    slides.style.transform = 'translateX(-' + (cur * 25) + '%)';
     dots.forEach((d, i) => d.classList.toggle('active', i === cur));
   }
 
@@ -697,8 +688,6 @@
     if (Math.abs(diff) > 40) { stopAuto(); goTo(diff > 0 ? cur + 1 : cur - 1); startAuto(); }
   }, { passive:true });
 
-  window.addEventListener('resize', () => { setLayout(); });
-  setLayout();
   startAuto();
 })();
 </script>
