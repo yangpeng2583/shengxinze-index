@@ -589,6 +589,14 @@ function closeCertModal() {
   const total  = 4;
   let cur = 0, timer;
 
+  function setLayout() {
+    const w = slider.offsetWidth;
+    // 强制JS设置宽度，彻底绕过CSS百分比问题
+    slides.style.width = (w * total) + 'px';
+    Array.from(slides.children).forEach(s => { s.style.width = w + 'px'; });
+    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
+  }
+
   function goTo(idx) {
     cur = (idx + total) % total;
     const w = slider.offsetWidth;
@@ -618,9 +626,8 @@ function closeCertModal() {
     if (Math.abs(diff) > 40) { stopAuto(); goTo(diff > 0 ? cur + 1 : cur - 1); startAuto(); }
   }, { passive:true });
 
-  // 窗口resize时重新定位
-  window.addEventListener('resize', () => { goTo(cur); });
-
+  window.addEventListener('resize', () => { setLayout(); });
+  setLayout();
   startAuto();
 })();
 </script>

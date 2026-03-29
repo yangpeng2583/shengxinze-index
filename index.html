@@ -579,6 +579,13 @@
   if(!slides) return;
   const total = 4;
   let cur = 0, timer;
+  function setLayout(){
+    const w = slider.offsetWidth;
+    // 强制JS设置宽度，彻底绕过CSS百分比问题
+    slides.style.width = (w * total) + 'px';
+    Array.from(slides.children).forEach(s => { s.style.width = w + 'px'; });
+    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
+  }
   function go(n){
     cur = (n + total) % total;
     const w = slider.offsetWidth;
@@ -590,8 +597,8 @@
   document.getElementById('homeProdPrev').addEventListener('click',()=>{go(cur-1);reset();});
   document.getElementById('homeProdNext').addEventListener('click',()=>{go(cur+1);reset();});
   dots.forEach(d=>d.addEventListener('click',()=>{go(parseInt(d.dataset.idx));reset();}));
-  // 窗口resize时重新定位
-  window.addEventListener('resize', ()=>{ go(cur); });
+  window.addEventListener('resize', ()=>{ setLayout(); });
+  setLayout();
   auto();
 })();
 </script>
