@@ -579,10 +579,19 @@
   if(!slides) return;
   const total = 4;
   let cur = 0, timer;
+  function setLayout(){
+    const w = slider.offsetWidth;
+    // 用JS直接设置像素宽度，彻底解决flex子项百分比宽度计算问题
+    Array.from(slides.children).forEach(s => {
+      s.style.width = w + 'px';
+      s.style.minWidth = w + 'px';
+    });
+    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
+  }
   function go(n){
     cur = (n + total) % total;
-    // 每个slide的min-width:100%已在HTML inline style中设置，直接用100%偏移
-    slides.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    const w = slider.offsetWidth;
+    slides.style.transform = 'translateX(-' + (cur * w) + 'px)';
     dots.forEach((d,i) => d.classList.toggle('active', i===cur));
   }
   function auto(){ timer = setInterval(()=>go(cur+1), 3500); }
@@ -590,6 +599,8 @@
   document.getElementById('homeProdPrev').addEventListener('click',()=>{go(cur-1);reset();});
   document.getElementById('homeProdNext').addEventListener('click',()=>{go(cur+1);reset();});
   dots.forEach(d=>d.addEventListener('click',()=>{go(parseInt(d.dataset.idx));reset();}));
+  window.addEventListener('resize', ()=>{ setLayout(); });
+  setLayout();
   auto();
 })();
 </script>
