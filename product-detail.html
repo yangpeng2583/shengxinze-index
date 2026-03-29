@@ -581,6 +581,111 @@ const products = {
       ['认证标准','GB/T 3836、IEC 60079-2、ATEX（可选）'],
       ['定制周期','标准款45天，定制款60天']
     ]
+  },
+
+  'water-monitor': {
+    id: 'water-monitor',
+    name: '水质在线监测系统',
+    category: '水质在线分析仪',
+    cat: 'water',
+    img: 'assets/images/products/prod_water_monitor.png',
+    badges: ['<span class="badge badge-blue">多参数监测</span>','<span class="badge badge-green">工业废水</span>','<span class="badge badge-orange">环保合规</span>'],
+    desc: '水质在线监测系统通过对工业废水处理流程和排放口的COD、氨氮、重金属、总磷、总氮、浊度、pH、电导率、溶解氧、水中油等关键指标进行连续在线监测，帮助废水处理设施运营管理部门或废水处理公司实现精准水质监控。系统采用顺序注射分析技术，测量精度高，维护方便，可为废水处理的设计、调试、验收、运营等治理过程提供关键数据支撑，满足国家环保排放标准要求。',
+    features: [
+      '顺序注射分析技术，测量精度高，重复性好',
+      '多参数同时监测，COD、氨氮、重金属、总磷、总氮等',
+      '量程宽，可根据客户实际工况定制量程范围',
+      '自动标定、自动清洗，维护工作量小',
+      '内置数据存储，支持历史数据查询与导出',
+      '标准RS485/Modbus通讯接口，可接入DCS/SCADA系统',
+      '配套采样器、流量计、pH分析仪等辅助单元',
+      '符合HJ/T系列环保标准，满足在线监测认证要求'
+    ],
+    apps: ['工业废水处理厂', '化工企业排放口', '市政污水处理厂', '电镀/印染/造纸行业', '环保在线监测站', '重金属污染防治'],
+    specs: [
+      ['测量组分','COD、氨氮、总磷、总氮、重金属（可选）'],
+      ['COD量程','0~10000 mg/L（可定制）'],
+      ['氨氮量程','0~5 / 0~50 / 0~300 mg/L'],
+      ['总磷量程','0~1 / 0~5 / 0~50 mg/L'],
+      ['总氮量程','0~4 / 0~50 / 0~200 mg/L'],
+      ['重金属量程','0~1 / 0~2 / 0~5 mg/L（可定制）'],
+      ['分析方法','顺序注射分析（SIA）'],
+      ['测量周期','30~60 min（可设置）'],
+      ['重复性','≤ 3% FS'],
+      ['通讯接口','RS485，标准Modbus协议'],
+      ['工作温度','5~40℃'],
+      ['防护等级','IP54']
+    ]
+  },
+
+  'water-5param': {
+    id: 'water-5param',
+    name: '水质五参数在线监测仪',
+    category: '水质在线分析仪',
+    cat: 'water',
+    img: 'assets/images/products/prod_water_5param.png',
+    badges: ['<span class="badge badge-green">五参数同测</span>','<span class="badge badge-blue">触摸控制</span>','<span class="badge badge-orange">可扩展</span>'],
+    desc: '水质五参数在线监测仪可同时监测溶解氧、pH值、电导率、浊度、水温五项关键水质参数，采用触摸式表头控制器，操作界面简洁易用。浊度电极配备自动清洁刷，能有效消除气泡、污垢对测量的影响。仪器支持标准RS485/Modbus数字通讯，可拓展集成蓝绿藻、叶绿素、CODuv等探头，满足多样化水质监测需求，广泛应用于地表水、污水处理、工业用水等领域。',
+    features: [
+      '五参数同步实时监测，数据完整性高',
+      '触摸式表头控制器，操作界面简洁直观',
+      '浊度电极自带自动清洁刷，减少维护频次',
+      '荧光法溶解氧测量，无需频繁更换膜头',
+      '玻璃电极法pH，测量稳定，响应速度快',
+      'RS485标准Modbus协议，方便系统集成',
+      '可扩展蓝绿藻、叶绿素、CODuv等探头',
+      '电极校准方法简单，现场维护方便'
+    ],
+    apps: ['地表水水质监测', '污水处理过程控制', '工业循环冷却水', '水产养殖水质管理', '饮用水源地监测', '河道/湖泊生态监测'],
+    specs: [
+      ['监测指标','溶解氧、pH值、电导率、浊度、水温'],
+      ['溶解氧量程','0~20 mg/L'],
+      ['溶解氧检测原理','荧光法'],
+      ['pH量程','0~14 pH'],
+      ['pH检测原理','玻璃电极法'],
+      ['电导率量程','0~100000 μS/cm'],
+      ['电导率检测原理','电极法'],
+      ['浊度量程','0~1000 NTU'],
+      ['浊度检测原理','光散射法'],
+      ['水温量程','0~60℃'],
+      ['数字通讯','RS485，标准Modbus协议'],
+      ['防护等级','IP68（探头）']
+    ]
+  },
+
+  'water-chem': {
+    id: 'water-chem',
+    name: '化学水在线分析仪',
+    category: '水质在线分析仪',
+    cat: 'water',
+    img: 'assets/images/products/prod_water_chem.png',
+    badges: ['<span class="badge badge-orange">锅炉水专用</span>','<span class="badge badge-green">多参数</span>','<span class="badge badge-blue">免维护</span>'],
+    desc: '化学水在线分析仪适用于工业企业自备电厂、余热锅炉的水汽循环系统，通过在线监测电导率、pH、钠离子、二氧化硅、磷酸根、硬度等水质参数，帮助用户保护反渗透膜、锅炉、汽轮机等重要设备装置，提高热效率，降低因水质持续恶化造成的损失，节约人工化验成本和设备运维成本。产品线涵盖浊度分析仪、电导率传感器、微量溶解氧传感器、硅酸根/钠离子/磷酸根/联胺分析仪及TOC总有机碳分析仪等完整产品系列。',
+    features: [
+      '浊度分析仪量程0~200NTU，精度高，IP65防护',
+      '电导率传感器免标定，出厂设定电导池常数',
+      '坚固钛电极传感器，适用多种安装方式',
+      '微量溶解氧传感器，测量范围0.1ppb~20ppm',
+      '硅酸根/钠离子/磷酸根分析仪，测量准确无漂移',
+      '每次测量前自动进行空白标定，保证数据准确性',
+      'TOC总有机碳分析仪，紫外催化+过硫酸盐氧化法',
+      '可保存1年历史数据，操作记录多达400条'
+    ],
+    apps: ['自备电厂锅炉补给水', '余热锅炉水汽循环系统', '反渗透纯水系统', '工业循环冷却水', '冷凝水回收系统', '制药/电子超纯水'],
+    specs: [
+      ['浊度量程','0~200 NTU'],
+      ['浊度精度','±2%读数或±0.015 NTU（取较大值）'],
+      ['电导率常数','0.01/cm、0.1/cm（可选）'],
+      ['微量溶解氧量程','0.1 ppb~20 ppm'],
+      ['溶解氧精度','<20ppb时±1ppb；>20ppb时±5%读数'],
+      ['工作压力（溶解氧）','0~549 kPa（绝压）'],
+      ['TOC最小量程','0~2 ppm'],
+      ['TOC分析方法','紫外催化+过硫酸盐氧化'],
+      ['钠离子分析仪','专业钠敏电极，性能稳定，寿命长'],
+      ['历史数据存储','1年历史数据，400条操作记录'],
+      ['工作温度','5~45℃'],
+      ['防护等级','IP65']
+    ]
   }
 };
 
@@ -602,9 +707,14 @@ const relatedData = {
     {id:'laser', name:'在线激光光谱气体分析仪', cat:'在线分析仪器', img:'assets/images/products/prod_laser.png'}
   ],
   'integration': [
-    {id:'gc8080', name:'防爆工业在线色谱分析仪 GC-8080Plus', cat:'在线分析仪器', img:'assets/images/products/prod_gc8080.png'},
+    {id:'gc8080', name:'防爆工业在线色谱分析仪 GC-8080Plus', cat:'气体在线分析仪', img:'assets/images/products/prod_gc8080.png'},
     {id:'cabin', name:'防爆正压分析小屋系统', cat:'防爆分析小屋', img:'assets/images/products/prod_shelter.png'},
     {id:'pretreatment', name:'工业在线样品预处理系统', cat:'样品预处理系统', img:'assets/images/products/pretreatment.jpg'}
+  ],
+  'water': [
+    {id:'water-monitor', name:'水质在线监测系统', cat:'水质在线分析仪', img:'assets/images/products/prod_water_monitor.png'},
+    {id:'water-5param', name:'水质五参数在线监测仪', cat:'水质在线分析仪', img:'assets/images/products/prod_water_5param.png'},
+    {id:'water-chem', name:'化学水在线分析仪', cat:'水质在线分析仪', img:'assets/images/products/prod_water_chem.png'}
   ]
 };
 
